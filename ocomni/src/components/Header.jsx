@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div className="shadow-md sticky top-0 z-50">
+    <div className="bg-white shadow-md sticky top-0 z-50">
       <header className="flex flex-row justify-between items-center  mxa-w-6xl mx-auto h-10 px-10">
         <div>
           <img
