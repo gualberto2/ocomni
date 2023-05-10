@@ -8,6 +8,9 @@ import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import Profile from "./pages/Profile";
 import Newsletter from "./pages/Newsletter";
+import Footer from "./components/Footer";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -22,7 +25,11 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/newsletter" element={<Newsletter />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/footer" element={<Footer />} />
         </Routes>
+        <Footer />
       </Router>
       <ToastContainer
         position="bottom-center"
