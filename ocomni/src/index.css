@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  background-color: white;
+  /* background-color: white; */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -21,4 +21,18 @@ code {
 .swiper-button-prev:after {
   color: yellow;
   border-color: black;
+}
+
+@font-face {
+  font-family: Bold;
+  src: url(assets/fonts/Satoshi-Bold.otf) format("opentype");
+}
+@font-face {
+  font-family: Light;
+  src: url(assets/fonts/Satoshi-Light.otf) format("opentype");
+}
+
+@font-face {
+  font-family: Black;
+  src: url(assets/fonts/Satoshi-Black.otf) format("opentype");
 }
