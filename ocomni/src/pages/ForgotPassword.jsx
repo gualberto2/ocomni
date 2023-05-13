@@ -37,7 +37,7 @@ export default function SignIn() {
   }
   return (
     <section className="bg-white">
-      <h1 className="text-3xl text-center mt-6 font-bold">Sign In</h1>
+      <h1 className="text-3xl text-center mt-6 font-bold">Forgot Password</h1>
       <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl ">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
           <img
@@ -58,30 +58,8 @@ export default function SignIn() {
               className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-2 shadow border-[#BDB5E3] rounded transition ease-in-out"
             />
 
-            <div className="relative mb-6">
-              <input
-                type={showPassword ? "text" : "password"}
-                s
-                id="password"
-                value={password}
-                onChange={onChange}
-                placeholder="Password"
-                className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white shadow border-2 border-[#BDB5E3]  rounded transition ease-in-out"
-              />
-              {showPassword ? (
-                <AiFillEyeInvisible
-                  className="absolute right-3 top-3  text-xl cursor-pointer"
-                  onClick={() => setShowPassword((prevState) => !prevState)}
-                />
-              ) : (
-                <AiFillEye
-                  className="absolute right-3 top-3 text-xl cursor-pointer"
-                  onClick={() => setShowPassword((prevState) => !prevState)}
-                />
-              )}
-            </div>
-            <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">
-              <p className="mb-6">
+            <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg ">
+              <p className="mb-6 md:text-center text-sm sm:text-lg">
                 Don't have an account?
                 <Link
                   to="/sign-up"
@@ -90,12 +68,12 @@ export default function SignIn() {
                   Register
                 </Link>
               </p>
-              <p>
+              <p className="mb-6 md:text-center">
                 <Link
-                  to="/forgot-password"
-                  className=" text-[#9688D3] hover:text-[#7B6AC8] transition duration-200 ease-in-out  hover:underline"
+                  to="/sign-in"
+                  className="text-[#F4B400] hover:text-[#A38B00]  transition duration-200 ease-in-out ml-1.5 hover:underline"
                 >
-                  Forgot Password?
+                  Sign In
                 </Link>
               </p>
             </div>

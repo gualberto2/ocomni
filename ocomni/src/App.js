@@ -12,7 +12,9 @@ import Footer from "./components/Footer";
 import Blog from "./pages/Blog";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
+import ForgotPassword from "./pages/ForgotPassword";
 import "tailwindcss/tailwind.css";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -29,13 +31,13 @@ function App() {
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
         <Footer />
       </Router>
       <ToastContainer
         position="bottom-center"
-        autoClose={2000}
-        limit={1}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -43,7 +45,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="light"
       />
     </>
   );

@@ -1,6 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { db } from "../firebase";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 export default function SignUp() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const { name, email, password } = formData;
+  const navigate = useNavigate();
+  function onChange(e) {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  }
+  async function onSubmit(e) {
+    e.preventDefault();
+    try {
+      const auth = getAuth();
+      const userCredtentials = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
+
+      const user = userCredtentials.user;
+      const formDataCopy = { ...formData };
+      delete formDataCopy.password;
+      formDataCopy.timetamp = serverTimestamp();
+      await setDoc(doc(db, "users", user.uid), formDataCopy);
+      toast.success("Successfully created account");
+      navigate("/");
+    } catch (error) {
+      toast.error("Could Not Sign Up");
+    }
+  }
   return (
     <section className="bg-white">
       <h1 className="text-3xl text-center mt-6 font-bold">Sign Up</h1>
@@ -13,37 +63,39 @@ export default function SignUp() {
           />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-          <form>
+          <form onSubmit={onSubmit}>
             <input
-              type="text"
+              type="name"
               id="name"
-              //   value={name}
-              //   onChange={onChange}
-              placeholder="Full name"
-              className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-[#5B45BB] rounded transition ease-in-out"
+              required
+              value={name}
+              onChange={onChange}
+              placeholder="Type your full name here"
+              className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-2 shadow border-[#BDB5E3] rounded transition ease-in-out"
             />
             <input
               type="email"
               id="email"
-              //   value={email}
-              //   onChange={onChange}
+              required
+              value={email}
+              onChange={onChange}
               placeholder="Email address"
-              className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
+              className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-2 shadow border-[#BDB5E3] rounded transition ease-in-out"
             />
 
             <div className="relative mb-6">
               <input
-                // type={showPassword ? "text" : "password"}
+                type={showPassword ? "text" : "password"}
+                s
                 id="password"
-                // value={password}
-                // onChange={onChange}
+                value={password}
+                onChange={onChange}
                 placeholder="Password"
-                className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-gray-300 rounded transition ease-in-out"
+                className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white shadow border-2 border-[#BDB5E3]  rounded transition ease-in-out"
               />
-
-              {/* {showPassword ? (
+              {showPassword ? (
                 <AiFillEyeInvisible
-                  className="absolute right-3 top-3 text-xl cursor-pointer"
+                  className="absolute right-3 top-3  text-xl cursor-pointer"
                   onClick={() => setShowPassword((prevState) => !prevState)}
                 />
               ) : (
@@ -51,15 +103,14 @@ export default function SignUp() {
                   className="absolute right-3 top-3 text-xl cursor-pointer"
                   onClick={() => setShowPassword((prevState) => !prevState)}
                 />
-              )} */}
+              )}
             </div>
-
-            {/* <div className="flex justify-between whitespace-nowrap text-sm sm:text-large">
+            <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">
               <p className="mb-6">
-                Have have an account?
+                Already have an account?
                 <Link
                   to="/sign-in"
-                  className="text-red-600 hover:text-red-700 transition duration-200 ease-in-out ml-1"
+                  className="text-[#F4B400] hover:text-[#A38B00]  transition duration-200 ease-in-out ml-1.5 hover:underline"
                 >
                   Sign In
                 </Link>
@@ -67,21 +118,23 @@ export default function SignUp() {
               <p>
                 <Link
                   to="/forgot-password"
-                  className="text-blue-600 hover:text-red-700 transition duration-200 ease-in-out"
+                  className=" text-[#9688D3] hover:text-[#7B6AC8] transition duration-200 ease-in-out  hover:underline"
                 >
-                  Forgot password?
+                  Forgot Password?
                 </Link>
               </p>
-            </div> */}
+            </div>
+
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white px-7 py-4 font-medium text-sm uppercase rounded shadow-md hover:bg-blue-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-blue-800"
+              className="w-full bg-[#5B45BB] text-white px-7 py-4 font-medium text-sm uppercase rounded shadow-md hover:bg-[#503DA4] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#413286]"
             >
               Sign Up
             </button>
             <div className="flex my-4 before:border-t before:flex-1 items-center before:border-gray-300 after:border-t after:flex-1 after:border-gray-300">
               <p className="text-center font-semibold mx-4">OR</p>
             </div>
+            <OAuth />
           </form>
         </div>
       </div>
