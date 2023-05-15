@@ -31,3 +31,11 @@ request.resource.contentType.matches('image/.*')
 }
 }
 }
+
+
+// white listed user rules
+match /users/{userId.whitelist}/{whitelistFolder}/{whitelistFile('s)} {
+  allow read: if request.auth.whitelisted == userId
+}
+
+

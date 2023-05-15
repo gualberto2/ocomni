@@ -2,39 +2,25 @@ import React, { useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, sendEmailVerification } from "firebase/auth";
 import { toast } from "react-toastify";
 export default function SignIn() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const { email, password } = formData;
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
   function onChange(e) {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.id]: e.target.value,
-    }));
+    setEmail(e.target.value);
   }
   async function onSubmit(e) {
     e.preventDefault();
     try {
       const auth = getAuth();
-      const userCredentials = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      if (userCredentials.user) {
-        navigate("/");
-      }
-      toast.success("Sign In Successful.");
+      await sendEmailVerification(auth, email);
+      toast.success("Email was sent");
     } catch (error) {
-      toast.error("Sign In Credentials Invalid");
+      toast.error("Could not find your email");
     }
   }
+
   return (
     <section className="bg-white">
       <h1 className="text-3xl text-center mt-6 font-bold">Forgot Password</h1>
@@ -71,7 +57,7 @@ export default function SignIn() {
               <p className="mb-6 md:text-center">
                 <Link
                   to="/sign-in"
-                  className="text-[#F4B400] hover:text-[#A38B00]  transition duration-200 ease-in-out ml-1.5 hover:underline"
+                  className="text-[#9688D3] hover:text-[#7B6AC8] transition duration-200 ease-in-out ml-1.5 hover:underline"
                 >
                   Sign In
                 </Link>
