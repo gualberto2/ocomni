@@ -55,7 +55,7 @@ export default function SignUp() {
   return (
     <section className="bg-white">
       <h1 className="text-3xl text-center mt-6 font-bold">Sign Up</h1>
-      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl ">
+      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
           <img
             src="https://media.licdn.com/dms/image/C5603AQHRLF-coUTT8w/profile-displayphoto-shrink_800_800/0/1652663927640?e=2147483647&v=beta&t=OzJ0rkrdnFDWJRjbhgtGfXoT4lcgAw6yiersGVPFlbg"
