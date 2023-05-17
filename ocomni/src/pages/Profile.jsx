@@ -59,6 +59,7 @@ export default function Profile() {
       } else {
         toast.error("Your name must be greater than 3 characters long");
       }
+      navigate("/profile");
     } catch (error) {
       toast.error("An error occurred");
     }

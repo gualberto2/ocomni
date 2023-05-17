@@ -70,3 +70,41 @@ service cloud.firestore {
      }
   }
 }
+
+
+
+
+
+
+
+
+
+
+// Expiremental //Rules for blog
+    match /blog/{postId} {
+      allow read: if true;  // All users can read blogposts
+
+      // Admins can write, update, and delete blogposts
+      allow write, update, delete, read: if userHasRole('admin');
+    }
+
+		//Rules for verified user site anal
+    match /users/{userId} {
+  		allow read: if request.auth.uid == userId;
+      
+    }
+
+    // Function to check if the user has a specific role
+    function userHasRole(role) {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role] == true;
+    }
+
+    // Function to check if the user is signed in
+    function isSignedIn() {
+      return request.auth.uid != null;
+    }
+
+    // Function to check if the user profile document exists
+    function userExists(userId) {
+      return exists(/databases/$(database)/documents/users/$(userId));
+    }

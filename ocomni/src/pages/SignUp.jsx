@@ -30,7 +30,7 @@ export default function SignUp() {
     e.preventDefault();
     try {
       const auth = getAuth();
-      const userCredtentials = await createUserWithEmailAndPassword(
+      const userCredetentials = await createUserWithEmailAndPassword(
         auth,
         email,
         password
@@ -40,10 +40,10 @@ export default function SignUp() {
         displayName: name,
       });
 
-      const user = userCredtentials.user;
+      const user = userCredetentials.user;
       const formDataCopy = { ...formData };
       delete formDataCopy.password;
-      formDataCopy.timetamp = serverTimestamp();
+      formDataCopy.timestamp = serverTimestamp();
       await setDoc(doc(db, "users", user.uid), formDataCopy);
 
       toast.success("Successfully created account");
