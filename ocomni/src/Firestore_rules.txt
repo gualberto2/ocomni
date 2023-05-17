@@ -39,3 +39,34 @@ match /users/{userId.whitelist}/{whitelistFolder}/{whitelistFile('s)} {
 }
 
 
+
+
+
+
+
+//FireStore rules
+
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /blogs/(blog) {
+      allow read
+      
+    }
+    
+    // Users
+    match/admins/{admin}{
+    //TODO: Admin list goes here
+    	allow read, create, write, update: if request.auth.uid == admin.uid
+    }
+     match /whitelist/{whitelisted} {
+         // TODO: whitelisted users who are allowed to view their website go here
+				 allow read
+         match /blacklist/{blacklisted} {
+            // TODO: blacklisted users who have an account but no website go here
+            
+         }
+     }
+  }
+}

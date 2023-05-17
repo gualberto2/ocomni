@@ -1,9 +1,21 @@
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const [pageState, setPageState] = useState("Sign In");
   const location = useLocation();
   const navigate = useNavigate();
-
+  const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setPageState("Profile");
+      } else {
+        setPageState("Sign In");
+      }
+    });
+  });
   function isRouteActive(route) {
     return location.pathname === route;
   }
@@ -52,14 +64,14 @@ export default function Header() {
               Contact
             </li>
             <li
-              onClick={() => navigate("/sign-in")}
+              onClick={() => navigate("/profile")}
               className={`cursor-pointer font-semibold text-sm ${
-                isRouteActive("/sign-in")
+                isRouteActive("/sign-in") || isRouteActive("/profile")
                   ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
                   : "text-black "
               } `}
             >
-              Sign In
+              {pageState}
             </li>
           </ul>
         </div>

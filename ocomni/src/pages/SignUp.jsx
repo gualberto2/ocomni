@@ -45,6 +45,7 @@ export default function SignUp() {
       delete formDataCopy.password;
       formDataCopy.timetamp = serverTimestamp();
       await setDoc(doc(db, "users", user.uid), formDataCopy);
+
       toast.success("Successfully created account");
       navigate("/");
     } catch (error) {

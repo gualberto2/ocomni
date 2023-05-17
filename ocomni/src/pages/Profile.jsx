@@ -8,6 +8,9 @@ import { toast } from "react-toastify";
 export default function Profile() {
   const auth = getAuth();
   const navigate = useNavigate();
+  const [changeDetails, setChangeDetails] = useState(false);
+  const [cancelChanges, setCancelChanges] = useState(false);
+  const [blogs, setBlogs] = useState(null);
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -45,9 +48,30 @@ export default function Profile() {
     }
   }
 
-  // useEffect(() => {
-  //   async function fetchUserRegistered() {}
-  // }, [auth.currentUser.uid]);
+  function onCancel() {
+    try {
+      if (auth.currentUser.displayName.length <= 3) {
+        setFormData({
+          name: auth.currentUser.displayName,
+          email: auth.currentUser.email,
+        });
+        setChangeDetails(false);
+      } else {
+        toast.error("Your name must be greater than 3 characters long");
+      }
+    } catch (error) {
+      toast.error("An error occurred");
+    }
+  }
+
+  function onChange(e) {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  }
+
+  useEffect(() => {}, [auth.currentUser.uid]);
 
   return (
     <>
@@ -69,18 +93,18 @@ export default function Profile() {
                 type="text"
                 id="name"
                 value={name}
-                disabled
+                disabled={!changeDetails}
                 onChange={onChange}
-                className="mb-3 rounded-2xl text-gray-300 border-gray-400 "
+                className={`mb-3 rounded-2xl text-gray-300 border-gray-400 ${
+                  changeDetails && "focus:bg-red-100 bg-slate-100 text-[black]"
+                } `}
               />
               <p>Email</p>
               <input
                 type="email"
                 id="email"
                 value={email}
-                disabled
-                onChange={onChange}
-                className="mb-3 rounded-2xl text-gray-300 border-gray-400 "
+                className={`mb-3 rounded-2xl text-gray-300 border-gray-400 `}
               />
               <p>Password</p>
               <input
@@ -94,15 +118,22 @@ export default function Profile() {
             </div>
           </form>
           <div className="mt-4 flex flex-row items-center justify-around gap-4">
-            <button className="cursor-pointer shadow-md bg-[#5B45BB] text-white font-medium w-full text-sm rounded py-2 text-center hover:bg-[#503DA4] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#413286]">
-              Edit Profile
+            <button
+              onClick={() => {
+                changeDetails && onSubmit();
+                setChangeDetails((prevState) => !prevState);
+              }}
+              className="cursor-pointer shadow-md bg-[#5B45BB] text-white font-medium w-full text-sm rounded py-2 text-center hover:bg-[#503DA4] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#413286]"
+            >
+              {changeDetails ? "Apply Changes" : "Edit Profile"}
             </button>
             <button
               className="cursor-pointer  shadow-md bg-[#F4B400] hover:bg-[#A38B00] text-white font-medium w-full text-sm rounded py-2 text-center transition duration-150 ease-in-out  hover:shadow-lg active:shadow-xl"
-              onClick={onLogout}
+              onClick={() => {
+                cancelChanges ? onCancel() : onLogout();
+              }}
             >
-              {" "}
-              Sign out
+              {changeDetails ? "Cancel Changes" : "Sign Out"}
             </button>
           </div>
         </div>
@@ -112,7 +143,7 @@ export default function Profile() {
         <div className="bg-gray-200 shadow-lg rounded-xl">
           {/* Here will be code for those whom are whitelisted with websites already on their acocunt */}
         </div>
-        <div className="bg-gray-200 shadow-lg rounded-xl">
+        <div className="bg-gradient-to-r from-gray-100 to-gray-300 shadow-lg rounded-xl">
           <div className="">
             {/* Here is the code for those who do not have sites nad are not whitelisted*/}
           </div>
