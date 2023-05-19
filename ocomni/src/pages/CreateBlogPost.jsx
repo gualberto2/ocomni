@@ -127,10 +127,10 @@ export default function CreateBlogPost() {
       userRef: auth.currentUser.uid,
     };
     delete formDataCopy.images;
-    const docRef = await addDoc(collection(db, "blogPosts"), formDataCopy);
+    const docRef = await addDoc(collection(db, "blog"), formDataCopy);
     setLoading(false);
     toast.success("Blog post created!");
-    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
+    navigate(`/profile`);
   }
 
   if (loading) {
@@ -175,8 +175,8 @@ export default function CreateBlogPost() {
           id="author"
           value={author}
           onChange={onChange}
-          placeholder="First and Last Name"
-          maxLength="32"
+          placeholder="First and Last Name (Max 50 Characters)."
+          maxLength="50"
           minLength="10"
           required
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
@@ -193,13 +193,15 @@ export default function CreateBlogPost() {
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
         />
 
-        <p className="text-lg mt-3 font-semibold">Title</p>
+        <p className="text-lg mt-3 font-semibold">Title </p>
         <input
           type="text"
           id="title"
           value={title}
           onChange={onChange}
-          placeholder="Title here"
+          placeholder="Title here (Max 100 Characters.)"
+          maxLength="100"
+          minLength="20"
           required
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-2"
         />

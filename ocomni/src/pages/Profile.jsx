@@ -1,7 +1,7 @@
 import { getAuth, updateProfile } from "firebase/auth";
 import { db } from "../firebase";
 import { doc, updateDoc } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -11,13 +11,11 @@ export default function Profile() {
   const navigate = useNavigate();
   const [changeDetails, setChangeDetails] = useState(false);
   const [cancelChanges, setCancelChanges] = useState(false);
-  const [blogs, setBlogs] = useState(null);
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
-    pfp: auth.currentUser.pfp,
   });
-  const { name, email, pfp } = formData;
+  const { name, email } = formData;
   function onLogout() {
     auth.signOut();
     navigate("/");
@@ -30,6 +28,20 @@ export default function Profile() {
       [e.target.id]: e.target.value,
     }));
   }
+
+  function onCancel() {
+    setChangeDetails(false);
+    setCancelChanges(true);
+    navigate("/profile");
+  }
+
+  function onChange(e) {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  }
+
   async function onSubmit() {
     try {
       if (auth.currentUser.displayName !== name) {
@@ -48,18 +60,6 @@ export default function Profile() {
     } catch (error) {
       toast.error("Could not update details :(");
     }
-  }
-
-  function onCancel() {
-    setChangeDetails(false);
-    navigate("/profile");
-  }
-
-  function onChange(e) {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.id]: e.target.value,
-    }));
   }
 
   return (

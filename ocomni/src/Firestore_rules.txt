@@ -108,3 +108,47 @@ service cloud.firestore {
     function userExists(userId) {
       return exists(/databases/$(database)/documents/users/$(userId));
     }
+
+
+
+
+
+
+    more eximporement tlalalalal
+    rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    // Users can create accounts/edit their own account/read their accounts
+    match /users/{user} {
+      allow read, create;
+      allow update: if request.auth.uid == user;
+    }
+    
+    // Blog posts
+    match /blog/{uid} {
+      // Anyone can read the blog posts
+      allow read;
+      
+      // Only admins can write, create, update, and delete blog posts
+      allow write, create, update, delete: if request.auth.token.admin == true;
+    }
+    
+    // Site analytics
+    match /sites/{site} {
+      // No one is allowed to view the site and its data unless instructed otherwise
+      allow read: if false;
+      
+      // Whitelisted users have permission to view the siteAnal data
+      match /whitelist/{uid}/{email} {
+        allow read: if request.auth.uid == email;
+      }
+      
+      // Admins have permission to update, write, create, and delete data inside the site
+      match /admin/{uid}/{email} {
+        allow write, update, create, delete: if request.auth.token.admin == true;
+      }
+    }
+  }
+}
+
