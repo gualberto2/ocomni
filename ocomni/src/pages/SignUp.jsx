@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,9 +26,25 @@ export default function SignUp() {
       ...prevState,
       [e.target.id]: e.target.value,
     }));
+    //Files
+    if (e.target.files) {
+      setFormData((prevState) => ({
+        ...prevState,
+        pfp: e.target.files[0],
+      }));
+    }
+
+    //Text/Number
+    if (!e.target.files) {
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.id]: e.target.value,
+      }));
+    }
   }
   async function onSubmit(e) {
     e.preventDefault();
+    setLoading(true);
     try {
       const auth = getAuth();
       const userCredetentials = await createUserWithEmailAndPassword(
@@ -52,6 +69,11 @@ export default function SignUp() {
       toast.error("Could Not Sign Up");
     }
   }
+
+  if (loading) {
+    return console.log("loading...");
+  }
+
   return (
     <section className="bg-white">
       <h1 className="text-3xl text-center mt-6 font-bold">Sign Up</h1>
@@ -87,7 +109,6 @@ export default function SignUp() {
             <div className="relative mb-6">
               <input
                 type={showPassword ? "text" : "password"}
-                s
                 id="password"
                 value={password}
                 onChange={onChange}
@@ -105,6 +126,20 @@ export default function SignUp() {
                   onClick={() => setShowPassword((prevState) => !prevState)}
                 />
               )}
+              <div className="mb-6">
+                <p className="text-lg font-semibold">PFP</p>
+                <p className="text-gray-600">
+                  This will be your profile picture
+                </p>
+                <input
+                  type="file"
+                  id="pfp"
+                  onChange={onChange}
+                  accept=".jpg, .png, .jpeg"
+                  required
+                  className="w-full px-3 py-1.5 text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:bg-white focus:border-slate-600"
+                />
+              </div>
             </div>
             <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">
               <p className="mb-6">

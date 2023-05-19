@@ -22,11 +22,12 @@ import {
 import { db } from "../firebase";
 import { useNavigate } from "react-router";
 
-export default function CreateListing() {
+export default function CreateBlogPost() {
   const navigate = useNavigate();
   const auth = getAuth();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
+    type: true,
     title: "",
     author: "",
     hook: "",
@@ -36,7 +37,7 @@ export default function CreateListing() {
     body: "",
     images: {},
   });
-  const { title, author, heading, subheading, date, body, hook, images } =
+  const { type, title, author, heading, subheading, date, body, hook, images } =
     formData;
   function onChange(e) {
     let boolean = null;
@@ -67,9 +68,9 @@ export default function CreateListing() {
   async function onSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    if (images.length > 6) {
+    if (images.length > 1 || images.length == 0) {
       setLoading(false);
-      toast.error("maximum 6 images allowed");
+      toast.error("Only one image can be uploaded ");
       return;
     }
 
@@ -126,7 +127,7 @@ export default function CreateListing() {
       userRef: auth.currentUser.uid,
     };
     delete formDataCopy.images;
-    const docRef = await addDoc(collection(db, "blog"), formDataCopy);
+    const docRef = await addDoc(collection(db, "blogPosts"), formDataCopy);
     setLoading(false);
     toast.success("Blog post created!");
     navigate(`/category/${formDataCopy.type}/${docRef.id}`);
@@ -142,7 +143,33 @@ export default function CreateListing() {
         Create a Blog Post
       </h1>
       <form onSubmit={onSubmit} action="">
-        <p className="text-lg mt-6 font-semibold">Name</p>
+        <p className="text-lg mt-6 font-semibold">Informational / Marketing</p>
+        <div className="flex flex-row space-between space-x-3">
+          <button
+            type="button"
+            id="type"
+            value="info"
+            onClick={onChange}
+            className={` px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duraiton-150 ease-in-out w-full ${
+              type == "mark" ? "bg-white text-black" : "bg-[#E5E1F4] text-white"
+            }`}
+          >
+            Info
+          </button>
+          <button
+            type="button"
+            id="type"
+            value="mark"
+            onClick={onChange}
+            className={` px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duraiton-150 ease-in-out w-full ${
+              type == "info" ? "bg-white text-black" : "bg-[#E5E1F4] text-white"
+            }`}
+          >
+            Marketing
+          </button>
+        </div>
+
+        <p className="text-lg mt-6 font-semibold">Author Name</p>
         <input
           type="text"
           id="author"
@@ -154,17 +181,29 @@ export default function CreateListing() {
           required
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
         />
-        <p className="text-lg mt-6 font-semibold">Title</p>
-        <textarea
+
+        <p className="text-lg mt-6 font-semibold">Date Published</p>
+        <input
+          type="date"
+          id="date"
+          value={date}
+          onChange={onChange}
+          placeholder="Write as MM/DD/YYYY"
+          required
+          className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
+        />
+
+        <p className="text-lg mt-3 font-semibold">Title</p>
+        <input
           type="text"
           id="title"
           value={title}
           onChange={onChange}
           placeholder="Title here"
           required
-          className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
+          className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-2"
         />
-        <p className="text-lg mt-6 font-semibold">Hook</p>
+        <p className="text-lg mt-1 font-semibold">Hook</p>
         <textarea
           type="text"
           id="hook"
@@ -175,14 +214,37 @@ export default function CreateListing() {
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
         />
 
+        <p className="text-lg font-semibold">Heading</p>
+        <textarea
+          type="text"
+          id="heading"
+          value={heading}
+          onChange={onChange}
+          placeholder="Heading"
+          required
+          className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
+        />
+
         <p className="text-lg font-semibold">Subheading</p>
         <textarea
           type="text"
           id="subheading"
           value={subheading}
           onChange={onChange}
-          placeholder="Description of the property, home, etc..."
+          placeholder="Subheading"
           required
+          className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
+        />
+
+        <p className="text-lg font-semibold">Body</p>
+        <textarea
+          type="text"
+          id="body"
+          value={body}
+          onChange={onChange}
+          placeholder="Body Text..."
+          required
+          max="10000"
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
         />
 
@@ -201,11 +263,12 @@ export default function CreateListing() {
             className="w-full px-3 py-1.5 text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:bg-white focus:border-slate-600"
           />
         </div>
+
         <button
           type="submit"
           className="mb-6 w-full px-7 py-3 bg-blue-600 text-white font-medium text-sm uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg active:bg-blue-800 transition duration-150 ease-in-out"
         >
-          Create Listing
+          Create Blog Post
         </button>
       </form>
     </main>

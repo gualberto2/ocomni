@@ -2,11 +2,12 @@ import { getAuth, updateProfile } from "firebase/auth";
 import { db } from "../firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export default function Profile() {
   const auth = getAuth();
+  const params = useParams();
   const navigate = useNavigate();
   const [changeDetails, setChangeDetails] = useState(false);
   const [cancelChanges, setCancelChanges] = useState(false);
@@ -14,8 +15,9 @@ export default function Profile() {
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
+    pfp: auth.currentUser.pfp,
   });
-  const { name, email } = formData;
+  const { name, email, pfp } = formData;
   function onLogout() {
     auth.signOut();
     navigate("/");
@@ -49,20 +51,8 @@ export default function Profile() {
   }
 
   function onCancel() {
-    try {
-      if (auth.currentUser.displayName.length <= 3) {
-        setFormData({
-          name: auth.currentUser.displayName,
-          email: auth.currentUser.email,
-        });
-        setChangeDetails(false);
-      } else {
-        toast.error("Your name must be greater than 3 characters long");
-      }
-      navigate("/profile");
-    } catch (error) {
-      toast.error("An error occurred");
-    }
+    setChangeDetails(false);
+    navigate("/profile");
   }
 
   function onChange(e) {
@@ -72,12 +62,10 @@ export default function Profile() {
     }));
   }
 
-  useEffect(() => {}, [auth.currentUser.uid]);
-
   return (
     <>
       <p>Account</p>
-      <section className="shadow-lg rounded-xl bg-[#E5E1F4] m-4 p-10 grid grid-col-3 grid-row-2 sm:grid-col-2 sm:grid-row-1 sm:grid-flow-col gap-y-4 sm:gap-0">
+      <section className="shadow-lg rounded-xl bg-[#E5E1F4] m-4 p-10 grid grid-col-3 grid-row-2 sm:grid-col-2 sm:grid-row-1 sm:grid-flow-col gap-y-4 sm:gap-0 mx-auto max-w-6xl">
         <div className="col-span-3 sm:col-span-1 flex justify-center items-center">
           <img
             src="https://media.licdn.com/dms/image/C5603AQEpaLYDPronZQ/profile-displayphoto-shrink_800_800/0/1631567146974?e=2147483647&v=beta&t=3J55DW5o9QFqnUsw_UKS_aWJUKg_SVQAx1Ebdu1h2BQ"
@@ -97,7 +85,8 @@ export default function Profile() {
                 disabled={!changeDetails}
                 onChange={onChange}
                 className={`mb-3 rounded-2xl text-gray-300 border-gray-400 ${
-                  changeDetails && "focus:bg-red-100 bg-slate-100 text-[black]"
+                  changeDetails &&
+                  "focus:bg-purple-100 bg-slate-200 text-[black] border-green-600 border"
                 } `}
               />
               <p>Email</p>
@@ -124,17 +113,23 @@ export default function Profile() {
                 changeDetails && onSubmit();
                 setChangeDetails((prevState) => !prevState);
               }}
-              className="cursor-pointer shadow-md bg-[#5B45BB] text-white font-medium w-full text-sm rounded py-2 text-center hover:bg-[#503DA4] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#413286]"
+              className={`cursor-pointer shadow-md bg-[#5B45BB] text-white font-medium w-full text-sm rounded py-2 text-center hover:bg-[#503DA4] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#413286] ${
+                changeDetails &&
+                "bg-green-400 hover:bg-green-600 active:bg-green-800 "
+              }`}
             >
               {changeDetails ? "Apply Changes" : "Edit Profile"}
             </button>
             <button
-              className="cursor-pointer  shadow-md bg-[#F4B400] hover:bg-[#A38B00] text-white font-medium w-full text-sm rounded py-2 text-center transition duration-150 ease-in-out  hover:shadow-lg active:shadow-xl"
+              className={`cursor-pointer  shadow-md bg-[#F4B400] hover:bg-[#A38B00] text-white font-medium w-full text-sm rounded py-2 text-center transition duration-150 ease-in-out  hover:shadow-lg active:shadow-xl ${
+                changeDetails &&
+                "hover:bg-red-500 focus:bg-red-700 bg-red-400 text-[black]"
+              }`}
               onClick={() => {
-                cancelChanges ? onCancel() : onLogout();
+                cancelChanges ? onLogout() : onCancel();
               }}
             >
-              {changeDetails ? "Cancel Changes" : "Sign Out"}
+              {changeDetails ? "Cancel Changes" : "Log Out"}
             </button>
           </div>
         </div>
