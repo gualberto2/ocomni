@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 import {
@@ -9,16 +9,7 @@ import {
 } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from "uuid";
-import {
-  addDoc,
-  collection,
-  doc,
-  getDocs,
-  orderBy,
-  query,
-  serverTimestamp,
-  where,
-} from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate } from "react-router";
 
@@ -41,10 +32,10 @@ export default function CreateBlogPost() {
     formData;
   function onChange(e) {
     let boolean = null;
-    if (e.target.value == "true") {
+    if (e.target.value === "true") {
       boolean = true;
     }
-    if (e.target.value == "false") {
+    if (e.target.value === "false") {
       boolean = false;
     }
 
@@ -68,7 +59,7 @@ export default function CreateBlogPost() {
   async function onSubmit(e) {
     e.preventDefault();
     setLoading(true);
-    if (images.length > 1 || images.length == 0) {
+    if (images.length > 1 || images.length === 0) {
       setLoading(false);
       toast.error("Only one image can be uploaded ");
       return;
@@ -99,7 +90,7 @@ export default function CreateBlogPost() {
           },
           (error) => {
             // Handle unsuccessful uploads
-            reject(error);
+            reject(error("promise in /CreateBlogs"));
           },
           () => {
             // Handle successful uploads on complete
@@ -116,6 +107,7 @@ export default function CreateBlogPost() {
       [...images].map((image) => storeImage(image))
     ).catch((error) => {
       setLoading(false);
+      console.log(error);
       toast.error("Images not uploaded");
       return;
     });
@@ -127,10 +119,10 @@ export default function CreateBlogPost() {
       userRef: auth.currentUser.uid,
     };
     delete formDataCopy.images;
-    const docRef = await addDoc(collection(db, "blog"), formDataCopy);
+    const docRef = await addDoc(collection(db, "blogs"), formDataCopy);
     setLoading(false);
     toast.success("Blog post created!");
-    navigate(`/profile`);
+    navigate(`/category/${formDataCopy.type}/${docRef.id}`);
   }
 
   if (loading) {
