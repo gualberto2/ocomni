@@ -16,9 +16,9 @@ import ForgotPassword from "./pages/ForgotPassword";
 import { PrivateRoute } from "./components/PrivateRoute";
 import "tailwindcss/tailwind.css";
 import "react-toastify/dist/ReactToastify.css";
-import CreateBlogPost from "./pages/CreateBlogPost";
-import EditBlogPost from "./pages/EditBlogPost";
-import BlogPost from "./pages/BlogPost";
+import CreateBlogs from "./pages/CreateBlogs";
+import EditBlogs from "./pages/EditBlogs";
+import Blogs from "./pages/Blogs";
 function App() {
   return (
     <>
@@ -37,18 +37,12 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route
-            path="/category/:categoryName/:blogPostId"
-            element={<BlogPost />}
-          />
-          <Route path="/create-blogPost" element={<PrivateRoute />}>
-            <Route path="/create-blogPost" element={<CreateBlogPost />} />
+          <Route path="/category/:type/:blogs" element={<Blogs />} />
+          <Route path="/create-blogs" element={<PrivateRoute />}>
+            <Route path="/create-blogs" element={<CreateBlogs />} />
           </Route>
-          <Route path="/edit-blogPost" element={<PrivateRoute />}>
-            <Route
-              path="/edit-blogPost/:blogPostId"
-              element={<EditBlogPost />}
-            />
+          <Route path="/edit-blogs" element={<PrivateRoute />}>
+            <Route path="/edit-blogs/:blogs" element={<EditBlogs />} />
           </Route>
         </Routes>
         <Footer />
