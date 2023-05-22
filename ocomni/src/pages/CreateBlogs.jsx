@@ -13,23 +13,40 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { useNavigate } from "react-router";
 
-export default function CreateBlogPost() {
+export default function CreateBlogs() {
   const navigate = useNavigate();
   const auth = getAuth();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    type: true,
+    type: "mark",
     title: "",
     author: "",
     hook: "",
     heading: "",
-    subheading: "",
+    subheading1: "",
+    subheading2: "",
+    subheading3: "",
     date: "",
-    body: "",
+    body1: "",
+    body2: "",
+    body3: "",
     images: {},
   });
-  const { type, title, author, heading, subheading, date, body, hook, images } =
-    formData;
+  const {
+    type,
+    title,
+    author,
+    heading,
+    subheading1,
+    subheading2,
+    subheading3,
+    date,
+    body1,
+    body2,
+    body3,
+    hook,
+    images,
+  } = formData;
   function onChange(e) {
     let boolean = null;
     if (e.target.value === "true") {
@@ -219,26 +236,68 @@ export default function CreateBlogPost() {
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
         />
 
-        <p className="text-lg font-semibold">Subheading</p>
+        <p className="text-lg font-semibold">Subheading 1</p>
         <textarea
           type="text"
-          id="subheading"
-          value={subheading}
+          id="subheading1"
+          value={subheading1}
+          onChange={onChange}
+          placeholder="Subheading"
+          required
+          className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
+        />
+        <p className="text-lg font-semibold">Subheading 2</p>
+        <textarea
+          type="text"
+          id="subheading2"
+          value={subheading2}
+          onChange={onChange}
+          placeholder="Subheading"
+          required
+          className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
+        />
+        <p className="text-lg font-semibold">Subheading 3</p>
+        <textarea
+          type="text"
+          id="subheading3"
+          value={subheading3}
           onChange={onChange}
           placeholder="Subheading"
           required
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
         />
 
-        <p className="text-lg font-semibold">Body</p>
+        <p className="text-lg font-semibold">Body 1</p>
         <textarea
           type="text"
-          id="body"
-          value={body}
+          id="body1"
+          value={body1}
           onChange={onChange}
           placeholder="Body Text..."
           required
-          max="10000"
+          max="3000"
+          className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
+        />
+        <p className="text-lg font-semibold">Body 2</p>
+        <textarea
+          type="text"
+          id="body2"
+          value={body2}
+          onChange={onChange}
+          placeholder="Body Text..."
+          required
+          max="4000"
+          className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
+        />
+        <p className="text-lg font-semibold">Body 3</p>
+        <textarea
+          type="text"
+          id="body3"
+          value={body3}
+          onChange={onChange}
+          placeholder="Body Text..."
+          required
+          max="3000"
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
         />
 
