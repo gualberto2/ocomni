@@ -76,6 +76,29 @@ service cloud.firestore {
 
 
 
+{
+  /* <div className="sticky">
+              <div className="flex justify-center flex-col items-center">
+                <p className="text-lg text-yellow-700 hover:underline hover:text-yellow-900 active:text-black cursor-pointer whitespace-nowrap ">
+                  Section 1
+                </p>
+                <p className="text-lg text-yellow-700 hover:underline hover:text-yellow-900 active:text-black cursor-pointer whitespace-nowrap ">
+                  Section 2
+                </p>
+                <p className="text-lg text-yellow-700 hover:underline hover:text-yellow-900 active:text-black cursor-pointer whitespace-nowrap ">
+                  Section 3
+                </p>
+                <p className="text-lg text-yellow-700 hover:underline hover:text-yellow-900 active:text-black cursor-pointer whitespace-nowrap ">
+                  End
+                </p>
+              </div>
+            </div> */
+}
+
+//Hook remove from main blog page, will only show in  blogitem
+
+
+
 
 
 

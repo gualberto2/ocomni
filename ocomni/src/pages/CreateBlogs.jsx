@@ -21,6 +21,7 @@ export default function CreateBlogs() {
     type: "mark",
     title: "",
     author: "",
+    roles: "",
     hook: "",
     heading: "",
     subheading1: "",
@@ -36,6 +37,7 @@ export default function CreateBlogs() {
     type,
     title,
     author,
+    roles,
     heading,
     subheading1,
     subheading2,
@@ -47,6 +49,17 @@ export default function CreateBlogs() {
     hook,
     images,
   } = formData;
+
+  function addRole(role) {
+    const newInput = document.createElement("input");
+    newInput.type = "text";
+    newInput.className =
+      "px-4 py-2 text-xl text-gray-700 bg-white border border-gray-300 rounded-3xl transition duration-150 ease-in-out focus:border-slate-600 mb-6";
+
+    const rolesContainer = document.getElementById("roles-container");
+    rolesContainer.appendChild(newInput);
+  }
+
   function onChange(e) {
     let boolean = null;
     if (e.target.value === "true") {
@@ -190,6 +203,32 @@ export default function CreateBlogs() {
           required
           className="w-full px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
         />
+
+        <div className="">
+          <p className="text-lg mt-6 font-semibold">Roles</p>
+          <input
+            type="text"
+            id="roles"
+            value={roles}
+            onClick={() => {}}
+            onChange={onChange}
+            placeholder={`Write Job Here`}
+            className=" px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded-3xl transition duration-150 ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600 mb-6"
+          />
+          <div className="flex flex-row space-x-2 "></div>
+
+          <button
+            id="roles"
+            value={roles}
+            onClick={addRole}
+            onChange={onChange}
+            className=" px-4 py-2 text-xl text-gray-700  bg-white border border-gray-300 rounded-3xl transition duration-150 ease-in-out mb-6 hover:bg-gray-300 active:bg-gray-500"
+          >
+            <div className="flex flex-row space-x-2 ">
+              <p className="whitespace-nowrap">Add More +</p>
+            </div>
+          </button>
+        </div>
 
         <p className="text-lg mt-6 font-semibold">Date Published</p>
         <input

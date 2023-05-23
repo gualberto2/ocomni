@@ -9,7 +9,7 @@ module.exports = {
       title: "Black",
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms"), require("flowbite-typography")],
 };
 
 //#413286 dark button press
