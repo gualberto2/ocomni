@@ -1,44 +1,30 @@
 import React, { useState } from "react";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, sendEmailVerification } from "firebase/auth";
 import { toast } from "react-toastify";
 export default function SignIn() {
-  const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-  const { email, password } = formData;
+  const [email, setEmail] = useState("");
   const navigate = useNavigate();
   function onChange(e) {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.id]: e.target.value,
-    }));
+    setEmail(e.target.value);
   }
   async function onSubmit(e) {
     e.preventDefault();
     try {
       const auth = getAuth();
-      const userCredentials = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      if (userCredentials.user) {
-        navigate("/profile");
-      }
-      toast.success("Sign In Successful.");
+      await sendEmailVerification(auth, email);
+      toast.success("Email was sent");
     } catch (error) {
-      toast.error("Sign In Credentials Invalid");
+      toast.error("Could not find your email");
     }
   }
+
   return (
     <section className="bg-white">
-      <h1 className="text-3xl text-center mt-6 font-bold">Sign In</h1>
-      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
+      <h1 className="text-3xl text-center mt-6 font-bold">Forgot Password</h1>
+      <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl ">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
           <img
             src="https://media.licdn.com/dms/image/C5603AQHRLF-coUTT8w/profile-displayphoto-shrink_800_800/0/1652663927640?e=2147483647&v=beta&t=OzJ0rkrdnFDWJRjbhgtGfXoT4lcgAw6yiersGVPFlbg"
@@ -58,30 +44,8 @@ export default function SignIn() {
               className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-2 shadow border-[#BDB5E3] rounded transition ease-in-out"
             />
 
-            <div className="relative mb-6">
-              <input
-                type={showPassword ? "text" : "password"}
-                s
-                id="password"
-                value={password}
-                onChange={onChange}
-                placeholder="Password"
-                className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white shadow border-2 border-[#BDB5E3]  rounded transition ease-in-out"
-              />
-              {showPassword ? (
-                <AiFillEyeInvisible
-                  className="absolute right-3 top-3  text-xl cursor-pointer"
-                  onClick={() => setShowPassword((prevState) => !prevState)}
-                />
-              ) : (
-                <AiFillEye
-                  className="absolute right-3 top-3 text-xl cursor-pointer"
-                  onClick={() => setShowPassword((prevState) => !prevState)}
-                />
-              )}
-            </div>
-            <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">
-              <p className="mb-6">
+            <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg ">
+              <p className="mb-6 md:text-center text-sm sm:text-lg">
                 Don't have an account?
                 <Link
                   to="/sign-up"
@@ -90,12 +54,12 @@ export default function SignIn() {
                   Register
                 </Link>
               </p>
-              <p>
+              <p className="mb-6 md:text-center">
                 <Link
-                  to="/forgot-password"
-                  className=" text-[#9688D3] hover:text-[#7B6AC8] transition duration-200 ease-in-out  hover:underline"
+                  to="/sign-in"
+                  className="text-[#9688D3] hover:text-[#7B6AC8] transition duration-200 ease-in-out ml-1.5 hover:underline"
                 >
-                  Forgot Password?
+                  Sign In
                 </Link>
               </p>
             </div>

@@ -31,3 +31,124 @@ request.resource.contentType.matches('image/.*')
 }
 }
 }
+
+
+// white listed user rules
+match /users/{userId.whitelist}/{whitelistFolder}/{whitelistFile('s)} {
+  allow read: if request.auth.whitelisted == userId
+}
+
+
+
+
+
+
+
+//FireStore rules
+
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /blogs/(blog) {
+      allow read
+      
+    }
+    
+    // Users
+    match/admins/{admin}{
+    //TODO: Admin list goes here
+    	allow read, create, write, update: if request.auth.uid == admin.uid
+    }
+     match /whitelist/{whitelisted} {
+         // TODO: whitelisted users who are allowed to view their website go here
+				 allow read
+         match /blacklist/{blacklisted} {
+            // TODO: blacklisted users who have an account but no website go here
+            
+         }
+     }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+// Expiremental //Rules for blog
+    match /blog/{postId} {
+      allow read: if true;  // All users can read blogposts
+
+      // Admins can write, update, and delete blogposts
+      allow write, update, delete, read: if userHasRole('admin');
+    }
+
+		//Rules for verified user site anal
+    match /users/{userId} {
+  		allow read: if request.auth.uid == userId;
+      
+    }
+
+    // Function to check if the user has a specific role
+    function userHasRole(role) {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles[role] == true;
+    }
+
+    // Function to check if the user is signed in
+    function isSignedIn() {
+      return request.auth.uid != null;
+    }
+
+    // Function to check if the user profile document exists
+    function userExists(userId) {
+      return exists(/databases/$(database)/documents/users/$(userId));
+    }
+
+
+
+
+
+
+    more eximporement tlalalalal
+    rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    // Users can create accounts/edit their own account/read their accounts
+    match /users/{user} {
+      allow read, create;
+      allow update: if request.auth.uid == user;
+    }
+    
+    // Blog posts
+    match /blog/{uid} {
+      // Anyone can read the blog posts
+      allow read;
+      
+      // Only admins can write, create, update, and delete blog posts
+      allow write, create, update, delete: if request.auth.token.admin == true;
+    }
+    
+    // Site analytics
+    match /sites/{site} {
+      // No one is allowed to view the site and its data unless instructed otherwise
+      allow read: if false;
+      
+      // Whitelisted users have permission to view the siteAnal data
+      match /whitelist/{uid}/{email} {
+        allow read: if request.auth.uid == email;
+      }
+      
+      // Admins have permission to update, write, create, and delete data inside the site
+      match /admin/{uid}/{email} {
+        allow write, update, create, delete: if request.auth.token.admin == true;
+      }
+    }
+  }
+}
+

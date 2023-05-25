@@ -1,37 +1,77 @@
-import React from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const [pageState, setPageState] = useState("Sign In");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const auth = getAuth();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setPageState("Profile");
+      } else {
+        setPageState("Sign In");
+      }
+    });
+  });
+  function isRouteActive(route) {
+    return location.pathname === route;
+  }
+
   return (
     <div className="bg-white shadow-md sticky top-0 z-50">
-      <header className="flex flex-row justify-between items-center  mxa-w-6xl mx-auto h-10 px-10">
+      <header className="flex flex-row justify-between items-center mxa-w-6xl mx-auto h-10 px-10 z-50">
         <div>
-          <img
-            className="h-5 cursor-pointer"
-            src="https://static.rdc.moveaws.com/images/logos/rdc-logo-default.svg"
-            alt="Ocomni Logo"
-          />
+          <h1
+            onClick={() => navigate("/")}
+            className="uppercase  text-[#5B45BB] cursor-pointer text-xl font-title"
+          >
+            Ocomni
+          </h1>
         </div>
         <div>
-          <ul className="flex space-x-8 ">
+          <ul className="flex space-x-8">
             <li
-              className={`cursor-pointer font-semibold text-sm text-gray-400 border-b-3px border-b-transparent`}
+              onClick={() => navigate("/")}
+              className={`cursor-pointer text-sm font-semibold ${
+                isRouteActive("/")
+                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
+                  : "text-black "
+              }`}
             >
               Home
             </li>
             <li
-              className={`cursor-pointer font-semibold text-sm text-gray-400 border-b-3px border-b-transparent`}
+              onClick={() => navigate("/blog")}
+              className={`cursor-pointer text-sm font-semibold ${
+                isRouteActive("/blog")
+                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
+                  : "text-black "
+              }`}
             >
-              About
+              Blog
             </li>
             <li
-              className={`cursor-pointer font-semibold text-sm text-gray-400 border-b-3px border-b-transparent`}
+              onClick={() => navigate("/contact")}
+              className={`cursor-pointer text-sm font-semibold ${
+                isRouteActive("/contact")
+                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
+                  : "text-black "
+              }`}
             >
-              Contact Us
+              Contact
             </li>
             <li
-              className={`cursor-pointer font-semibold text-sm text-gray-400 border-b-3px border-b-transparent`}
+              onClick={() => navigate("/profile")}
+              className={`cursor-pointer font-semibold text-sm ${
+                isRouteActive("/sign-in") || isRouteActive("/profile")
+                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
+                  : "text-black "
+              } `}
             >
-              Sign In
+              {pageState}
             </li>
           </ul>
         </div>
