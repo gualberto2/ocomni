@@ -2,7 +2,8 @@
   "dependencies": {
     "create-react-app": "^5.0.1",
     "firebase-admin": "^11.8.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "vite": "^4.3.9"
   },
   "devDependencies": {
     "tailwindcss": "^3.3.2"
