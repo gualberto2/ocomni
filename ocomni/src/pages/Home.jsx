@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Template from '../components/Templates';
 
 export default function HomePage() {
   return (
@@ -21,6 +21,7 @@ export default function HomePage() {
           <img className="inset-0 w-full mt-10" src="https://raw.githubusercontent.com/akibiaons/ocomni-art/main/ocomni/public/ocomni-home.png" alt="e-commerce illistration 2"/>
         </div>
       </div>
+      <Template/>
     </div>
   )
 }
