@@ -1,5 +1,3 @@
-// Rest of the code for the component
-
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
