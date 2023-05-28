@@ -147,6 +147,11 @@ export const Ourwork = () => {
            We have many budget firendly tiers for newbies to enterprise comapnies.
         </p>
       </div>
+      <div className=''> {/* Here is the CTA button that links to the contact us form.*/}
+        <button className="rounded mt-4 px-7 py-3 bg-[#6366F1] text-white relative group hover:text-white overflow-hidden c-btn tracking-wider">
+            <a href="#">Project Calculator</a>
+        </button>
+      </div>
     </div>
   </div>
   )
