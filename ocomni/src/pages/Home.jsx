@@ -1,5 +1,6 @@
 import React from 'react';
 import Template from '../components/Templates';
+import { Ourwork } from '../components/Ourwork';
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
         </div>
       </div>
       <Template/>
+      <Ourwork/>
     </div>
   )
 }
