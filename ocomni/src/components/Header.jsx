@@ -52,24 +52,24 @@ export default function Header() {
               </div>
               <span className="hidden md:inline-block">Blog</span>
             </li>
-    <li
-      onClick={() => navigate("/contact")}
-      className={`cursor-pointer ${isRouteActive("/contact") ? "text-[#5B45BB] border-b-2 border-[#5B45BB] " : "text-black "}`}
-    >
-      <div className="md:hidden">
-        <PhoneIcon className="w-5 h-5 inline-block mr-1" />
-      </div>
-      <span className="hidden md:inline-block">Contact</span>
-    </li>
-    <li
-      onClick={() => navigate("/profile")}
-      className={`cursor-pointer ${isRouteActive("/sign-in") || isRouteActive("/profile") ? "text-[#5B45BB] border-b-2 border-[#5B45BB] " : "text-black "}`}
-    >
-      <div className="md:hidden">
-        <UserIcon className="w-5 h-5 inline-block mr-1" />
-      </div>
-      <span className="hidden md:inline-block">{pageState}</span>
-    </li>
+            <li
+              onClick={() => navigate("/contact")}
+              className={`cursor-pointer ${isRouteActive("/contact") ? "text-[#5B45BB] border-b-2 border-[#5B45BB] " : "text-black "}`}
+            >
+              <div className="md:hidden">
+                <PhoneIcon className="w-5 h-5 inline-block mr-1" />
+              </div>
+              <span className="hidden md:inline-block">Contact</span>
+            </li>
+            <li
+              onClick={() => navigate("/profile")}
+              className={`cursor-pointer ${isRouteActive("/sign-in") || isRouteActive("/profile") ? "text-[#5B45BB] border-b-2 border-[#5B45BB] " : "text-black "}`}
+            >
+              <div className="md:hidden">
+                <UserIcon className="w-5 h-5 inline-block mr-1" />
+              </div>
+              <span className="hidden md:inline-block">{pageState}</span>
+            </li>
           </ul>
         </div>
       </header>
