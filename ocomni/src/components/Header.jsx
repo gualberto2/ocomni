@@ -1,6 +1,7 @@
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { HomeIcon, NewspaperIcon, PhoneIcon, UserIcon } from '@heroicons/react/solid';
 
 export default function Header() {
   const [pageState, setPageState] = useState("Sign In");
@@ -41,6 +42,7 @@ export default function Header() {
                   : "text-black "
               }`}
             >
+              <HomeIcon className="w-5 h-5 inline-block mr-1" />
               Home
             </li>
             <li
@@ -51,6 +53,7 @@ export default function Header() {
                   : "text-black "
               }`}
             >
+              <NewspaperIcon className="w-5 h-5 inline-block mr-1" />
               Blog
             </li>
             <li
@@ -61,6 +64,7 @@ export default function Header() {
                   : "text-black "
               }`}
             >
+              <PhoneIcon className="w-5 h-5 inline-block mr-1" />
               Contact
             </li>
             <li
@@ -71,6 +75,7 @@ export default function Header() {
                   : "text-black "
               } `}
             >
+              <UserIcon className="w-5 h-5 inline-block mr-1" />
               {pageState}
             </li>
           </ul>
