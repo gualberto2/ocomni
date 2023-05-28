@@ -34,50 +34,42 @@ export default function Header() {
         </div>
         <div>
           <ul className="flex space-x-8">
-            <li
-              onClick={() => navigate("/")}
-              className={`cursor-pointer text-sm font-semibold ${
-                isRouteActive("/")
-                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
-                  : "text-black "
-              }`}
-            >
-              <HomeIcon className="w-5 h-5 inline-block mr-1" />
-              Home
+              <li
+                onClick={() => navigate("/")}
+                className={`cursor-pointer ${isRouteActive("/") ? "text-[#5B45BB] border-b-2 border-[#5B45BB] " : "text-black "}`}
+              >
+                <div className="md:hidden">
+                  <HomeIcon className="w-5 h-5 inline-block mr-1" />
+                </div>
+                <span className="hidden md:inline-block">Home</span>
+              </li>
+              <li
+                onClick={() => navigate("/blog")}
+                className={`cursor-pointer ${isRouteActive("/blog") ? "text-[#5B45BB] border-b-2 border-[#5B45BB] " : "text-black "}`}
+              >
+              <div className="md:hidden">
+                <NewspaperIcon className="w-5 h-5 inline-block mr-1" />
+              </div>
+              <span className="hidden md:inline-block">Blog</span>
             </li>
-            <li
-              onClick={() => navigate("/blog")}
-              className={`cursor-pointer text-sm font-semibold ${
-                isRouteActive("/blog")
-                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
-                  : "text-black "
-              }`}
-            >
-              <NewspaperIcon className="w-5 h-5 inline-block mr-1" />
-              Blog
-            </li>
-            <li
-              onClick={() => navigate("/contact")}
-              className={`cursor-pointer text-sm font-semibold ${
-                isRouteActive("/contact")
-                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
-                  : "text-black "
-              }`}
-            >
-              <PhoneIcon className="w-5 h-5 inline-block mr-1" />
-              Contact
-            </li>
-            <li
-              onClick={() => navigate("/profile")}
-              className={`cursor-pointer font-semibold text-sm ${
-                isRouteActive("/sign-in") || isRouteActive("/profile")
-                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
-                  : "text-black "
-              } `}
-            >
-              <UserIcon className="w-5 h-5 inline-block mr-1" />
-              {pageState}
-            </li>
+    <li
+      onClick={() => navigate("/contact")}
+      className={`cursor-pointer ${isRouteActive("/contact") ? "text-[#5B45BB] border-b-2 border-[#5B45BB] " : "text-black "}`}
+    >
+      <div className="md:hidden">
+        <PhoneIcon className="w-5 h-5 inline-block mr-1" />
+      </div>
+      <span className="hidden md:inline-block">Contact</span>
+    </li>
+    <li
+      onClick={() => navigate("/profile")}
+      className={`cursor-pointer ${isRouteActive("/sign-in") || isRouteActive("/profile") ? "text-[#5B45BB] border-b-2 border-[#5B45BB] " : "text-black "}`}
+    >
+      <div className="md:hidden">
+        <UserIcon className="w-5 h-5 inline-block mr-1" />
+      </div>
+      <span className="hidden md:inline-block">{pageState}</span>
+    </li>
           </ul>
         </div>
       </header>
