@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
 const ContactForm = () => { {/* In this function we have useState to make the first name, last name, email, and phone numbers */}
+  const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');{/* To cont.. all these lines 4 - 6 declare state variables along with their respective setter functions */}
-  const [email, setEmail] = useState('');{/*  */}
+  const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
 
   const handleSubmit = (e) => { {/* this function declares an event handler that is triggered as the submit button is clicked. */}
