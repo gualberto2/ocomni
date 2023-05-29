@@ -15,8 +15,8 @@ const ContactForm = () => { {/* In this function we have useState to make the fi
 
   return (
     <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
-      <div className="text-center mt-2 text-black text-2xl font-semibold md:text-[2.4rem] lg:text-[3rem]">
-        <h3>Get In Touch with Us Today for an E-Commerce Consultation</h3>
+      <div className="container mx-auto]">
+        <h3 className='text-center mt-2 text-black text-2xl font-semibold md:text-[2.4rem] lg:text-[3rem'>Get In Touch with Us Today for an E-Commerce Consultation</h3>
       </div>
       <div className="mb-4 flex">
         <div className="mr-2 flex-1">

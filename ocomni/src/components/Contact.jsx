@@ -1,5 +1,10 @@
-import React from "react";
+import React from 'react'
+import ContactForm from './HomeForm'
 
-export default function Contact() {
-  return <div>Contact</div>;
+export const Contact = () => {
+  return (
+    <div>
+      <ContactForm/>
+    </div>
+  )
 }
