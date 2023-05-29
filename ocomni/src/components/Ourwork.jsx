@@ -148,7 +148,7 @@ export const Ourwork = () => {
         </p>
       </div>
     </div>
-    <div className="flex justify-center md:justify-right lg:justify-right"> {/* Here is the CTA button that links to the contact us form.*/}
+    <div className="flex justify-left md:justify-left lg:justify-left"> {/* Here is the CTA button that links to the contact us form.*/}
         <button className="rounded mt-4 px-7 py-3 bg-[#6366F1] text-white relative group hover:text-white overflow-hidden c-btn tracking-wider">
             <a href="#">Project Calculator</a> {/* Link to the contqct us form */}
         </button>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Template from '../components/Templates';
 import { Ourwork } from '../components/Ourwork';
+import ContactForm from '../components/HomeForm';
 
 export default function HomePage() {
   return (
@@ -24,6 +25,7 @@ export default function HomePage() {
       </div>
       <Template/>
       <Ourwork/>
+      <ContactForm/>
     </div>
   )
 }
