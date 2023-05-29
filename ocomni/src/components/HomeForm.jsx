@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 
-const ContactForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
+const ContactForm = () => { {/* In this function we have useState to make the first name, last name, email, and phone numbers */}
+  const [lastName, setLastName] = useState('');{/* To cont.. all these lines 4 - 6 declare state variables along with their respective setter functions */}
+  const [email, setEmail] = useState('');{/*  */}
   const [phone, setPhone] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { {/* this function declares an event handler that is triggered as the submit button is clicked. */}
     e.preventDefault();
 
     // Perform form submission logic here
@@ -15,6 +14,9 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
+      <div className="">
+        <h3>Get In Touch with Us Today for an E-Commerce Consultation</h3>
+      </div>
       <div className="mb-4 flex">
         <div className="mr-2 flex-1">
           <label htmlFor="firstName" className="block mb-1 font-medium text-gray-700">First Name</label>
