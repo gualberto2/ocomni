@@ -2,11 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {
-      colors: {
-        purple: '#5B45BB',
-      },
-    },
+    extend: {},
     fontFamily: {
       header: "Bold",
       primarybody: "LightSatoshi",
