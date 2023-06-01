@@ -12,8 +12,8 @@ export default function HomePage() {
         <div className="">
           {" "}
           {/* Parent div of h1, p, button, and svg for homepage will add some padding and max width */}
-          <h1 className="font-[1000] text-5xl md:text-7xl xl:text-8xl lg:w-[79%] xl:leading- md:leading- font-extrabold">
-            E-Commerce Powered by <span className="text-[#5B45BB]">OCOMNI</span>
+          <h1 className="text-5xl md:text-7xl xl:text-8xl lg:w-[79%] font-extrabold ">
+            ECommerce Powered by <span className="text-[#5B45BB]">OCOMNI</span>
           </h1>
           <p className="mt-2 sm:mt-4 sm:text-xl">
             Professional grade E-Commerce Web Development Solutions

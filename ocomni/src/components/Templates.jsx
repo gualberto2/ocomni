@@ -74,19 +74,24 @@ const Template = () => {
                   className="rounded-lg"
                 />
                 <h3 className="text-xl my-4"></h3>
-                <div className="flex gap-3">
-                  <a
-                    href={Template_info.download_link}
-                    target="_blank"
-                    className="rounded mb-8 mt-4 px-7 py-3 bg-[#6366F1] text-white relative group hover:text-white overflow-hidden c-btn tracking-wider"
-                  >
-                    Get Template!
-                  </a>
-                </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      <div className="flex items-center justify-center ">
+        {/* <a
+          href={Templates.download_link}
+          target="_blank"
+          className="rounded mb-8 mt-4 px-7 py-3 bg-[#6366F1] text-white relative group hover:text-white overflow-hidden c-btn tracking-wider"
+        >
+          Get Template!
+        </a> */}
+        <form action="submit">
+          <button className="bg-[#6366F1] shadow-lg rounded-md px-8 py-2 w-full">
+            Get Template
+          </button>
+        </form>
       </div>
     </section>
   );
