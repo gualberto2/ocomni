@@ -6,12 +6,9 @@ import ContactForm from "../components/ContactForm";
 export default function HomePage() {
   return (
     <div className="mx-8">
-      {" "}
-      {/* Parent div of "body" for the homepage. Don't really need to mess with or edit. */}
       <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-2 pt-16 pb-10 md:pt-32 md:pb-36  ">
         <div className="">
           {" "}
-          {/* Parent div of h1, p, button, and svg for homepage will add some padding and max width */}
           <h1 className="text-5xl md:text-7xl xl:text-8xl lg:w-[79%] font-extrabold ">
             ECommerce Powered by <span className="text-[#5B45BB]">OCOMNI</span>
           </h1>
@@ -22,7 +19,7 @@ export default function HomePage() {
             <span className="">Work with us</span>
           </button>
           <img
-            className="lg:hidden md:hidden mt-8"
+            className="lg:hidden md:hidden mt-8 rounded-lg"
             src="https://raw.githubusercontent.com/akibiaons/ocomni-art/main/ocomni/public/ocomni-home.png"
             alt="e-commerce illistration 1"
           />
@@ -37,7 +34,16 @@ export default function HomePage() {
       </div>
       <Template />
       <Ourwork />
-      <ContactForm />
+      <div className="flex flex-col justify-center md:justify-around align-center md:flex-row gap-8 mb-10">
+        <div className="">
+          <ContactForm />
+        </div>
+        <img
+          src="https://i.kym-cdn.com/photos/images/original/001/340/774/55f"
+          alt=""
+          className="rounded-md jusitfy-center align-center"
+        />
+      </div>
     </div>
   );
 }

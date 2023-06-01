@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import template1 from "../assets/images/template1.png";
 import template2 from "../assets/images/template2.png";
@@ -6,43 +6,38 @@ import template3 from "../assets/images/template3.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
-{
-  /*Above I imported some swiper classes or whatever. Don't forget to npm install if cloned.*/
-}
+import { useNavigate, Link } from "react-router-dom";
+
 const Template = () => {
-  {
-    /* I created a projects class to contain objects of the img name and a cta for downloading the specific project...*/
-  }
   const Templates = [
     {
       img: template1,
       name: "String of Template 1 Name",
       download_link: "#",
+      title: "Lifestyle and Clothing Template",
     },
     {
       img: template2,
       name: "String of Template 2 Name",
+      title: "Toys and Alike Template",
       download_link: "#",
     },
     {
       img: template3,
       name: "String of Template 3 Name",
+      title: "Course Template",
       download_link: "#",
     },
   ];
-  {
-    /* Below is the return method which will render in the browser.*/
-  }
+
   return (
     <section id="templates" className="py-10 text-white mb-24">
       <div className="text-center">
-        <h2 className="mt-2 text-black text-4xl font-semibold">
-          Free Templates
-        </h2>
+        <h2 className="mt-2 text-black text-4xl font-bold">Free Templates</h2>
         <p className="text-black mt-3 text-lg">
-          <span className="underline hover:cursor-pointer hover:text-decoration-line:none">
+          <span className="border-b-2 border- hover:cursor-pointer hover:text-decoration-line:none">
             Sign up
-          </span>{" "}
+          </span>
           for a FREE template
         </p>
       </div>
@@ -65,37 +60,32 @@ const Template = () => {
           }}
           modules={[Pagination, Autoplay]}
         >
-          {Templates.map((Template_info, i) => (
+          {Templates.map((info, i) => (
             <SwiperSlide key={i}>
               <div className="h-fit w-full p-4 bg-white rounded-xl">
                 <img
-                  src={Template_info.img}
+                  src={info.img}
                   alt="downloadable template"
                   className="rounded-lg"
                 />
-                <h3 className="text-xl my-4"></h3>
+                <h3 className="text-xl text-black uppercase font-medium text-center my-4">
+                  {info.title}
+                </h3>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
       <div className="flex items-center justify-center ">
-        {/* <a
-          href={Templates.download_link}
-          target="_blank"
-          className="rounded mb-8 mt-4 px-7 py-3 bg-[#6366F1] text-white relative group hover:text-white overflow-hidden c-btn tracking-wider"
+        <Link
+          to="/templates"
+          className="bg-[#6366F1] text-center shadow-lg rounded-md px-8 py-2 w-[88%]"
         >
-          Get Template!
-        </a> */}
-        <form action="submit">
-          <button className="bg-[#6366F1] shadow-lg rounded-md px-8 py-2 w-full">
-            Get Template
-          </button>
-        </form>
+          Get Template
+        </Link>
       </div>
     </section>
   );
 };
-/* Above are objects housing some template card properties.*/
 
 export default Template;
