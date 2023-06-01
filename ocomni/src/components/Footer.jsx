@@ -22,7 +22,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" class="mr-4 hover:underline md:mr-6">
+              <a href="" class="mr-4 hover:underline md:mr-6">
                 Privacy Policy
               </a>
             </li>
