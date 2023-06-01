@@ -21,7 +21,7 @@ export default function Footer() {
             <li className="mr-4 hover:underline md:mr-6 "> About</li>
 
             <li
-              class="mr-4 hover:underline md:mr-6"
+              class="cursor-pointer mr-4 hover:underline md:mr-6"
               onClick={() => navigate("/privacy-policy")}
             >
               Privacy Policy
