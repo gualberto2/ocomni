@@ -34,7 +34,7 @@ const Template = () => {
     /* Below is the return method which will render in the browser.*/
   }
   return (
-    <section id="templates" className="py-10 text-white">
+    <section id="templates" className="py-10 text-white mb-24">
       <div className="text-center">
         <h2 className="mt-2 text-black text-4xl font-semibold">
           Free Templates

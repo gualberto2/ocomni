@@ -1,7 +1,7 @@
 import React from "react";
 import Template from "../components/Templates";
 import { Ourwork } from "../components/Ourwork";
-import ContactForm from "../components/HomeForm";
+import ContactForm from "../components/ContactForm";
 
 export default function HomePage() {
   return (

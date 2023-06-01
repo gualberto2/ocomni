@@ -7,12 +7,9 @@ import { MdPhonelink } from "react-icons/md";
 import { CiMoneyBill } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
-{
-  /*Our work will be a 3-cols by 3-rows grid that will serve to upsell and show our benefits. Take a look or ask for the Shopify letter for an example.*/
-}
 export const Ourwork = () => {
   return (
-    <div className="my-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="my-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {/*This connects all the cards in a 3 by 3 grid.*/}
         <div className="border border-black p-4">

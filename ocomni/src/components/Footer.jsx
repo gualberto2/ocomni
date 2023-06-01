@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <div class="bg-slate-200 shadow dark:bg-slate-600">
       <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -18,13 +19,12 @@ export default function Footer() {
           </a>
           <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
             <li className="mr-4 hover:underline md:mr-6 "> About</li>
-            <li>
-              <Link
-                to="../pages/PrivacyPolicy"
-                class="mr-4 hover:underline md:mr-6"
-              >
-                Privacy Policy
-              </Link>
+
+            <li
+              class="mr-4 hover:underline md:mr-6"
+              onClick={() => navigate("/privacy-policy")}
+            >
+              Privacy Policy
             </li>
             <li>
               <a href="#" class="mr-4 hover:underline md:mr-6 ">
