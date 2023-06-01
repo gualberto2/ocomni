@@ -19,7 +19,6 @@ import "react-toastify/dist/ReactToastify.css";
 import CreateBlogs from "./pages/CreateBlogs";
 import EditBlogs from "./pages/EditBlogs";
 import Blogs from "./pages/Blogs";
-import PrivacyPage from "./pages/PrivacyPage";
 function App() {
   return (
     <>
@@ -45,7 +44,6 @@ function App() {
           <Route path="/edit-blogs" element={<PrivateRoute />}>
             <Route path="/edit-blogs/:blogs" element={<EditBlogs />} />
           </Route>
-          <Route path="/privacy-policy" element={<PrivacyPage />} />
         </Routes>
         <Footer />
       </Router>
