@@ -1,6 +1,7 @@
 import React from "react";
 import { TbWorldWww } from "react-icons/tb";
 import { AiOutlineUnlock } from "react-icons/ai";
+import { BiSupport } from "react-icons/bi";
 
 {
   /*Our work will be a 3-cols by 3-rows grid that will serve to upsell and show our benefits. Take a look or ask for the Shopify letter for an example.*/
@@ -39,26 +40,7 @@ export const Ourwork = () => {
         {/* Below is card 3 */}
         <div className="border border-black p-4">
           <div className="flex items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 17a4 4 0 00-4-4h-2a4 4 0 00-4 4v2h10v-2z"
-              />
-            </svg>
+            <BiSupport />
             <span className="text-xl font-semibold">Support</span>
           </div>
           <p className="mt-2">
