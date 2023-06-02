@@ -20,6 +20,9 @@ export default function Header() {
       } else {
         setPageState("Sign In");
       }
+      if (isRouteActive("/sign-up")) {
+        setPageState("Sign Up");
+      }
     });
   });
   function isRouteActive(route) {
@@ -81,7 +84,9 @@ export default function Header() {
             <li
               onClick={() => navigate("/profile")}
               className={`cursor-pointer ${
-                isRouteActive("/sign-in") || isRouteActive("/profile")
+                isRouteActive("/sign-in") ||
+                isRouteActive("/profile") ||
+                isRouteActive("/sign-up")
                   ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
                   : "text-black "
               }`}
@@ -99,3 +104,11 @@ export default function Header() {
     </div>
   );
 }
+
+//#6366F1
+//#5F56D6
+//#5B45BB
+//--Button Styling--
+//transition ease-in-out duration-150 bg-[#6366F1] hover:bg-[#5F56D6] active:bg-[#5B45BB] px-8 py-3
+//--or--
+//bg-[#6366F1] text-center shadow-lg rounded-md px-8 py-3 active:bg-[#5B45BB] hover:bg-[#5F56D6] transition ease-in-out duration-150

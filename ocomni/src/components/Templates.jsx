@@ -35,7 +35,7 @@ const Template = () => {
       <div className="text-center">
         <h2 className="mt-2 text-black text-4xl font-bold">Free Templates</h2>
         <p className="text-black mt-3 text-lg">
-          <span className="border-b-2 border- hover:cursor-pointer hover:text-decoration-line:none">
+          <span className="border-b-2 border-hover:cursor-pointer hover:text-decoration-line:none">
             Sign up
           </span>
           for a FREE template
@@ -79,7 +79,7 @@ const Template = () => {
       <div className="flex items-center justify-center ">
         <Link
           to="/templates"
-          className="bg-[#6366F1] text-center shadow-lg rounded-md px-8 py-2 w-[88%]"
+          className="bg-[#6366F1] text-center shadow-lg rounded-md px-8 py-3 active:bg-[#5B45BB] hover:bg-[#5F56D6] transition ease-in-out duration-150 w-[88%] md:w-[50%]"
         >
           Get Template
         </Link>

@@ -2,6 +2,7 @@ import React from "react";
 import Template from "../components/Templates";
 import { Ourwork } from "../components/Ourwork";
 import ContactForm from "../components/ContactForm";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -15,8 +16,8 @@ export default function HomePage() {
           <p className="mt-2 sm:mt-4 sm:text-xl">
             Professional grade E-Commerce Web Development Solutions
           </p>
-          <button className="rounded mt-4 px-7 py-3 bg-[#6366F1] text-white relative group hover:text-white overflow-hidden c-btn tracking-wider">
-            <span className="">Work with us</span>
+          <button className="mt-4 text-white bg-[#6366F1] text-center shadow-lg rounded-md px-8 py-3 active:bg-[#5B45BB] hover:bg-[#5F56D6] transition ease-in-out duration-150">
+            <Link className="">Work with us</Link>
           </button>
           <img
             className="lg:hidden md:hidden mt-8 rounded-lg"

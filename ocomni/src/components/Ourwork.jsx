@@ -86,10 +86,10 @@ export const Ourwork = () => {
       </div>
       <div className="flex justify-left md:justify-left lg:justify-left">
         {" "}
-        <button className="rounded mt-4 px-7 py-3 bg-[#6366F1] text-white relative group overflow-hidden c-btn tracking-wider shadow-lg">
-          <Link>Project Calculators</Link>
+        <button className="rounded-md active:bg-[#5B45BB] hover:bg-[#5F56D6] mt-4 px-8 py-3 bg-[#6366F1] text-white relative group overflow-hidden c-btn tracking-wider shadow-lg transition ease-in-out duration-150">
+          <Link className="">Project Calculators</Link>
         </button>
       </div>
     </div>
   );
-};
+}; //bg-[#6366F1] text-center shadow-lg rounded-md px-8 py-3 active:bg-[#5B45BB] hover:bg-[#5F56D6] transition ease-in-out duration-150
