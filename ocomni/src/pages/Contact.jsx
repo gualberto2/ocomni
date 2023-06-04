@@ -7,8 +7,8 @@ const ContactPage = () => {
   return (
     <div className="">
       <div className="my-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24">
-        <div className="shadow-sm border-purple-700  border-b-2 py-28 px-20">
-          <h1 className="text-5xl tracking-wider text-center font-light  md:whitespace-nowrap pb-8">
+        <div className=" py-28 px-20">
+          <h1 className="text-6xl tracking-wider text-center font-light  md:whitespace-nowrap pb-8">
             We wanna hear from <em className="uppercase">You</em>.
           </h1>
           <p className="mb-12 font-light">
@@ -38,7 +38,7 @@ const ContactPage = () => {
           </div>
           <div className="min-w-[170px] max-w-[300px] mx-auto">
             <div className="border border-black p-4">
-              <h3 className="text-black text-3xl font-thin text-left mb-8 border-r-2 border-yellow-300 ">
+              <h3 className="text-black text-3xl font-thin text-left mb-8 border-r-2 border-green-300 ">
                 Support
               </h3>
               <p className="leading-8 font-light">
@@ -55,7 +55,7 @@ const ContactPage = () => {
           </div>
           <div className="min-w-[170px] max-w-[300px] mx-auto">
             <div className="border border-black p-4">
-              <h3 className="text-black text-3xl font-thin text-left mb-8 border-r-2 border-yellow-300 ">
+              <h3 className="text-black text-3xl font-thin text-left mb-8 border-r-2 border-red-300 ">
                 Media
               </h3>
               <p className=" leading-8 font-light">
@@ -72,7 +72,7 @@ const ContactPage = () => {
           </div>
           <div className="min-w-[170px] max-w-[300px] mx-auto">
             <div className="border border-black p-4">
-              <h3 className="text-black text-3xl font-thin text-left mb-8 border-r-2 border-yellow-300 ">
+              <h3 className="text-black text-3xl font-thin text-left mb-8 border-r-2 border-blue-300 ">
                 Partnerships
               </h3>
               <p className="leading-8 font-light ">
@@ -114,14 +114,14 @@ const ContactPage = () => {
               <p className="text-white font-medium mb-4 text-xl tracking-wider border-r border-white ">
                 Lestats on Park
               </p>
-              <p className="text-white font-light">
+              <p className="text-white font-light pr-3">
                 Since we are solely remote work, we currently do not have a
                 headquarters. However we do frequent this coffee shop. Feel free
                 to stop by and tell them Art sent you!
               </p>
               <br />
-              <p className="text-white font-light">
-                For those who we work with locally this will typically be our
+              <p className="text-white font-light pr-3">
+                For those who we work with locally, this will typically be our
                 meet up location unless stated otherwise
               </p>
             </div>

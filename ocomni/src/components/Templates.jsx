@@ -35,10 +35,10 @@ const Template = () => {
       <div className="text-center">
         <h2 className="mt-2 text-black text-4xl font-bold">Free Templates</h2>
         <p className="text-black mt-3 text-lg">
-          <span className="border-b-2 border-hover:cursor-pointer hover:text-decoration-line:none">
+          <span className="border-b-2 border-[#6366F1] border-hover:cursor-pointer hover:text-decoration-line:none mr-2">
             Sign up
           </span>
-          for a FREE template
+          and get a FREE template
         </p>
       </div>
       <br />
