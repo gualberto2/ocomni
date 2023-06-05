@@ -14,6 +14,7 @@ const post = `
       id
       name
       bio
+      roles
       photo {
         url
       }

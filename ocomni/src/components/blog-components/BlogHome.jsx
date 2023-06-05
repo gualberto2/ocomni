@@ -16,16 +16,22 @@ export default function BlogHome() {
     <>
       <div className="">
         <p>Recent Posts</p>
-        <Posts posts={posts} />
+        <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+          <Posts posts={posts} />
+        </ul>
         <div>
           <p>Popular</p>
         </div>
       </div>
       <div>
-        <p>Learn About Ocomni</p>
-        <Link to="/posts/about">
-          <PostsByAbout />
-        </Link>
+        <div>
+          <p>Learn About Ocomni</p>
+          <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+            <Link to="/posts/about">
+              <PostsByAbout />
+            </Link>
+          </ul>
+        </div>
       </div>
     </>
   );
