@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import BlogNav from "./blog-components/BlogNav";
-import { QUERY_SLUG_CATEGORIES, graphcms } from "../GraphQL/queries";
+import BlogNav from "./BlogNav";
+import { QUERY_SLUG_CATEGORIES, graphcms } from "./queries";
 
 const BlogHeader = () => {
   const [categories, setCategories] = useState([]);

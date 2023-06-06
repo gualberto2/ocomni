@@ -4,7 +4,7 @@ import {
   QUERY_POST_BY_ABOUT,
   QUERY_POST_BY_INFORMATIONAL,
   QUERY_POST_BY_MARKETING,
-} from "../../GraphQL/queries";
+} from "./queries";
 import Posts from "./Posts";
 import { useEffect, useState } from "react";
 

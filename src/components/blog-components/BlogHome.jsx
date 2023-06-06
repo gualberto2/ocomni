@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Posts from "./Posts";
-import {
-  graphcms,
-  QUERY_FEATURED_IMAGE,
-  QUERY_POSTS,
-} from "../../GraphQL/queries";
+import { graphcms, QUERY_FEATURED_IMAGE, QUERY_POSTS } from "./queries";
 import { useParams, Link } from "react-router-dom";
 import { PostsByAbout } from "./PostCategories";
 import FeaturedImageOfTheWeek from "./FeaturedImageOfTheWeek";
