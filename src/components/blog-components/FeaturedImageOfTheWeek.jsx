@@ -7,13 +7,13 @@ import SwiperCore, {
 } from "swiper";
 import "swiper/css/bundle";
 
-export default function FeaturedImageOfTheWeek({ imgs }) {
-  console.log(imgs);
+export default function FeaturedImageOfTheWeek({ images }) {
+  console.log(images);
   return (
     <>
-      {imgs?.map((img) => (
+      {images?.map((images) => (
         <div>
-          <img src={img.image.url} alt="" />
+          <img src={images.image.url} alt="" />
         </div>
       ))}
     </>

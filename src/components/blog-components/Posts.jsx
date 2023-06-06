@@ -8,8 +8,8 @@ export default function Posts({ posts, author, categories }) {
   return (
     <>
       {posts?.map((post) => (
-        <div key={post.id}>
-          <li className="relative bg-white flex flex-col justify-between items-center shadow-md hover:shadow-xl rounded-md overflow-hidden transition-shadow duration-150 m-[10px]">
+        <div key={post.id} className="">
+          <li className="relative bg-purple-100 flex flex-col justify-between items-center shadow-md hover:shadow-xl rounded-md overflow-hidden transition-shadow duration-150 m-[10px]">
             <Link to={`/post/${post.slug}`}>
               <img
                 src={post.featuredImage.url}
@@ -22,11 +22,11 @@ export default function Posts({ posts, author, categories }) {
             </Link>
             <div className="w-full p-[10px] mt-1 ">
               <div className="flex items-center space-x-1">
-                <p className="font-bold text-lg mb-[2px] text-black truncate ">
+                <p className="font-light text-lg mb-[2px] text-black truncate ">
                   {post.title}
                 </p>
               </div>
-              <p className="font-medium m-0 text-sm text-gray-900 line-clamp-3 mb-1">
+              <p className="font-extralight m-0 text-sm text-gray-900 line-clamp-3 mb-1">
                 {post.excerpt}
               </p>
               <div className="flex flex-row items-center gap-2 mb-1">

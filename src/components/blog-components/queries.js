@@ -3,8 +3,7 @@ import { GraphQLClient, gql } from "graphql-request";
 export const graphcms = new GraphQLClient(process.env.REACT_APP_API);
 
 // This is a variable, it has the objects for the posts. Will be fetched in the Post Query.
-const featuredImages = `
-
+const featuredImage = `
     image {
       url
     }
@@ -79,7 +78,7 @@ export const QUERY_SLUG_CATEGORIES = gql`
 // `;
 export const QUERY_POST_BY_ABOUT = gql`
  {
-    posts(orderBy: updatedAt_DESC, first: 4, where: { categories_some: { slug: "about" } }){
+    posts(orderBy: updatedAt_DESC, first: 3, where: { categories_some: { slug: "about" } }){
         ${post}
         categories(){${category}}
     }
@@ -105,7 +104,7 @@ export const QUERY_POST_BY_MARKETING = gql`
 export const QUERY_FEATURED_IMAGE = gql`
 {
     featuredOTW(where: {id: ""}) {
-        ${featuredImages}
+        ${featuredImage}
       }
 }
 `;
