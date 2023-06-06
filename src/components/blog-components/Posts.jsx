@@ -26,7 +26,7 @@ export default function Posts({ posts, author, categories }) {
                   {post.title}
                 </p>
               </div>
-              <p className="font-medium m-0 text-sm text-gray-900 truncate mb-1">
+              <p className="font-medium m-0 text-sm text-gray-900 line-clamp-3 mb-1">
                 {post.excerpt}
               </p>
               <div className="flex flex-row items-center gap-2 mb-1">

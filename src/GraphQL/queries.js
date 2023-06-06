@@ -3,6 +3,14 @@ import { GraphQLClient, gql } from "graphql-request";
 export const graphcms = new GraphQLClient(process.env.REACT_APP_API);
 
 // This is a variable, it has the objects for the posts. Will be fetched in the Post Query.
+const featuredImages = `
+
+    image {
+      url
+    }
+
+`;
+
 const post = `
     featuredImage {
       url
@@ -92,4 +100,12 @@ export const QUERY_POST_BY_MARKETING = gql`
         categories(){${category}}
     }
   }
+`;
+
+export const QUERY_FEATURED_IMAGE = gql`
+{
+    featuredOTW(where: {id: ""}) {
+        ${featuredImages}
+      }
+}
 `;
