@@ -11,6 +11,7 @@ const featuredImage = `
 `;
 
 const post = `
+    featuredPost
     featuredImage {
       url
     }
@@ -51,7 +52,7 @@ const comment = `
 
 export const QUERY_POSTS = gql`
   {
-    posts(orderBy: updatedAt_DESC, first: 4){
+    posts(orderBy: updatedAt_DESC, first: 4 ){
         ${post}
         categories(){
             ${category}
@@ -86,25 +87,49 @@ export const QUERY_POST_BY_ABOUT = gql`
 `;
 export const QUERY_POST_BY_INFORMATIONAL = gql`
 {
-    posts(orderBy: updatedAt_DESC,first: 3, where: { categories_some: { slug: "informational" } }){
-        ${post}
-        categories(){${category}}
-    }
-  }
-`;
-export const QUERY_POST_BY_MARKETING = gql`
-{
-    posts(orderBy: updatedAt_DESC,first: 3, where: { categories_some: { slug: "marketing" } }){
+    posts(orderBy: updatedAt_DESC,first: 2, where: { categories_some: { slug: "informational" } }){
         ${post}
         categories(){${category}}
     }
   }
 `;
 
+export const QUERY_POST_BY_MARKETING = gql`
+{
+    posts(orderBy: updatedAt_DESC,first: 2, where: { categories_some: { slug: "marketing" } }){
+        ${post}
+        categories(){${category}}
+    }
+  }
+`;
+export const QUERY_POST_BY_FEATOFDAWEEK = gql`
+{
+    posts(orderBy: updatedAt_DESC,first: 1, where: { categories_some: { slug: "featured-cat" } }){
+        ${post}
+        categories(){${category}}
+    }
+  }
+`;
+export const QUERY_POST_BY_POPULARITY = gql`
+{
+    posts(orderBy: updatedAt_DESC,first: 3, where: { categories_some: { slug: "popular" } }){
+        ${post}
+        categories(){${category}}
+    }
+  }
+`;
 export const QUERY_FEATURED_IMAGE = gql`
 {
     featuredOTW(where: {id: ""}) {
         ${featuredImage}
       }
+}
+`;
+export const QUERY_POST_BY_FEATURED = gql`
+{
+  posts(orderBy: updatedAt_DESC,first: 2){
+      ${post}
+      featuredPost
+  }
 }
 `;

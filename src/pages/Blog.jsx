@@ -5,7 +5,7 @@ export default function Blog() {
   return (
     <div>
       {/* <BlogHeader /> */}
-      <div className="max-w-6xl mx-auto px-3">
+      <div className="">
         <BlogHome className="" />
       </div>
     </div>

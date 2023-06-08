@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Posts from "./Posts";
 import { graphcms, QUERY_FEATURED_IMAGE, QUERY_POSTS } from "./queries";
 import { useParams, Link } from "react-router-dom";
-import { PostsByAbout } from "./PostCategories";
-import FeaturedImageOfTheWeek from "./FeaturedImageOfTheWeek";
+import {
+  PostsByPopularity,
+  PostsByFeatured,
+  PostByDaWeek,
+} from "./PostCategories";
+import PostCard from "./PostCard";
 
 export default function BlogHome() {
   const [posts, setPosts] = useState([]);
@@ -19,34 +22,38 @@ export default function BlogHome() {
   }, []);
   return (
     <>
-      <div className="grid grid-cols-1">
-        <div className="">
-          <p className="mt-4 text-lg text-center font-medium border-b-2">
-            Recent Posts
-            <span className="absolute right-1 text-sm mt-2 text-purple-800 hover:text-purple-900">
-              <Link to="/all-recent-blogs">See All</Link>
-            </span>
-          </p>
-
-          <div className="">
-            <ul className="flex flex-col gap-4 mx-2">
-              <Posts posts={posts} />
-            </ul>
+      <div className="mx-auto px-4 my-12 max-w-6xl">
+        <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8  ">
+            <div className="lg:col-start-1 lg:col-end-6 lg:mr-8">
+              <PostByDaWeek />
+            </div>
+            <div className="col-start-6 col-end-9 row-span-0  ">
+              <div className="lg:sticky sm:relative">
+                <p className="mt-4 text-lg text-left font-medium border-b-2 border-purple-300 ">
+                  Popular Posts
+                  <span className="absolute right-3 text-sm mt-1 text-gray-400 transition duration-150 hover:text-purple-600 active:text-purple-900">
+                    <Link to="/all-recent-blogs ">See All</Link>
+                  </span>
+                </p>
+                <PostsByPopularity />
+              </div>
+              <div className="lg:sticky sm:relative mb-3">
+                <p className="mt-4 text-lg text-left font-medium border-b-2 border-purple-300 ">
+                  Featured Posts
+                  <span className="absolute right-3 text-sm mt-1 text-gray-400 transition duration-150 hover:text-purple-600 active:text-purple-900">
+                    <Link to="/all-recent-blogs ">See All</Link>
+                  </span>
+                </p>
+                <PostsByFeatured />
+              </div>
+            </div>
           </div>
         </div>
-        <div>
-          <p className="mt-4 text-lg text-center font-medium border-b-2">
-            Popular
-            <span className="absolute right-3 text-sm mt-2">
-              <Link to="/all-recent-blogs">See All</Link>
-            </span>
-          </p>
-          <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3  ">
-            {/* <Posts posts={posts} /> */}
-          </ul>
+        <div className="flex flex-row justify-between">
+          <PostCard posts={posts} />
         </div>
       </div>
-      <div></div>
     </>
   );
 }
