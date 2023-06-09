@@ -5,8 +5,10 @@ import {
   PostsByPopularity,
   PostsByFeatured,
   PostByDaWeek,
+  PostsByMarketing,
 } from "./PostCategories";
 import PostCard from "./PostCard";
+import PostRectangle from "./PostRectangle";
 
 export default function BlogHome() {
   const [posts, setPosts] = useState([]);
@@ -22,13 +24,13 @@ export default function BlogHome() {
   }, []);
   return (
     <>
-      <div className="mx-auto px-4 my-12 max-w-6xl">
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8  ">
+      <div className="mx-auto my-14 max-w-6xl px-8 ">
+        <div className="">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6  lg:gap-2 lg:grid-cols-8">
             <div className="lg:col-start-1 lg:col-end-6 lg:mr-8">
               <PostByDaWeek />
             </div>
-            <div className="col-start-6 col-end-9 row-span-0  ">
+            <div className="lg:col-start-6 lg:col-end-9 row-span-0  ">
               <div className="lg:sticky sm:relative">
                 <p className="mt-4 text-lg text-left font-medium border-b-2 border-purple-300 ">
                   Popular Posts
@@ -50,8 +52,32 @@ export default function BlogHome() {
             </div>
           </div>
         </div>
-        <div className="flex flex-row justify-between">
-          <PostCard posts={posts} />
+        <ul className="sm:grid sm:grid-cols-2  lg:grid-cols-4 my-12 gap-6">
+          <PostCard posts={posts} className="w-[200px]" />
+        </ul>
+      </div>
+      <div className="bg-slate-200 text-black">
+        <div className="mx-auto px-12 my-14 max-w-6xl ">
+          <div>
+            <div className="flex flex-row items-center">
+              <h2 className="font-header text-2xl mr-2">Marketing</h2>
+              <h2 className="border-b-2 border-purple-400 flex-grow mt-3"></h2>
+              <p className="cursor-pointer sm:ml-2 text-lg font-primarybody">
+                See more marketing posts
+              </p>
+            </div>
+            <div className="">
+              <PostsByMarketing />
+            </div>
+          </div>
+          <div className="flex flex-row items-center">
+            <h2 className="font-header text-2xl mr-2">Sales</h2>
+            <h2 className="border-b-2 border-cyan-300 flex-grow mt-3"></h2>
+            <p className="cursor-pointer hidden sm:block sm:ml-2 text-lg font-primarybody">
+              See more marketing posts
+            </p>
+          </div>
+          <div></div>
         </div>
       </div>
     </>

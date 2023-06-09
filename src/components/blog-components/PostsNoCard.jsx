@@ -24,7 +24,7 @@ export default function PostsNoCard({ posts }) {
                 </span>
 
                 <div className="mb-2">
-                  <p className="font-light  text line-clamp-1 text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700">
+                  <p className="font-light mt-2 text line-clamp-1 text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700">
                     {post.author.name}, {post.author.roles}
                   </p>
                 </div>

@@ -12,6 +12,7 @@ import PostCard from "./PostCard";
 import PostsNoCard from "./PostsNoCard";
 import PostBigCard from "./PostBigCard";
 import { useEffect, useState } from "react";
+import PostRectangle from "./PostRectangle";
 
 export function PostsByAbout() {
   const { slug } = useParams();
@@ -62,7 +63,7 @@ export function PostsByMarketing() {
 
   return (
     <>
-      <PostCard posts={posts} />
+      <PostRectangle posts={posts} />
     </>
   );
 }

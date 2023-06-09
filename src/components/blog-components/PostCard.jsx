@@ -8,17 +8,28 @@ export default function PostCard({ posts, author, categories }) {
   return (
     <>
       {posts?.map((post) => (
-        <div key={post.id} className="">
-          <article className="">
-            <div className="w-full">
+        <div key={post.id} className="mb-6 sm:mb-0">
+          <article className="flex flex-col">
+            <div className="">
               <img
                 src={post.featuredImage.url}
                 alt=""
-                className="h-[150px] w-[150px] object-cover hover:scale-105 transition-scale duration-200 ease-in"
+                className="h-[150px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in"
               />
             </div>
             <div>
-              <h1 className="font-header">{post.title}</h1>
+              <h1 className="font-header line-clamp-2">{post.title}</h1>
+              <p className="line-clamp-2 font- font-primarybody text-slate-900">
+                {post.excerpt}
+              </p>
+            </div>
+            <div className="mt-2 mb-4">
+              <p className="font-extralight text-sm mb-1  text-gray-700">
+                {post.author.name}
+              </p>
+              <p className="font-extralight text-sm text-gray-700">
+                {moment(post.createdAt).format("MM/DD/YYYY")}
+              </p>
             </div>
           </article>
         </div>
