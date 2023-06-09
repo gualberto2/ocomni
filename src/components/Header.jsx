@@ -49,7 +49,7 @@ export default function Header() {
 
   return (
     <div className={`bg-white  shadow-md sticky top-0 z-50 `}>
-      <header className="flex flex-col md:flex-row md:h-10 h-20 justify-around md:justify-between items-center mxa-w-6xl mx-auto h-10 px-10 z-50">
+      <header className="flex flex-col sm:flex-row md:h-10 h-16 justify-around md:justify-between items-center mxa-w-6xl mx-auto h-10 px-10 z-50">
         <div>
           {/* className={` ${!visible && "hidden"}`} */}
           <h1

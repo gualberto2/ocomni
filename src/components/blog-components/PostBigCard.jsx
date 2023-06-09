@@ -16,13 +16,13 @@ export default function PostBigCard({ posts }) {
               src={post.featuredImage.url}
               alt=""
               loading="lazy"
-              className="h-[400px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in"
+              className="h-[150px] md:h-[400px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in"
             />
 
             <div className="w-full py-4 px-12 mt-1">
               <div className="flex items-center space-x-1">
                 <Link>
-                  <p className="font-header  text-center text-xl mb-2 tracking-wide text-black hover:underline cursor-pointer  ">
+                  <p className="font-header  text-center text-xl mb-2 tracking-wide text-black hover:underline cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
                     {post.title}
                   </p>
                 </Link>
@@ -34,11 +34,13 @@ export default function PostBigCard({ posts }) {
                 <div>
                   <div class="flex items-center space-x-3 mb-3">
                     <img
-                      class="w-8 h-8 rounded-full"
+                      class="w-8 h-8 rounded-full "
                       src={post.author.photo.url}
                       alt="Jese Leos avatar"
                     />
-                    <span class="font-medium ">{post.author.name}</span>
+                    <span class="font-medium text-gray-700 transition duration-200 hover:text-gray-800  active:text-gray-900 cursor-pointer">
+                      {post.author.name}
+                    </span>
                   </div>
                   <p className="flex flex-row items-center ">
                     <AiOutlineCalendar className="mr-1" />
@@ -52,7 +54,7 @@ export default function PostBigCard({ posts }) {
                   <Link>
                     <a
                       href="#"
-                      class="inline-flex items-center font-medium  cursor-pointer hover:underline"
+                      class="inline-flex items-center mt-4 font-medium  cursor-pointer hover:underline hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200"
                     >
                       Read more
                       <svg

@@ -102,6 +102,14 @@ export const QUERY_POST_BY_MARKETING = gql`
     }
   }
 `;
+export const QUERY_POST_BY_SALES = gql`
+{
+    posts(orderBy: updatedAt_DESC,first: 2, where: { categories_some: { slug: "sales" } }){
+        ${post}
+        categories(){${category}}
+    }
+  }
+`;
 export const QUERY_POST_BY_FEATOFDAWEEK = gql`
 {
     posts(orderBy: updatedAt_DESC,first: 1, where: { categories_some: { slug: "featured-cat" } }){
@@ -112,7 +120,7 @@ export const QUERY_POST_BY_FEATOFDAWEEK = gql`
 `;
 export const QUERY_POST_BY_POPULARITY = gql`
 {
-    posts(orderBy: updatedAt_DESC,first: 3, where: { categories_some: { slug: "popular" } }){
+    posts(orderBy: updatedAt_DESC,first: 2, where: { categories_some: { slug: "popular" } }){
         ${post}
         categories(){${category}}
     }
@@ -127,7 +135,7 @@ export const QUERY_FEATURED_IMAGE = gql`
 `;
 export const QUERY_POST_BY_FEATURED = gql`
 {
-  posts(orderBy: updatedAt_DESC,first: 2){
+  posts(orderBy: updatedAt_DESC,first: 3){
       ${post}
       featuredPost
   }

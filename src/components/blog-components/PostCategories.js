@@ -7,6 +7,7 @@ import {
   QUERY_POST_BY_FEATURED,
   QUERY_POST_BY_POPULARITY,
   QUERY_POST_BY_FEATOFDAWEEK,
+  QUERY_POST_BY_SALES,
 } from "./queries";
 import PostCard from "./PostCard";
 import PostsNoCard from "./PostsNoCard";
@@ -49,6 +50,32 @@ export function PostsByMarketing() {
     const fetchData = async () => {
       try {
         const res = await graphcms.request(QUERY_POST_BY_MARKETING, {
+          slug: slug,
+        });
+        console.log(res);
+        setPosts(res.posts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [slug]);
+
+  return (
+    <>
+      <PostRectangle posts={posts} />
+    </>
+  );
+}
+export function PostsBySales() {
+  const { slug } = useParams();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await graphcms.request(QUERY_POST_BY_SALES, {
           slug: slug,
         });
         console.log(res);

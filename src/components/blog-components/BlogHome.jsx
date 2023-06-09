@@ -6,6 +6,7 @@ import {
   PostsByFeatured,
   PostByDaWeek,
   PostsByMarketing,
+  PostsBySales,
 } from "./PostCategories";
 import PostCard from "./PostCard";
 import PostRectangle from "./PostRectangle";
@@ -57,12 +58,14 @@ export default function BlogHome() {
         </ul>
       </div>
       <div className="bg-slate-200 text-black">
-        <div className="mx-auto px-12 my-14 max-w-6xl ">
+        <div className="mx-auto sm:px-12 my-14 max-w-6xl ">
           <div>
             <div className="flex flex-row items-center">
-              <h2 className="font-header text-2xl mr-2">Marketing</h2>
+              <h2 className="font-header text-2xl mr-2 border-b border-purple-400 sm:border-b-0">
+                Marketing
+              </h2>
               <h2 className="border-b-2 border-purple-400 flex-grow mt-3"></h2>
-              <p className="cursor-pointer sm:ml-2 text-lg font-primarybody">
+              <p className="cursor-pointer invisible lg:visible sm:ml-2 text-lg font-primarybody">
                 See more marketing posts
               </p>
             </div>
@@ -73,11 +76,13 @@ export default function BlogHome() {
           <div className="flex flex-row items-center">
             <h2 className="font-header text-2xl mr-2">Sales</h2>
             <h2 className="border-b-2 border-cyan-300 flex-grow mt-3"></h2>
-            <p className="cursor-pointer hidden sm:block sm:ml-2 text-lg font-primarybody">
+            <p className="cursor-pointer invisible lg:visible sm:ml-2 text-lg font-primarybody">
               See more marketing posts
             </p>
           </div>
-          <div></div>
+          <div>
+            <PostsBySales />
+          </div>
         </div>
       </div>
     </>
