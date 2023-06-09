@@ -7,30 +7,33 @@ export default function PostRectangle({ posts }) {
   return (
     <>
       {posts?.map((post) => (
-        <div key={post.id} className="flex flex-row mt-2 items-center">
+        <div key={post.id} className="flex flex-row mt-2 gap-2 items-center">
           <img
             src={post.featuredImage.url}
             alt=""
-            className="h-[132px] w-[140px] object-cover "
+            className="h-[104px] w-[100px] object-cover "
           />
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden ">
             <div className="w-full  mt-1 ">
-              <div className="flex items-center space-x-1">
+              <div className="sm:flex-col items-center">
                 <Link to={`/post/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-lg my-1 text-gray-800 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                  <p className="font-header cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-3 px-2 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
                 </Link>
+                <p className="px-2 text-sm font-primarybody line-clamp-2">
+                  {post.excerpt}
+                </p>
               </div>
 
-              <div className="flex flex-row justify-between  items-center gap-4 my-2 border-b border-gray-300">
-                <span className="text-md font-light whitespace-nowrap text-gray-500 hover:text-gray-700  transition duration-300 cursor-default  ">
+              <div className="flex flex-row justify-between  items-center gap-4 px-2 border-b border-gray-300">
+                <span className="text-sm  font-primarybody font-light whitespace-nowrap text-gray-500 hover:text-gray-700  transition duration-300 cursor-default  ">
                   {moment(post.createdAt).format("MM/DD/YYYY")}
                 </span>
 
                 <div className="mb-2">
-                  <p className="font-light mt-2 text line-clamp-1 text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700">
-                    {post.author.name}, {post.author.roles}
+                  <p className="font-md font-primarybody mt-2 text line-clamp-1 text-sm text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700">
+                    {post.author.name}
                   </p>
                 </div>
               </div>

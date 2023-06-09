@@ -96,7 +96,7 @@ export const QUERY_POST_BY_INFORMATIONAL = gql`
 
 export const QUERY_POST_BY_MARKETING = gql`
 {
-    posts(orderBy: updatedAt_DESC,first: 2, where: { categories_some: { slug: "marketing" } }){
+    posts(orderBy: updatedAt_DESC,first: 4, where: { categories_some: { slug: "marketing" } }){
         ${post}
         categories(){${category}}
     }

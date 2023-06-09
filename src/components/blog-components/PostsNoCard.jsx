@@ -12,7 +12,7 @@ export default function PostsNoCard({ posts }) {
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
                 <Link to={`/post/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-lg my-1 text-gray-800 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                  <p className="font-header cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
                 </Link>

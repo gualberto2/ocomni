@@ -22,7 +22,7 @@ export default function PostBigCard({ posts }) {
             <div className="w-full py-4 px-12 mt-1">
               <div className="flex items-center space-x-1">
                 <Link>
-                  <p className="font-header  text-center text-xl mb-2 tracking-wide text-black hover:underline cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
+                  <p className="font-header text-gray-900 text-center text-xl mb-2 tracking-wide text-black hover:underline cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
                     {post.title}
                   </p>
                 </Link>
