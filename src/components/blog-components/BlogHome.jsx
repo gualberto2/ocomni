@@ -9,7 +9,6 @@ import {
   PostsBySales,
 } from "./PostCategories";
 import PostCard from "./PostCard";
-import PostRectangle from "./PostRectangle";
 
 export default function BlogHome() {
   const [posts, setPosts] = useState([]);
@@ -57,15 +56,107 @@ export default function BlogHome() {
           <PostCard posts={posts} className="w-[200px]" />
         </ul>
       </div>
-      <div className="bg-slate-200 text-black">
+      <div className="bg-gray-200 text-black">
         <div className="mx-auto sm:px-12 px-4 py-8 my-14 max-w-6xl ">
           <div>
             <div className="flex flex-row items-center">
               <h2 className="font-header text-2xl mr-2">Marketing</h2>
-              <h2 className="border-b-2 border-purple-400 flex-grow mt-3"></h2>
+              <h2 className="border-b-2 border-blue-400 flex-grow mt-3"></h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <PostsByMarketing />
+            </div>
+            <div>
+              <p className="text-center font-primarybody  hover:text-slate-600 mt-4 transition duration-200 cursor-pointer ">
+                See more marketing articles
+              </p>
+            </div>
+          </div>
+          <div>
+            <div className="flex flex-row items-center">
+              <h2 className="font-header text-2xl mr-2">Sales</h2>
+              <h2 className="border-b-2 border-green-400 flex-grow mt-3"></h2>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <PostsBySales />
+            </div>
+            <div>
+              <p className="text-center font-primarybody hover:text-slate-600 mt-4 transition duration-200 cursor-pointer ">
+                See more sales articles
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mb-6 mx-auto my-16 max-w-6xl px-8">
+        <h2 className="text-center font-header text-2xl">
+          Explore More Topics
+        </h2>
+        <p className="font-primarybody text-lg text-center">
+          Ready to learn something new? We got you with great resources!
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+          <div className="flex flex-col shadow-md">
+            <img
+              src="https://townsquare.media/site/812/files/2022/02/attachment-Drake-phone-meme.jpg?w=1200"
+              alt=""
+              className="w-auto h-[132px] sm:h-[180px] md:h-[250px] object-cover rounded-t-lg"
+            />
+            <div className="flex items-center flex-row bg-gray-300 px-12 py-9">
+              <p className="text-xl font-header text-teal-700">
+                Instagram Marketing{" "}
+              </p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="text-teal-700"
+              >
+                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+              </svg>
+            </div>
+          </div>
+          <div className="flex flex-col shadow-md">
+            <img
+              src="https://townsquare.media/site/812/files/2022/02/attachment-Drake-phone-meme.jpg?w=1200"
+              alt=""
+              className="w-auto h-[132px] sm:h-[180px] md:h-[250px] object-cover rounded-t-lg"
+            />
+            <div className="flex items-center flex-row bg-gray-300 px-12 py-9">
+              <p className="text-xl font-header text-teal-700">
+                Instagram Marketing{" "}
+              </p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="text-teal-700"
+              >
+                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+              </svg>
+            </div>
+          </div>
+          <div className="flex flex-col shadow-md">
+            <img
+              src="https://townsquare.media/site/812/files/2022/02/attachment-Drake-phone-meme.jpg?w=1200"
+              alt=""
+              className="w-auto h-[132px] sm:h-[180px] md:h-[250px] object-cover rounded-t-lg"
+            />
+            <div className="flex items-center flex-row bg-gray-300 px-12 py-9">
+              <p className="text-xl font-header text-teal-700">
+                Instagram Marketing{" "}
+              </p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                className="text-teal-700"
+              >
+                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+              </svg>
             </div>
           </div>
         </div>
@@ -90,3 +181,5 @@ export default function BlogHome() {
     /*  */
   }
 }
+
+// 2501 is the registers code/

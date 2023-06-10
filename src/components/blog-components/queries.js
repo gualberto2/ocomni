@@ -104,7 +104,7 @@ export const QUERY_POST_BY_MARKETING = gql`
 `;
 export const QUERY_POST_BY_SALES = gql`
 {
-    posts(orderBy: updatedAt_DESC,first: 2, where: { categories_some: { slug: "sales" } }){
+    posts(orderBy: updatedAt_DESC,first: 4, where: { categories_some: { slug: "sales" } }){
         ${post}
         categories(){${category}}
     }
