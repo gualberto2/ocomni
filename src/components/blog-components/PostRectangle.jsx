@@ -17,7 +17,7 @@ export default function PostRectangle({ posts }) {
             <div className="w-full  mt-1 ">
               <div className="sm:flex-col items-center">
                 <Link to={`/post/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-3 px-2 hover:underline active:text-purple-900">
+                  <p className="font-header cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
                 </Link>
