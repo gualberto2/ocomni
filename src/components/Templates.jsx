@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import template1 from "../assets/images/template1.png";
-import template2 from "../assets/images/template2.png";
-import template3 from "../assets/images/template3.png";
+import template1 from "../assets/images/cowboy-template.png";
+import template2 from "../assets/images/eyeglass-template.png";
+import template3 from "../assets/images/plant-template.png";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper";
