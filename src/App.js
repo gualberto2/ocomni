@@ -17,6 +17,8 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import "tailwindcss/tailwind.css";
 import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import BlogHome from "./components/blog-components/BlogHome";
+import Post from "./components/Post";
 function App() {
   return (
     <>
@@ -36,6 +38,7 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/post/:slug" element={<Post />} />
         </Routes>
         <Footer />
       </Router>

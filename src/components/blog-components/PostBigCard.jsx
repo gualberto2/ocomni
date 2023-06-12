@@ -11,17 +11,19 @@ export default function PostBigCard({ posts }) {
       {posts?.map((post) => (
         <div key={post.id} className="">
           <li className="relative bg-purple-100 flex flex-col justify-between h-full  items-center overflow-hidden mt-3 duration-150">
-            <img
-              onClick={() => navigate("/")}
-              src={post.featuredImage.url}
-              alt=""
-              loading="lazy"
-              className="h-[150px] md:h-[400px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in"
-            />
+            <Link to={`/post/${post.slug}`}>
+              <img
+                onClick={() => navigate("/")}
+                src={post.featuredImage.url}
+                alt=""
+                loading="lazy"
+                className="h-[150px] md:h-[400px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in"
+              />
+            </Link>
 
             <div className="w-full py-4 px-12 mt-1">
               <div className="flex items-center space-x-1">
-                <Link>
+                <Link to={`/post/${post.slug}`}>
                   <p className="font-header text-gray-900 text-center text-xl mb-2 tracking-wide text-black hover:underline cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
                     {post.title}
                   </p>
@@ -51,7 +53,7 @@ export default function PostBigCard({ posts }) {
                 </div>
 
                 <div class="flex justify-between items-center">
-                  <Link>
+                  <Link to={`/post/${post.slug}`}>
                     <a
                       href="#"
                       class="inline-flex items-center mt-4 font-medium  cursor-pointer hover:underline hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200"

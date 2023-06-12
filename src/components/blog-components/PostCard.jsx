@@ -11,16 +11,20 @@ export default function PostCard({ posts, author, categories }) {
         <div key={post.id} className="mb-6 sm:mb-0">
           <article className="flex flex-col">
             <div className="">
-              <img
-                src={post.featuredImage.url}
-                alt=""
-                className="h-[150px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in "
-              />
+              <Link to={`/post/${post.slug}`}>
+                <img
+                  src={post.featuredImage.url}
+                  alt=""
+                  className="h-[150px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in "
+                />
+              </Link>
             </div>
             <div>
-              <h1 className="font-header leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
-                {post.title}
-              </h1>
+              <Link to={`/post/${post.slug}`}>
+                <h1 className="font-header leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                  {post.title}
+                </h1>
+              </Link>
               <p className="line-clamp-2 font- font-primarybody text-slate-900 cursor-default">
                 {post.excerpt}
               </p>

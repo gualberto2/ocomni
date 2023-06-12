@@ -50,6 +50,15 @@ const comment = `
     comment
 `;
 
+export const QUERY_POST_BY_CATEGORY = gql`
+query GetPostsByCategory($slug: String!) {
+    posts(orderBy: updatedAt_DESC, where: { categories_some: { slug: $slug } }){
+        ${post}
+        categories(){${category}}
+    }
+  }
+`;
+
 export const QUERY_POSTS = gql`
   {
     posts(orderBy: updatedAt_DESC, first: 4 ){
@@ -69,14 +78,6 @@ export const QUERY_SLUG_CATEGORIES = gql`
     }
 }`;
 
-// export const QUERY_POST_BY_CATEGORY = gql`
-// query GetPostsByCategory($slug: String!) {
-//     posts(orderBy: updatedAt_DESC, where: { categories_some: { slug: $slug } }){
-//         ${post}
-//         categories(){${category}}
-//     }
-//   }
-// `;
 export const QUERY_POST_BY_ABOUT = gql`
  {
     posts(orderBy: updatedAt_DESC, first: 3, where: { categories_some: { slug: "about" } }){
