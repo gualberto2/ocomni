@@ -15,7 +15,7 @@ const Post = ({ post }) => {
                 src={post.author.photo.url}
                 alt={`Photograph of author ${post.author.name}`}
               />
-              <div>
+              <div className="font-primarybody">
                 <a
                   href="#"
                   rel="author"
@@ -23,10 +23,10 @@ const Post = ({ post }) => {
                 >
                   {post.author.name}
                 </a>
-                <p class="text-base font-light text-gray-500 ">
+                <p class="text-base font-primarybody text-gray-500 ">
                   {post.author.roles}
                 </p>
-                <p class="text-base font-light text-gray-500">
+                <p class="text-base  font-primarybody text-gray-500">
                   {moment(post.createdAt).format("MM/DD/YYYY")}
                 </p>
               </div>
@@ -37,10 +37,14 @@ const Post = ({ post }) => {
 
       {/* post */}
       <h1 className="font-header text-3xl ">{post.title}</h1>
+      <br />
+      <p className="font-primarybody">{post.excerpt}</p>
+      <img src={post.featuredImage.url} className="my-6 w-[90%] mx-auto" />
       <div
-        className=""
+        className="font-primarybody"
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />
+      <div>{/* <Comments /> */}</div>
     </article>
   );
 };

@@ -42,7 +42,9 @@ const Template = () => {
         </p>
       </div>
       <br />
-      <div className="flex justify-center mb-6"> {/*className="flex max-w-6xl gap-6 px-5 mx-auto items-center relative" I am trying to see which parent div has an affect on the layout of the cards and practice my flex / alignment practice.*/}
+      <div className="flex justify-center mb-6">
+        {" "}
+        {/*className="flex max-w-6xl gap-6 px-5 mx-auto items-center relative" I am trying to see which parent div has an affect on the layout of the cards and practice my flex / alignment practice.*/}
         <Swiper /* Not completely sure if I can even add a classname and change the alignemt with the swiper components.*/
           slidesPreview={1.2}
           spaceBetween={20}
@@ -62,13 +64,16 @@ const Template = () => {
         >
           {Templates.map((info, i) => (
             <SwiperSlide key={i}>
-              <div className="flex flex-col items-center p-4 rounded-xl bg-slate-50"> {/*this is the parent div for img & h3 and seems to make them flex & flex col*/}
+              <div className="flex flex-col items-center p-4 rounded-xl bg-slate-100">
+                {" "}
+                {/*this is the parent div for img & h3 and seems to make them flex & flex col*/}
                 <img
                   src={info.img}
                   alt="downloadable template"
                   className="rounded-lg" /* This rounded class does not make much of a visual difference */
                 />
-                <h3 className="text-md text-black uppercase font-medium text-center my-4">{/* This is the text that appears right under the image whih is the problem as it looks lopsided. */}
+                <h3 className="text-md text-black uppercase font-medium text-center my-4">
+                  {/* This is the text that appears right under the image whih is the problem as it looks lopsided. */}
                   {info.title}
                 </h3>
               </div>

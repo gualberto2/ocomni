@@ -162,6 +162,9 @@ query GetOnePost($slug: String!){
     categories(){
       ${category}
     }
+    comments(){
+      ${comment}
+    }
   }
 }
 `;

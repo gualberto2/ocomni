@@ -5,6 +5,7 @@ import {
   QUERY_SELECTED_POST,
   graphcms,
 } from "../components/blog-components/queries";
+import Comments from "../components/blog-components/Comments";
 
 const Article = () => {
   const { slug } = useParams();
@@ -21,6 +22,7 @@ const Article = () => {
       {posts?.map((post) => (
         <>
           <Post post={post} />
+          <Comments comments={post?.comments} />
         </>
       ))}
     </>
