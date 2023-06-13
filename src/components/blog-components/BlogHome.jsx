@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { graphcms, QUERY_FEATURED_IMAGE, QUERY_POSTS } from "./queries";
 import { useParams, Link } from "react-router-dom";
 import {
   PostsByPopularity,
@@ -12,16 +11,8 @@ import PostCard from "./PostCard";
 
 export default function BlogHome() {
   const [posts, setPosts] = useState([]);
-  const [images, setImages] = useState([]);
   const { slug } = useParams();
 
-  useEffect(() => {
-    graphcms.request(QUERY_POSTS).then((res) => setPosts(res.posts));
-  }, []);
-
-  useEffect(() => {
-    graphcms.request(QUERY_FEATURED_IMAGE).then((res) => setImages(res.images));
-  }, []);
   return (
     <>
       <div className="mx-auto my-14 max-w-6xl px-8 ">

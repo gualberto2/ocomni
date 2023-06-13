@@ -50,6 +50,7 @@ const comment = `
     comment
 `;
 
+//-----------SORTED POSTS ⬇️
 export const QUERY_POST_BY_CATEGORY = gql`
 query GetPostsByCategory($slug: String!) {
     posts(orderBy: updatedAt_DESC, where: { categories_some: { slug: $slug } }){
@@ -139,6 +140,28 @@ export const QUERY_POST_BY_FEATURED = gql`
   posts(orderBy: updatedAt_DESC,first: 3){
       ${post}
       featuredPost
+  }
+}
+`;
+export const QUERY_POST = gql`
+{
+  posts(orderBy: updatedAt_DESC,first: 3){
+      ${post}
+      featuredPost
+  }
+}
+`;
+
+//--------------SORTED QUERIES ⬆️
+
+//Post
+export const QUERY_SELECTED_POST = gql`
+query GetOnePost($slug: String!){
+  posts(where: {slug: $slug}){
+    ${post}
+    categories(){
+      ${category}
+    }
   }
 }
 `;

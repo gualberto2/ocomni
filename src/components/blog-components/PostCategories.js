@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AiOutlineCalendar } from "react-icons/ai";
 import moment from "moment";
-import Post from "../Post";
+// import Post from "../Post";
 
 export function PostsByAbout() {
   const { slug } = useParams();
@@ -54,7 +54,7 @@ export function PostsByAbout() {
             </div>
 
             <div>
-              <Link to={<Post />}>
+              <Link to={`/article/${post.slug}`}>
                 <h1 className="font-header leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                   {post.title}
                 </h1>
@@ -112,7 +112,7 @@ export function PostsByMarketing() {
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden ">
             <div className="w-full  mt-1 ">
               <div className="sm:flex-col items-center">
-                <Link to={`/post/${post.slug}`}>
+                <Link to={`/article/${post.slug}`}>
                   <p className="font-header cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
@@ -175,7 +175,7 @@ export function PostsBySales() {
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden ">
             <div className="w-full  mt-1 ">
               <div className="sm:flex-col items-center">
-                <Link to={`/post/${post.slug}`}>
+                <Link to={`/article/${post.slug}`}>
                   <p className="font-header cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
@@ -230,7 +230,7 @@ export function PostByInformational() {
         <div key={post.id} className="mb-6 sm:mb-0">
           <article className="flex flex-col">
             <div className="">
-              <Link to={`/post/${post.slug}`}>
+              <Link to={`/article/${post.slug}`}>
                 <img
                   src={post.featuredImage.url}
                   alt=""
@@ -239,7 +239,7 @@ export function PostByInformational() {
               </Link>
             </div>
             <div>
-              <Link to={`/post/${post.slug}`}>
+              <Link to={`/article/${post.slug}`}>
                 <h1 className="font-header leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                   {post.title}
                 </h1>
@@ -299,7 +299,7 @@ export function PostByDaWeek() {
 
             <div className="w-full py-4 px-12 mt-1">
               <div className="flex items-center space-x-1">
-                <Link to={`/post/${post.slug}`}>
+                <Link to={`/article/${post.slug}`}>
                   <p className="font-header text-gray-900 text-center text-xl mb-2 tracking-wide text-black hover:underline cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
                     {post.title}
                   </p>
@@ -329,7 +329,7 @@ export function PostByDaWeek() {
                 </div>
 
                 <div class="flex justify-between items-center">
-                  <Link to={`/post/${post.slug}`}>
+                  <Link to={`/article/${post.slug}`}>
                     <a
                       href="#"
                       class="inline-flex items-center mt-4 font-medium  cursor-pointer hover:underline hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200"
@@ -385,7 +385,7 @@ export function PostsByPopularity() {
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden border-b border-gray-300">
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
-                <Link to={`/post/${post.slug}`}>
+                <Link to={`/article/${post.slug}`}>
                   <p className="font-header cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
@@ -437,7 +437,7 @@ export function PostsByFeatured() {
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden border-b border-gray-300">
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
-                <Link to={`/post/${post.slug}`}>
+                <Link to={`/article/${post.slug}`}>
                   <p className="font-header cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
