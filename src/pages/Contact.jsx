@@ -92,12 +92,10 @@ const ContactPage = () => {
             Check out our duggout.
           </h2>
           <em className="mb-12 font-extralight text-white text-center ">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quos
-            reiciendis totam possimus error recusandae dolore aut modi accusamus
-            voluptatibus ipsa.
+            Give us a call and a customer service rep will point you in the right direction. Be it a question, a bug, payment, we're here to help.
           </em>
         </div>
-        <div className="mx-16 grid grid-cols-1 grid-rows-1 md:grid-cols-2 gap-6 pb-16">
+        <div className="mx-16 grid grid-cols-1 grid-rows-1 md:grid-cols-2 lg:grid-cols-2 gap-28 pb-16">
           <div className="flex flex-col sm:flex-row gap-6">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.2556724694364!2d-117.15128401448122!3d32.758949817037035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d954e1cf32b25f%3A0x19bfe09db0698b63!2sLestat&#39;s%20on%20Park!5e0!3m2!1sen!2sus!4v1685728916392!5m2!1sen!2sus"
@@ -128,7 +126,7 @@ const ContactPage = () => {
               <p className="text-white font-medium">
                 North America (Toll Free)
               </p>
-              <p className="text-white font-light">619-123-4567</p>
+              <p className="text-white font-light">858-255-0306</p>
             </div>
             <div className="">
               <p className="text-white">
