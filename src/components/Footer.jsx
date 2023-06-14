@@ -17,22 +17,22 @@ export default function Footer() {
               Ocomni
             </span>
           </a>
-          <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 ">
+          <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 hover:cursor-pointer">
             <li className="mr-4 hover:underline md:mr-6 "> About</li>
 
             <li
-              class="mr-4 hover:underline md:mr-6"
+              class="mr-4 hover:underline hover:cursor-pointer md:mr-6"
               onClick={() => navigate("/privacy-policy")}
             >
               Privacy Policy
             </li>
             <li>
-              <a href="#" class="mr-4 hover:underline md:mr-6 ">
+              <a href="#" class="mr-4 hover:underline md:mr-6 hover:cursor-pointer">
                 Licensing
               </a>
             </li>
             <li>
-              <a href="#" class="hover:underline">
+              <a href="#" class="hover:underline hover:cursor-pointer">
                 Contact
               </a>
             </li>
