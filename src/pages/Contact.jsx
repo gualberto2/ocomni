@@ -8,7 +8,7 @@ const ContactPage = () => {
     <div className="">
       <div className="my-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24">
         <div className=" py-20 px-20">
-          <h1 className="text-6xl tracking-wider text-center font-light  md:whitespace-nowrap pb-8">
+          <h1 className="text-6xl tracking-wider text-center font-light mt-12 md:whitespace-nowrap pb-8">
             We wanna hear from <em className="uppercase">You</em>.
           </h1>
           <p className="font-light text-center text-md">
@@ -23,9 +23,10 @@ const ContactPage = () => {
                   Sales
                 </h3>
                 <p className=" leading-8 font-light">
-                  Find out how Ocomni can help you scale up and grow your ecommerce business!
+                  Find out how Ocomni can help you scale up and grow your
+                  ecommerce business!
                 </p>
-              </div>            
+              </div>
               <div className="flex justify-center items-end">
                 <button className="transition ease-in-out duration-150 bg-[#6366F1] hover:bg-[#5F56D6] active:bg-[#5B45BB] px-8 py-3 rounded-lg text-white mt-4">
                   Get in Touch
@@ -40,9 +41,10 @@ const ContactPage = () => {
                   Support
                 </h3>
                 <p className="leading-8 font-light">
-                  Having trouble posting a blog, using a tool, or any bugs? Use our bug free guarantee?
+                  Having trouble posting a blog, using a tool, or any bugs? Use
+                  our bug free guarantee? lorem 20
                 </p>
-              </div>              
+              </div>
               <div className="flex justify-center items-end">
                 <button className="transition ease-in-out duration-150 bg-[#6366F1] hover:bg-[#5F56D6] active:bg-[#5B45BB] px-8 py-3 rounded-lg text-white mt-4">
                   Get Support
@@ -57,9 +59,11 @@ const ContactPage = () => {
                   Media
                 </h3>
                 <p className=" leading-8 font-light">
-                Create content? Collaborate for our blog and amplify your reach!
+                  Create content? Collaborate for our blog and amplify your
+                  reach! Lorem ipsum dolor sit, amet consectetur adipisicing
+                  elit. Magni quos excepturi maiores.
                 </p>
-              </div>              
+              </div>
               <div className="flex justify-center items-end">
                 <button className="transition ease-in-out duration-150 bg-[#6366F1] hover:bg-[#5F56D6] active:bg-[#5B45BB] px-8 py-3 rounded-lg text-white mt-4">
                   Get in Touch
@@ -74,9 +78,10 @@ const ContactPage = () => {
                   Partnerships
                 </h3>
                 <p className="leading-8 font-light ">
-                  Be part of our brand! Join the affiliate program for incredible co-marketing opportunities.
+                  Be part of our brand! Join the affiliate program for
+                  incredible co-marketing opportunities.
                 </p>
-              </div>              
+              </div>
               <div className="flex justify-center items-end">
                 <button className="transition ease-in-out duration-150 bg-[#6366F1] hover:bg-[#5F56D6] active:bg-[#5B45BB] px-8 py-3 rounded-lg text-white mt-4">
                   Let's Talk
@@ -92,7 +97,9 @@ const ContactPage = () => {
             Check out our duggout.
           </h2>
           <em className="mb-12 font-extralight text-white text-center ">
-            Give us a call and a customer service rep will point you in the right direction. Be it a question, a bug, payment, we're here to help.
+            Give us a call and a customer service rep will point you in the
+            right direction. Be it a question, a bug, payment, we're here to
+            help.
           </em>
         </div>
         <div className="mx-16 grid grid-cols-1 grid-rows-1 md:grid-cols-2 lg:grid-cols-2 gap-28 pb-16">
