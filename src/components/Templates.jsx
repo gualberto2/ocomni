@@ -64,8 +64,8 @@ const Template = () => {
         >
           {Templates.map((info, i) => (
             <SwiperSlide key={i}>
-              <div className="flex flex-col items-center p-4 rounded-xl bg-slate-200">
-                {" "}
+              <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-rose-100 to-purple-300  transition-all duration-200 ease-in-out bg-[position:_0%_0%] hover:bg-[position:_100%_100%] bg-[size:_200%]">
+                {/* bg-gradient-to-tr from-red-700 to-blue-800 bg-[position:_90%_200%] hover:bg-[position:_700%_1000%] bg-[size:_200%] h-40 w-40 transition-all duration-500 */}{" "}
                 {/*this is the parent div for img & h3 and seems to make them flex & flex col*/}
                 <img
                   src={info.img}
