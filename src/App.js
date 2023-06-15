@@ -19,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import BlogHome from "./components/blog-components/BlogHome";
 import Post from "./components/Post";
+import ProjectCalculator from "./pages/ProjectCalculator";
 function App() {
   return (
     <>
@@ -31,7 +32,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/profile" element={<PrivateRoute />}>
-            <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
           </Route>
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/sign-up" element={<SignUp />} />
@@ -39,6 +40,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/post/:slug" element={<Post />} />
+          <Route path="/project-calculator" element={<ProjectCalculator/>}/>
         </Routes>
         <Footer />
       </Router>
