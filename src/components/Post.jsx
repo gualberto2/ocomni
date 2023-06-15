@@ -40,14 +40,15 @@ const Post = ({ post }) => {
         {post.title}
       </h1>
       <br />
-      <p className="font-primarybody text-2xl leading-relaxed">
+      <p className="font-primarybody text-2xl leading-relaxed selection:bg-purple-500 selection:text-white">
         {post.excerpt}
       </p>
       <img src={post.featuredImage.url} className="my-6 w-[90%] mx-auto" />
       <div
-        className="font-primarybody text-2xl leading-relaxed"
+        className="font-primarybody text-2xl leading-relaxed selection:bg-purple-500 selection:text-white"
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />
+
       <div>{/* <Comments /> */}</div>
     </article>
   );

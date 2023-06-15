@@ -64,7 +64,7 @@ const Template = () => {
         >
           {Templates.map((info, i) => (
             <SwiperSlide key={i}>
-              <div className="flex flex-col items-center p-4 rounded-xl bg-slate-100">
+              <div className="flex flex-col items-center p-4 rounded-xl bg-slate-200">
                 {" "}
                 {/*this is the parent div for img & h3 and seems to make them flex & flex col*/}
                 <img

@@ -18,6 +18,9 @@ const post = `
     content {
       html
     }
+    content {
+      raw
+    }
     author {
       id
       name
