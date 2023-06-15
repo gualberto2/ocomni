@@ -23,10 +23,10 @@ const Post = ({ post }) => {
                 >
                   {post.author.name}
                 </a>
-                <p class="text-base font-primarybody text-gray-500 ">
+                <p class="md:text-base font-primarybody text-gray-500 text-xl ">
                   {post.author.roles}
                 </p>
-                <p class="text-base  font-primarybody text-gray-500">
+                <p class="md:text-base  font-primarybody text-gray-500 text-xl">
                   {moment(post.createdAt).format("MM/DD/YYYY")}
                 </p>
               </div>
@@ -36,12 +36,16 @@ const Post = ({ post }) => {
       </div>
 
       {/* post */}
-      <h1 className="font-header text-3xl ">{post.title}</h1>
+      <h1 className="font-header text-5xl md:text-3xl leading-snug md:leading-none">
+        {post.title}
+      </h1>
       <br />
-      <p className="font-primarybody">{post.excerpt}</p>
+      <p className="font-primarybody text-2xl leading-relaxed">
+        {post.excerpt}
+      </p>
       <img src={post.featuredImage.url} className="my-6 w-[90%] mx-auto" />
       <div
-        className="font-primarybody"
+        className="font-primarybody text-2xl leading-relaxed"
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />
       <div>{/* <Comments /> */}</div>
