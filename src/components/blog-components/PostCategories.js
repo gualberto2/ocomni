@@ -300,7 +300,7 @@ export function PostByDaWeek() {
             <div className="w-full py-4 px-12 mt-1">
               <div className="flex items-center space-x-1">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-header text-gray-900 text-center text-xl mb-2 tracking-wide text-black hover:underline cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
+                  <p className="font-header text-gray-900 text-center text-xl mb-2 tracking-wide  cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
                     {post.title}
                   </p>
                 </Link>
@@ -399,7 +399,7 @@ export function PostsByPopularity() {
 
                 <div className="mb-2">
                   <p className="font-light mt-2 text line-clamp-1 text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700">
-                    {post.author.name}, {post.author.roles}
+                    {post.author.name} / {post.author.roles}
                   </p>
                 </div>
               </div>
@@ -451,7 +451,7 @@ export function PostsByFeatured() {
 
                 <div className="mb-2">
                   <p className="font-light mt-2 text line-clamp-1 text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700">
-                    {post.author.name}, {post.author.roles}
+                    {post.author.name} / {post.author.roles}
                   </p>
                 </div>
               </div>
