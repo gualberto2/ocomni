@@ -77,7 +77,7 @@ export const Ourwork = () => {
         </button>
 
         <button className="rounded-md active:bg-[#5B45BB] hover:bg-[#5F56D6] mt-4 px-8 py-4 bg-[#6366F1] text-white shadow-lg transition ease-in-out duration-150 w-[77%]">
-          <Link className="">Project Calculators</Link>
+          <Link to="./project-calculator" className="">Project Calculators</Link>
         </button>
       </div>
     </div>
