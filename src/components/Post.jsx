@@ -45,6 +45,7 @@ const Post = ({ post }) => {
       </p>
       <img src={post.featuredImage.url} className="my-6 w-[90%] mx-auto" />
       <div
+        class="content"
         className="font-primarybody text-2xl leading-relaxed selection:bg-purple-500 selection:text-white"
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />

@@ -18,6 +18,7 @@ import "tailwindcss/tailwind.css";
 import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Article from "./pages/Article";
+import AllBlogs from "./pages/AllBlogs";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/article/:slug" element={<Article />} />
+          <Route path="/all-blogs" element={<AllBlogs />} />
         </Routes>
         <Footer />
       </Router>

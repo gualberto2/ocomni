@@ -165,8 +165,24 @@ query GetOnePost($slug: String!){
     categories(){
       ${category}
     }
-    comments(){
+    comments(orderBy: updatedAt_DESC){
       ${comment}
+    }
+  }
+}
+`;
+
+export const QUERY_ALL_POSTS = gql`
+query GetPosts($limit: Int!){
+  posts(orderBy: updatedAt_DESC,first: $limit, skip: 0){
+      ${post}
+      categories(){
+        ${category}
+      }
+  }
+  countConnection: postsConnection(stage: PUBLISHED){
+    aggregate{
+      count
     }
   }
 }

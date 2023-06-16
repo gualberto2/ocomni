@@ -15,6 +15,7 @@ export default function Blog() {
   const { slug } = useParams();
   return (
     <>
+      <Link to="/all-blogs">ALL POSTS</Link>
       <div className="mx-auto my-14 max-w-6xl px-8 ">
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6  lg:gap-2 lg:grid-cols-8">

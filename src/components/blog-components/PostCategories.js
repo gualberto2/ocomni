@@ -8,6 +8,7 @@ import {
   QUERY_POST_BY_POPULARITY,
   QUERY_POST_BY_FEATOFDAWEEK,
   QUERY_POST_BY_SALES,
+  QUERY_ALL_POSTS,
 } from "./queries";
 import PostCard from "./PostCard";
 import PostsNoCard from "./PostsNoCard";
@@ -48,6 +49,7 @@ export function PostsByAbout() {
             <div className="">
               <img
                 src={post.featuredImage.url}
+                onClick={() => navigate(`/article/${post.slug}`)}
                 alt=""
                 className="h-[150px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in "
               />
@@ -55,7 +57,7 @@ export function PostsByAbout() {
 
             <div>
               <Link to={`/article/${post.slug}`}>
-                <h1 className="font-header leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                <h1 className="font-header leading-6 line-clamp-2  cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                   {post.title}
                 </h1>
               </Link>
@@ -81,6 +83,7 @@ export function PostsByAbout() {
 export function PostsByMarketing() {
   const { slug } = useParams();
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -104,6 +107,7 @@ export function PostsByMarketing() {
         <div key={post.id} className="flex flex-row mt-2 gap-2 items-center">
           <img
             src={post.featuredImage.url}
+            onClick={() => navigate(`/article/${post.slug}`)}
             alt=""
             loading="lazy"
             className="h-[104px] w-[100px] object-cover hover:scale-105 transition-scale duration-200 ease-in "
@@ -144,6 +148,7 @@ export function PostsByMarketing() {
 export function PostsBySales() {
   const { slug } = useParams();
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -167,6 +172,7 @@ export function PostsBySales() {
         <div key={post.id} className="flex flex-row mt-2 gap-2 items-center">
           <img
             src={post.featuredImage.url}
+            onClick={() => navigate(`/article/${post.slug}`)}
             alt=""
             loading="lazy"
             className="h-[104px] w-[100px] object-cover hover:scale-105 transition-scale duration-200 ease-in "
@@ -240,7 +246,7 @@ export function PostByInformational() {
             </div>
             <div>
               <Link to={`/article/${post.slug}`}>
-                <h1 className="font-header leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                <h1 className="font-header leading-6 line-clamp-2 cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                   {post.title}
                 </h1>
               </Link>
@@ -264,7 +270,6 @@ export function PostByInformational() {
 }
 export function PostByDaWeek() {
   const navigate = useNavigate();
-
   const { slug } = useParams();
   const [posts, setPosts] = useState([]);
 
@@ -290,7 +295,7 @@ export function PostByDaWeek() {
         <div key={post.id} className="">
           <li className="relative bg-purple-100 flex flex-col justify-between h-full  items-center overflow-hidden mt-3 duration-150">
             <img
-              onClick={() => navigate("/")}
+              onClick={() => navigate(`/article/${post.slug}`)}
               src={post.featuredImage.url}
               alt=""
               loading="lazy"
@@ -361,7 +366,7 @@ export function PostByDaWeek() {
 export function PostsByPopularity() {
   const { slug } = useParams();
   const [posts, setPosts] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -457,6 +462,38 @@ export function PostsByFeatured() {
               </div>
             </div>
           </li>
+        </div>
+      ))}
+    </>
+  );
+}
+
+export function PostsAll() {
+  const { slug } = useParams();
+  const { limit } = useParams();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await graphcms.request(QUERY_ALL_POSTS, {
+          slug: slug,
+          limit: limit,
+        });
+        console.log(res);
+        setPosts(res.posts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [slug]);
+  return (
+    <>
+      {posts?.map((post) => (
+        <div>
+          <p>{post.title}</p>
         </div>
       ))}
     </>

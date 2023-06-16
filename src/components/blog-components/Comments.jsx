@@ -40,7 +40,10 @@ const Comments = ({ comments }) => {
       </form>
       {comments?.map((comment) => (
         <div key={comment.id}>
-          {comment.name}, {comment.email}
+          <strong>
+            <i>{comment.name}</i>
+          </strong>
+          <p>{comment.comment}</p>
         </div>
       ))}
     </div>
