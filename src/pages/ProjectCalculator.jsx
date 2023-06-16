@@ -1,12 +1,9 @@
-import React from 'react';
-import Survey from '../components/Survey';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
 
 export default function ProjectCalculator() {
   return (
     <div>
-      <h1>Survey</h1>
-      <Survey/>
+      <h1>Survey Page</h1>
     </div>
   );
 }
