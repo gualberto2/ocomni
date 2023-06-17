@@ -173,8 +173,8 @@ query GetOnePost($slug: String!){
 `;
 
 export const QUERY_ALL_POSTS = gql`
-query GetPosts($limit: Int!){
-  posts(orderBy: updatedAt_DESC,first: $limit, skip: 0){
+query GetPosts($limit: Int!, $skip: Int!){
+  posts(orderBy: updatedAt_DESC,first: $limit, skip: $skip){
       ${post}
       categories(){
         ${category}
