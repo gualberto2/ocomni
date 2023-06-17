@@ -337,7 +337,7 @@ export function PostByDaWeek() {
                   <Link to={`/article/${post.slug}`}>
                     <a
                       href="#"
-                      class="inline-flex items-center mt-4 font-medium  cursor-pointer hover:underline hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200"
+                      class="inline-flex items-center mt-4 font-medium  cursor-pointer hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200"
                     >
                       Read more
                       <svg

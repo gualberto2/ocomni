@@ -13,6 +13,7 @@ import PostCard from "../components/blog-components/PostCard";
 export default function Blog() {
   const [posts, setPosts] = useState([]);
   const { slug } = useParams();
+
   return (
     <>
       <Link to="/all-blogs">ALL POSTS</Link>

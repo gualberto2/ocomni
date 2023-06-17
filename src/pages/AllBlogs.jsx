@@ -1,24 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useQueryPosts from "../hooks/useQueryPosts";
-import { PostsAll } from "../components/blog-components/PostCategories";
 import Pagination from "../components/blog-components/Pagination";
 import { QUERY_ALL_POSTS } from "../components/blog-components/queries";
+import {
+  ContextProvider,
+  useMyContext,
+} from "../components/blog-components/store";
+import Loading from "../components/blog-components/Loading";
 
 const AllBlogs = () => {
-  const { posts, error } = useQueryPosts({ query: QUERY_ALL_POSTS, limit: 7 });
+  const { posts, error } = useQueryPosts({ query: QUERY_ALL_POSTS, limit: 2 });
+  const { loading, totalPage } = useMyContext();
+
   return (
     <>
+      {loading && <Loading />}
       <div>
         <div>
-          <div>
-            {posts?.map((post) => (
-              <div>{post.title}</div>
-            ))}
-          </div>
+          {posts?.map((post) => (
+            <div key={post.id}>{post.title}</div>
+          ))}
         </div>
       </div>
+      <Pagination totalPage={totalPage} />
     </>
   );
 };
 
-export default AllBlogs;
+const AllBlogsPage = () => (
+  <ContextProvider>
+    <AllBlogs />
+  </ContextProvider>
+);
+
+export default AllBlogsPage;
