@@ -16,7 +16,6 @@ export default function Blog() {
 
   return (
     <>
-      <Link to="/all-blogs">ALL POSTS</Link>
       <div className="mx-auto my-14 max-w-6xl px-8 ">
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6  lg:gap-2 lg:grid-cols-8">
@@ -45,6 +44,25 @@ export default function Blog() {
             </div>
           </div>
         </div>
+        <div className="my-8">
+          <div className="flex justify-center items-center">
+            <div
+              className="border-t border-purple-300 w-full"
+              style={{ height: "1px" }}
+            ></div>
+            <Link
+              to="/all-blogs"
+              className="font-primarybody whitespace-nowrap uppercase text-center text-lg px-4 hover:text-gray-400 text-gray-900 transition duration-150 ease-in"
+            >
+              View all posts here
+            </Link>
+            <div
+              className="border-t border-purple-300 w-full"
+              style={{ height: "1px" }}
+            ></div>
+          </div>
+        </div>
+
         <ul className="sm:grid sm:grid-cols-2  lg:grid-cols-4 my-12 gap-6">
           <PostCard posts={posts} className="w-[200px]" />
         </ul>
@@ -59,10 +77,23 @@ export default function Blog() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <PostsByMarketing />
             </div>
-            <div>
-              <p className="text-center font-primarybody  hover:text-slate-600 mt-4 transition duration-200 cursor-pointer ">
-                See more marketing articles
-              </p>
+            <div className="my-6">
+              <div className="flex justify-center items-center">
+                <div
+                  className="border-t border-blue-400 w-full"
+                  style={{ height: "1px" }}
+                ></div>
+                <Link
+                  to="/all-blogs"
+                  className="font-primarybody whitespace-nowrap uppercase text-center text-sm px-4 hover:text-gray-400 text-gray-900 transition duration-150 ease-in"
+                >
+                  View more marketing posts here
+                </Link>
+                <div
+                  className="border-t border-blue-300 w-full"
+                  style={{ height: "1px" }}
+                ></div>
+              </div>
             </div>
           </div>
           <div>
@@ -73,10 +104,23 @@ export default function Blog() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               <PostsBySales />
             </div>
-            <div>
-              <p className="text-center font-primarybody hover:text-slate-600 mt-4 transition duration-200 cursor-pointer ">
-                See more sales articles
-              </p>
+            <div className="my-6">
+              <div className="flex justify-center items-center">
+                <div
+                  className="border-t border-green-400 w-full"
+                  style={{ height: "1px" }}
+                ></div>
+                <Link
+                  to="/all-blogs"
+                  className="font-primarybody whitespace-nowrap uppercase text-center text-sm px-4 hover:text-gray-400 text-gray-900 transition duration-150 ease-in"
+                >
+                  View more sales posts here
+                </Link>
+                <div
+                  className="border-t border-green-400 w-full"
+                  style={{ height: "1px" }}
+                ></div>
+              </div>
             </div>
           </div>
         </div>
@@ -139,7 +183,7 @@ export default function Blog() {
             />
             <div className="flex items-center flex-row bg-gray-300 px-12 py-9">
               <p className="text-xl font-header text-teal-700">
-                Instagram Marketing{" "}
+                Instagram Marketing
               </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
