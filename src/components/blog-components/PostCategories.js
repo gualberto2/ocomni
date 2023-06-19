@@ -175,7 +175,7 @@ export function PostsBySales() {
             onClick={() => navigate(`/article/${post.slug}`)}
             alt=""
             loading="lazy"
-            className="h-[104px] w-[100px] object-cover hover:scale-105 transition-scale duration-200 ease-in "
+            className="h-[104px] w-[100px] object-cover hover:scale-105 transition-scale duration-200 ease-in"
           />
 
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden ">

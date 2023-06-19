@@ -25,7 +25,7 @@ code {
 
 @font-face {
   font-family: "Bold";
-  src: url(assets/fonts/Satoshi-Bold.otf) format("opentype");
+  src: url() format("opentype");
 }
 @font-face {
   font-family: "LightSatoshi";
