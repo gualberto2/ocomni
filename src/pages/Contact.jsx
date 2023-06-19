@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { TbWorldWww } from "react-icons/tb";
 
 // keep p tag words 20 words long, will keep each box same size usually
 
 const ContactPage = () => {
+  useEffect(() => {
+    document.body.classList.add("page-animation");
+
+    return () => {
+      document.body.classList.remove("page-animation");
+    };
+  }, []);
   return (
     <div className="">
       <div className="my-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24">
@@ -60,8 +67,7 @@ const ContactPage = () => {
                 </h3>
                 <p className=" leading-8 font-light">
                   Create content? Collaborate for our blog and amplify your
-                  reach! Lorem ipsum dolor sit, amet consectetur adipisicing
-                  elit. Magni quos excepturi maiores.
+                  reach!
                 </p>
               </div>
               <div className="flex justify-center items-end">

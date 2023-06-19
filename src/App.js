@@ -19,11 +19,14 @@ import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Article from "./pages/Article";
 import AllBlogs from "./pages/AllBlogs";
+import ScrollToTop from "./components/ScrollToTop";
+import "./pageAnimations.css";
 
 function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

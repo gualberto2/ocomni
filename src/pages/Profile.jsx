@@ -1,7 +1,7 @@
 import { getAuth, updateProfile } from "firebase/auth";
 import { db } from "../firebase";
 import { doc, updateDoc } from "firebase/firestore";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -61,7 +61,13 @@ export default function Profile() {
       toast.error("Could not update details :(");
     }
   }
+  useEffect(() => {
+    document.body.classList.add("page-animation");
 
+    return () => {
+      document.body.classList.remove("page-animation");
+    };
+  }, []);
   return (
     <>
       <p>Account</p>

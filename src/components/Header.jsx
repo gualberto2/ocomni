@@ -48,13 +48,13 @@ export default function Header() {
   };
 
   return (
-    <div className={`bg-white  shadow-md sticky top-0 z-50 `}>
-      <header className="flex flex-col sm:flex-row md:h-10 h-16 justify-around md:justify-between items-center mxa-w-6xl mx-auto h-10 px-10 z-50">
+    <div className={`backdrop-blur bg-[#f8f9fa]/50 sticky top-0 z-50 `}>
+      <header className="flex flex-col sm:flex-row md:h-10 h-10 justify-around md:justify-between items-center mxa-w-6xl mx-auto  px-10 z-50">
         <div>
           {/* className={` ${!visible && "hidden"}`} */}
           <h1
             onClick={() => navigate("/")}
-            className={`uppercase text-[#5B45BB] cursor-pointer text-xl font-title`}
+            className={`uppercase text-[#5B45BB] cursor-pointer text-xl mt-8 sm:mt-1 font-title`}
           >
             Ocomni
           </h1>

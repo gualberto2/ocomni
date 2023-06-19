@@ -13,6 +13,13 @@ import PostCard from "../components/blog-components/PostCard";
 export default function Blog() {
   const [posts, setPosts] = useState([]);
   const { slug } = useParams();
+  useEffect(() => {
+    document.body.classList.add("page-animation");
+
+    return () => {
+      document.body.classList.remove("page-animation");
+    };
+  }, []);
 
   return (
     <>
@@ -132,69 +139,22 @@ export default function Blog() {
         <p className="font-primarybody text-lg text-center">
           Ready to learn something new? We got you with great resources!
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-          <div className="flex flex-col shadow-md">
-            <img
-              src="https://townsquare.media/site/812/files/2022/02/attachment-Drake-phone-meme.jpg?w=1200"
-              alt=""
-              className="w-auto h-[132px] sm:h-[180px] md:h-[250px] object-cover rounded-t-lg"
-            />
-            <div className="flex items-center flex-row bg-gray-300 px-12 py-9">
-              <p className="text-xl font-header text-teal-700">
-                Instagram Marketing{" "}
-              </p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="text-teal-700"
-              >
-                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-              </svg>
-            </div>
-          </div>
-          <div className="flex flex-col shadow-md">
-            <img
-              src="https://townsquare.media/site/812/files/2022/02/attachment-Drake-phone-meme.jpg?w=1200"
-              alt=""
-              className="w-auto h-[132px] sm:h-[180px] md:h-[250px] object-cover rounded-t-lg"
-            />
-            <div className="flex items-center flex-row bg-gray-300 px-12 py-9">
-              <p className="text-xl font-header text-teal-700">
-                Instagram Marketing{" "}
-              </p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="text-teal-700"
-              >
-                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-              </svg>
-            </div>
-          </div>
-          <div className="flex flex-col shadow-md">
-            <img
-              src="https://townsquare.media/site/812/files/2022/02/attachment-Drake-phone-meme.jpg?w=1200"
-              alt=""
-              className="w-auto h-[132px] sm:h-[180px] md:h-[250px] object-cover rounded-t-lg"
-            />
-            <div className="flex items-center flex-row bg-gray-300 px-12 py-9">
-              <p className="text-xl font-header text-teal-700">
-                Instagram Marketing
-              </p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="text-teal-700"
-              >
-                <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-              </svg>
-            </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+        <div className="flex flex-col shadow-md">
+          <div className="flex items-center flex-row bg-gray-300 px-12 py-9">
+            <p className="text-xl font-header text-teal-700">
+              Instagram Marketing
+            </p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              className="text-teal-700"
+            >
+              <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+            </svg>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Footer() {
   const navigate = useNavigate();
   return (
-    <div class="bg-purple-100 shadow">
+    <div class=" ">
       <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
           <a href="https://ocomni.com/" class="flex items-center mb-4 sm:mb-0">
@@ -27,7 +27,10 @@ export default function Footer() {
               Privacy Policy
             </li>
             <li>
-              <a href="#" class="mr-4 hover:underline md:mr-6 hover:cursor-pointer">
+              <a
+                href="#"
+                class="mr-4 hover:underline md:mr-6 hover:cursor-pointer"
+              >
                 Licensing
               </a>
             </li>

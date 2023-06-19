@@ -31,7 +31,7 @@ const Template = () => {
   ];
 
   return (
-    <section id="templates" className="py-10 text-white mb-24">
+    <section id="templates" className="py-10 text-white mb-20">
       <div className="text-center">
         <h2 className="mt-2 text-black text-4xl font-bold">Free Templates</h2>
         <p className="text-black mt-3 text-lg">
@@ -64,7 +64,7 @@ const Template = () => {
         >
           {Templates.map((info, i) => (
             <SwiperSlide key={i}>
-              <div className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-rose-100 to-purple-300  transition-all duration-200 ease-in-out bg-[position:_0%_0%] hover:bg-[position:_100%_100%] bg-[size:_200%]">
+              <div className="flex flex-col items-center p-4 rounded-xl bg-[#DADAFC] hover:bg-[#ECEDFD] transition duration-150 ease-in">
                 {/* bg-gradient-to-tr from-red-700 to-blue-800 bg-[position:_90%_200%] hover:bg-[position:_700%_1000%] bg-[size:_200%] h-40 w-40 transition-all duration-500 */}{" "}
                 {/*this is the parent div for img & h3 and seems to make them flex & flex col*/}
                 <img
@@ -84,7 +84,7 @@ const Template = () => {
       <div className="flex items-center justify-center ">
         <Link
           to="/templates"
-          className="bg-[#6366F1] text-center shadow-lg rounded-md px-8 py-3 active:bg-[#5B45BB] hover:bg-[#5F56D6] transition ease-in-out duration-150 w-[88%] md:w-[50%]"
+          className="bg-[#6366F1] text-lg uppercase font-boldbody text-center shadow-lg rounded-md px-8 py-3 active:bg-[#5B45BB] hover:bg-[#5F56D6] transition ease-in-out duration-150 w-[88%] md:w-[50%]"
         >
           Get Template
         </Link>

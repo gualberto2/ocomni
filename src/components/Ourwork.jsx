@@ -50,7 +50,7 @@ export const Ourwork = () => {
   ];
   const visibleItems = showAll ? items : items.slice(0, 3);
   return (
-    <div className="my-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24">
+    <div className="mb-36 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {visibleItems.map((item, index) => (
           <div
@@ -73,11 +73,15 @@ export const Ourwork = () => {
             !showAll ? "block" : ""
           }`}
         >
-          {showAll ? "See Less" : "Show All"}
+          <p className="text-lg uppercase font-boldbody ">
+            {showAll ? "See Less" : "Show All"}
+          </p>
         </button>
 
         <button className="rounded-md active:bg-[#5B45BB] hover:bg-[#5F56D6] mt-4 px-8 py-4 bg-[#6366F1] text-white shadow-lg transition ease-in-out duration-150 w-[77%]">
-          <Link className="">Project Calculators</Link>
+          <Link className="text-lg font-boldbody uppercase">
+            Project Calculators
+          </Link>
         </button>
       </div>
     </div>

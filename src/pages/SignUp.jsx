@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import OAuth from "../components/OAuth";
@@ -21,6 +21,13 @@ export default function SignUp() {
   });
   const { name, email, password } = formData;
   const navigate = useNavigate();
+  useEffect(() => {
+    document.body.classList.add("page-animation");
+
+    return () => {
+      document.body.classList.remove("page-animation");
+    };
+  }, []);
   function onChange(e) {
     setFormData((prevState) => ({
       ...prevState,
@@ -75,7 +82,7 @@ export default function SignUp() {
   }
 
   return (
-    <section className="bg-white">
+    <section className="h-screen">
       <h1 className="text-3xl text-center mt-6 font-bold">Sign Up</h1>
       <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
@@ -126,7 +133,7 @@ export default function SignUp() {
                   onClick={() => setShowPassword((prevState) => !prevState)}
                 />
               )}
-              <div className="mb-6">
+              {/* <div className="mb-6">
                 <p className="text-lg font-semibold">PFP</p>
                 <p className="text-gray-600">
                   This will be your profile picture
@@ -139,7 +146,7 @@ export default function SignUp() {
                   required
                   className="w-full px-3 py-1.5 text-gray-700 bg-white border border-gray-300 rounded transition duration-150 ease-in-out focus:bg-white focus:border-slate-600"
                 />
-              </div>
+              </div> */}
             </div>
             <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">
               <p className="mb-6">
