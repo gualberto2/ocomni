@@ -4,12 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      header: "headertitle",
-      primarybody: "primarybody",
-      secondarybody: "secondarybody",
-      boldbody: "boldbody",
-      title: "headertitle",
-      subtitle: "subheadertitle",
+      OCOMNI: "OCOMNI",
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/line-clamp")],
