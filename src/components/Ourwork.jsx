@@ -69,7 +69,7 @@ export const Ourwork = () => {
       <div className="flex flex-col items-center">
         <button
           onClick={() => setShowAll((prevState) => !prevState)}
-          className={`rounded-lg bg-[#ECEBFF] hover:bg-[#D9DAFC] active:bg-[#ECEDFD] text-[#6663FD] mt-4 px-8 py-2 w-[30%] font-medium transition ease-in-out duration-150 ${
+          className={`rounded-lg bg-[#ECEBFF] hover:bg-[#D9DAFC] active:bg-[#ECEDFD] text-[#6663FD] mt-4 px-8 py-2 md:w-[30%] font-medium transition ease-in-out whitespace-nowrap duration-150 ${
             !showAll ? "block" : ""
           }`}
         >
