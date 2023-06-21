@@ -69,19 +69,13 @@ export const Ourwork = () => {
       <div className="flex flex-col items-center">
         <button
           onClick={() => setShowAll((prevState) => !prevState)}
-          className={`rounded-md active:bg-[#5B45BB] hover:bg-[#5F56D6] mt-4 px-8 py-1 bg-[#6366F1] text-white w-[77%]  shadow-lg transition ease-in-out duration-150 ${
+          className={`rounded-lg bg-[#ECEBFF] hover:bg-[#D9DAFC] active:bg-[#ECEDFD] text-[#6663FD] mt-4 px-8 py-2 w-[30%] font-medium transition ease-in-out duration-150 ${
             !showAll ? "block" : ""
           }`}
         >
-          <p className="text-lg uppercase font-boldbody ">
-            {showAll ? "See Less" : "Show All"}
+          <p className="text-lg font-medium ">
+            {showAll ? "See Less cards 🫣" : "Show all cards 👁"}
           </p>
-        </button>
-
-        <button className="rounded-md active:bg-[#5B45BB] hover:bg-[#5F56D6] mt-4 px-8 py-4 bg-[#6366F1] text-white shadow-lg transition ease-in-out duration-150 w-[77%]">
-          <Link className="text-lg font-boldbody uppercase">
-            Project Calculators
-          </Link>
         </button>
       </div>
     </div>
