@@ -61,12 +61,12 @@ export default function HomePage() {
         <p className="mt-2 text-xl text-neutral-500 leading-normal text-center">
           Build the perfect E-Commerce shop, improve business and grow.
         </p>
-        <div className="mx-auto flex items-center gap-2 relative mt-4">
+        <div className="mx-auto flex flex-col w-full items-center gap-2 relative mt-4">
           <form action="w-full">
             <input
               type="text"
               placeholder="Enter your email here..."
-              className="   py-3 rounded-md bg-gray-300 border-gray-300  w-full"
+              className="transition duration-150 ease-in-out  py-3 rounded-md bg-gray-300 border-gray-300 border-[1px] focus:bg-gray-400 w-full focus:border-blue-800 focus:ring-transparent "
             />
           </form>
           <button className=" active:bg-[#5B45BB] hover:bg-[#5F56D6] bg-[#6366F1] text-white text-center rounded-md px-4 py-3 mx-auto transition ease-in-out duration-150">
@@ -80,7 +80,7 @@ export default function HomePage() {
         </p>
         <p className="text-neutral-500 text-xs leading-normal justify-center items-center flex flex-row text-center">
           Get started{" "}
-          <span className="flex flex-row ml-1 text-purple-300">
+          <span className="flex flex-row ml-1 text-purple-300 cursor-pointer hover:text-purple-400 transition duration-150 ease-in">
             here{" "}
             <svg
               width="1em"
