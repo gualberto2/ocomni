@@ -79,23 +79,26 @@ export default function HomePage() {
           Create an account for free, and we will contact you.
         </p>
         <p className="text-neutral-500 text-xs leading-normal justify-center items-center flex flex-row text-center">
-          Get started here{" "}
-          <svg
-            width="1em"
-            height="1em"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="ml-1"
-          >
-            <path
-              d="M7.5 17L17.5 7M17.5 7H7.5M17.5 7V17"
-              stroke="currentColor"
-              stroke-width="1.67"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></path>
-          </svg>
+          Get started{" "}
+          <span className="flex flex-row ml-1 text-purple-300">
+            here{" "}
+            <svg
+              width="1em"
+              height="1em"
+              viewBox="0 0 25 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="ml-1"
+            >
+              <path
+                d="M7.5 17L17.5 7M17.5 7H7.5M17.5 7V17"
+                stroke="currentColor"
+                stroke-width="1.67"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+            </svg>
+          </span>
         </p>
       </div>
       <Template />
