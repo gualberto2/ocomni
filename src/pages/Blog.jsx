@@ -76,7 +76,7 @@ export default function Blog() {
       </div>
       <div className="bg-gray-200 text-black">
         <div className="mx-auto sm:px-12 px-4 py-8 my-14 max-w-6xl ">
-          <div>
+          <div className="mb-12">
             <div className="flex flex-row items-center">
               <h2 className="font-header text-2xl mr-2">Marketing</h2>
               <h2 className="border-b-2 border-blue-400 flex-grow mt-3"></h2>

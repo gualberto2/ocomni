@@ -48,13 +48,15 @@ export default function Header() {
   };
 
   return (
-    <div className={`backdrop-blur bg-[#f8f9fa]/50 sticky top-0 z-50 `}>
-      <header className="flex flex-col sm:flex-row md:h-10 h-10 justify-around md:justify-between items-center mxa-w-6xl mx-auto  px-10 z-50">
+    <div
+      className={`w-[50%] rounded-full mx-auto backdrop-blur bg-[#f8f9fa]/50 sticky top-2 z-50 `}
+    >
+      <header className="flex flex-col lg:flex-row lg:h-10 h-16 justify-around lg:justify-between items-center mxa-w-6xl mx-auto  px-10 py-4 z-50">
         <div>
           {/* className={` ${!visible && "hidden"}`} */}
           <h1
             onClick={() => navigate("/")}
-            className={`uppercase text-[#5B45BB] cursor-pointer text-xl mt-8 sm:mt-1 font-title`}
+            className={`uppercase text-[#5B45BB] cursor-pointer text-xl sm:mt-1 font-OCOMNI`}
           >
             Ocomni
           </h1>
@@ -69,23 +71,23 @@ export default function Header() {
                   : "text-black "
               }`}
             >
-              <div className="md:hidden">
+              <div className="lg:hidden">
                 <HomeIcon className="w-5 h-5 inline-block mr-1" />
               </div>
-              <span className="hidden md:inline-block font-bold">Home</span>
+              <span className="hidden lg:inline-block font-bold">Home</span>
             </li>
             <li
               onClick={() => navigate("/blog")}
               className={`cursor-pointer ${
                 isRouteActive("/blog")
-                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] font-bold"
+                  ? "text-[#5B45BB] border-b-2 border-[#5B45BB] font-boldbody"
                   : "text-black "
               }`}
             >
-              <div className="md:hidden">
+              <div className="lg:hidden">
                 <NewspaperIcon className="w-5 h-5 inline-block mr-1" />
               </div>
-              <span className="hidden md:inline-block font-bold">Blog</span>
+              <span className="hidden lg:inline-block font-semibold">Blog</span>
             </li>
             <li
               onClick={() => navigate("/contact")}
@@ -95,10 +97,12 @@ export default function Header() {
                   : "text-black "
               }`}
             >
-              <div className="md:hidden">
+              <div className="lg:hidden">
                 <PhoneIcon className="w-5 h-5 inline-block mr-1" />
               </div>
-              <span className="hidden md:inline-block font-bold">Contact</span>
+              <span className="hidden lg:inline-block font-semibold">
+                Contact
+              </span>
             </li>
             <li
               onClick={() => navigate("/profile")}
@@ -110,10 +114,10 @@ export default function Header() {
                   : "text-black "
               }`}
             >
-              <div className="md:hidden">
+              <div className="lg:hidden">
                 <UserIcon className="w-5 h-5 inline-block mr-1" />
               </div>
-              <span className="hidden md:inline-block font-bold">
+              <span className="hidden whitespace-nowrap lg:inline-block font-semibold">
                 {pageState}
               </span>
             </li>

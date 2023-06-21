@@ -50,8 +50,9 @@ export default function HomePage() {
       <div className="py-16 md:py-32 lg:py-48 grid lg:grid-cols-2 md:grid-cols-2 gap-2 align-center content-center  ">
         <div className="">
           {" "}
-          <h1 className="text-3xl md:text-5xl lg:text-7xl lg:w-[79%]  ">
-            ECommerce Powered by <span className="text-[#5B45BB]">OCOMNI</span>
+          <h1 className="text-3xl md:text-5xl lg:text-7xl lg:w-[79%] font-bold">
+            ECommerce Powered by{" "}
+            <span className="text-[#5B45BB] font-OCOMNI">OCOMNI</span>
           </h1>
           <p className="mt-2 sm:mt-4 sm:text-xl">
             Professional grade E-Commerce Web Development Solutions

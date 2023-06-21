@@ -15,10 +15,10 @@ const ContactPage = () => {
     <div className="">
       <div className="my-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24">
         <div className=" py-20 px-20">
-          <h1 className="text-6xl tracking-wider text-center font-light mt-12 md:whitespace-nowrap pb-8">
+          <h1 className="text-6xl tracking-wider text-center font-subtitle mt-12 md:whitespace-nowrap pb-8">
             We wanna hear from <em className="uppercase">You</em>.
           </h1>
-          <p className="font-light text-center text-md">
+          <p className="font-light text-center text-xl">
             Learn more about our services
           </p>
         </div>
@@ -30,8 +30,8 @@ const ContactPage = () => {
                   Sales
                 </h3>
                 <p className=" leading-8 font-light">
-                  Find out how Ocomni can help you scale up and grow your
-                  ecommerce business!
+                  Find out how <span className="font-OCOMNI">Ocomni</span> can
+                  help you scale up and grow your ecommerce business!
                 </p>
               </div>
               <div className="flex justify-center items-end">

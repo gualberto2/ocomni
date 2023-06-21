@@ -33,7 +33,7 @@ const Template = () => {
   return (
     <section id="templates" className="py-10 text-white mb-20">
       <div className="text-center">
-        <h2 className="mt-2 text-black text-4xl font-bold">Free Templates</h2>
+        <h2 className="mt-2 text-black text-4xl ">Free Templates</h2>
         <p className="text-black mt-3 text-lg">
           <span className="border-b-2 border-[#6366F1] hover:border-b-2 hover:border-[#8c8de4] hover:text-decoration-line:none transition duration-150 mr-2 hover:cursor-pointer">
             Sign up

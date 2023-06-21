@@ -10,12 +10,7 @@ import {
   QUERY_POST_BY_SALES,
   QUERY_ALL_POSTS,
 } from "./queries";
-import PostCard from "./PostCard";
-import PostsNoCard from "./PostsNoCard";
-import PostBigCard from "./PostBigCard";
-import PostRectangle from "./PostRectangle";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AiOutlineCalendar } from "react-icons/ai";
 import moment from "moment";
 // import Post from "../Post";
@@ -117,7 +112,7 @@ export function PostsByMarketing() {
             <div className="w-full  mt-1 ">
               <div className="sm:flex-col items-center">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
+                  <p className="font-boldbody uppercase cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
                 </Link>
@@ -182,7 +177,7 @@ export function PostsBySales() {
             <div className="w-full  mt-1 ">
               <div className="sm:flex-col items-center">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
+                  <p className="font-boldbody uppercase cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
                 </Link>
@@ -246,7 +241,7 @@ export function PostByInformational() {
             </div>
             <div>
               <Link to={`/article/${post.slug}`}>
-                <h1 className="font-header leading-6 line-clamp-2 cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                <h1 className="font-boldbody uppercase leading-6 line-clamp-2 cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                   {post.title}
                 </h1>
               </Link>
@@ -305,7 +300,7 @@ export function PostByDaWeek() {
             <div className="w-full py-4 px-12 mt-1">
               <div className="flex items-center space-x-1">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-header text-gray-900 text-center text-xl mb-2 tracking-wide  cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
+                  <p className="font-boldbody uppercase text-gray-900 text-center text-xl mb-2 tracking-wide  cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
                     {post.title}
                   </p>
                 </Link>
@@ -391,7 +386,7 @@ export function PostsByPopularity() {
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                  <p className="font-boldbody uppercase cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
                 </Link>
@@ -443,7 +438,7 @@ export function PostsByFeatured() {
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                  <p className="font-boldbody uppercase cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
                 </Link>
@@ -462,38 +457,6 @@ export function PostsByFeatured() {
               </div>
             </div>
           </li>
-        </div>
-      ))}
-    </>
-  );
-}
-
-export function PostsAll() {
-  const { slug } = useParams();
-  const { limit } = useParams();
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await graphcms.request(QUERY_ALL_POSTS, {
-          slug: slug,
-          limit: limit,
-        });
-        console.log(res);
-        setPosts(res.posts);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, [slug]);
-  return (
-    <>
-      {posts?.map((post) => (
-        <div>
-          <p>{post.title}</p>
         </div>
       ))}
     </>
