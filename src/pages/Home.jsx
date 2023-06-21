@@ -47,7 +47,7 @@ export default function HomePage() {
   }, []);
   return (
     <div className="mx-6 ">
-      <div className="py-16 md:py-32 lg:py-48 mx-auto ">
+      <div className="py-16 md:py-32 lg:py-48 mx-auto flex flex-col">
         {" "}
         <h1 className="text-4xl lg:text-5xl text-center font-extrabold text-gray-900">
           Ecommerce powered by{" "}
@@ -56,11 +56,13 @@ export default function HomePage() {
         <p className="mt-2 text-xl text-neutral-500 leading-normal text-center">
           Build the perfect E-Commerce shop, improve business and grow.
         </p>
-        <button className="mt-4 active:bg-[#5B45BB] hover:bg-[#5F56D6] bg-[#6366F1] text-white text-center rounded-md px-6 py-3 mx-auto transition ease-in-out duration-150">
-          <Link className="text-md text-center font-semibold">
-            Talk to a Developer
-          </Link>
-        </button>
+        <div className="mx-auto">
+          <button className="mt-4 active:bg-[#5B45BB] hover:bg-[#5F56D6] bg-[#6366F1] text-white text-center rounded-md px-6 py-3 mx-auto transition ease-in-out duration-150">
+            <Link className="text-md text-center font-semibold">
+              Talk to a Developer
+            </Link>
+          </button>
+        </div>
       </div>
       <Template />
       <Ourwork />
