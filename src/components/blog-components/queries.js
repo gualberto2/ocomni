@@ -118,7 +118,7 @@ export const QUERY_POST_BY_SALES = gql`
 `;
 export const QUERY_POST_BY_FEATOFDAWEEK = gql`
 {
-    posts(orderBy: updatedAt_DESC,first: 1, where: { categories_some: { slug: "featured-cat" } }){
+    posts(orderBy: updatedAt_DESC,first: 1, where: { categories_some: { slug: "featured-posts" } }){
         ${post}
         categories(){${category}}
     }

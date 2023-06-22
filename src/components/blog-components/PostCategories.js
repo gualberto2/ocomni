@@ -296,7 +296,7 @@ export function PostByDaWeek() {
               className="h-[150px] md:h-[400px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in"
             />
 
-            <div className="w-full py-4 px-12 mt-1">
+            <div className="w-full py-4 px-1 mt-1">
               <div className="flex items-center space-x-1">
                 <Link to={`/article/${post.slug}`}>
                   <h3 className="font-bold leading-tight  text-gray-900 text-center text-2xl mb-2  cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
