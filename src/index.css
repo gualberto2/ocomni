@@ -11,16 +11,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /*Below is the root, which will be targeting the slider.jsx component*/
+
 :root {
   --main-color: rgb(104, 117, 217);
   --main-color-hover: rgb(104, 117, 217, 0.2);
   --track-color: #ddd;
+/* Default mark color*/
+  --mark-color: #aaaaaa;
+}
+
+.customSlider-mark {
+  cursor: pointer;
+  top: 6px;
+  width: 1.5px;
+  height: 8px;
+  background-color: var(--mark-color);
 }
 
 .customSlider {
   /* max width of your slider */
-  max-width: 300px;
+  max-width: full;
   /* Optional: Only If you want to center your slider in the page */
   margin: auto;
 }
@@ -38,7 +50,25 @@ body {
   /* color of the track before the thumb */
   background: var(--main-color);
 }
+
+.customSlider-thumb {
+  cursor: pointer;
+  /*color for the thumb */
+  background: var(--main-color);
+  /* shape of the thumb: circle */
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  /* remove default outline when selected */
+  outline: none;
+}
+
+.customSlider-thumb:hover {
+  box-shadow: 0 0 0 8px var(--main-color-hover);
+}
+
 /*END OF THE SLIDER CSS FROM ABOVE*/
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

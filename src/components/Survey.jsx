@@ -8,7 +8,7 @@ import Question5 from "./form-components/Question5";
 function Survey() {
     const [page, setPage] = useState(0);
     
-    const FormTitles = ["Which service would you like?", "How far along are you on your current project?", "How many pages/screens do you see having?", "Would you like any special features?", "Do You need a shopping cart?"];
+    const FormTitles = ["Choose a service", "Choose the stage of your project, or start from scratch", "How many pages/screens do you see having?", "Would you like any special features?", "Do You need a shopping cart?"];
 
     const handleSliderChange = (value) => {
       // Update the state or perform any other necessary logic
