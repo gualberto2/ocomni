@@ -14,12 +14,11 @@ function Survey() {
     called as a property of the modules below. I'll also use onChange in the modules 
     passing formData, and setFormData as args in the exported functions.
     */
-    const [surveyData, setSurveyData] = useState({
+    const [formData, setFormData] = useState({
       /*
         In this variable & useState, I will make each input an object with (empty strings) 
         or whatever the equivalent is for radio buttons, checkboxes, and ranges...
       */
-      
     });
     
     // Below is the FormTitles variable which is an array of strings that will be displayed as <h1>'s based on the current page, see "header" className in the return body
@@ -27,7 +26,7 @@ function Survey() {
 
     const PageDisplay = () => {
       if (page === 0 ) {
-        return <Question1/>
+        return <Question1 formData={formData} setFormData={setFormData}/>;
       } else if (page === 1) {
         return <Question2 />
       } else if (page === 2) {

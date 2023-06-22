@@ -1,18 +1,23 @@
 import React from 'react';
 
-function Question1() {
+const Question1 = ({ formData, setFormData }) => {
+  const handleInputChange = (event) => { /* To the left is the handleInput change function which nests setFormData and updates based on radio btn selection*/
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
     <div>
       <form className='container mx-auto'>
         <input 
-          type='radio' 
+          type='radio'
           id="development" 
           name="services" 
           value="development"
+          checked={formData.services === "development"} // To the left is the formData with the name appended.
+          onChange={handleInputChange}
         />
-        <label 
-          for="development"
-        >
+        <label htmlFor="development">
           Development
         </label>
 
@@ -21,10 +26,10 @@ function Question1() {
           id="design" 
           name="services" 
           value="design"
+          checked={formData.services === "design"}
+          onChange={handleInputChange}
         />
-        <label 
-          for="design"
-        >
+        <label htmlFor="design">
           Design
         </label>
 
@@ -33,15 +38,15 @@ function Question1() {
           id="both" 
           name="services" 
           value="both"
+          checked={formData.services === "both"}
+          onChange={handleInputChange}
         />
-        <label 
-          for="both"
-        >
+        <label htmlFor="both">
           Both
         </label>
       </form>
     </div>
-  )
+  );
 }
 
 export default Question1;
