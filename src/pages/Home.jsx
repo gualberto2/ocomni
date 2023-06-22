@@ -60,16 +60,16 @@ export default function HomePage() {
         <p className="mt-2 text-xl text-neutral-500 leading-normal text-center">
           Build the perfect E-Commerce shop, improve business and grow.
         </p>
-        <div className="mx-auto max-w-[600px]">
-          <form className="flex flex-col justify-center items-center sm:flex-row gap-3 sm:gap-2">
-            <div className="w-full md:max-w-[360px]">
+        <div className="w-full max-w-xl mt-2">
+          <form className="flex  mx-auto flex-col sm:flex-row gap-3 sm:gap-2 ">
+            <div className="w-full">
               <input
                 type="text"
                 placeholder="Enter your email here..."
-                className="transition duration-150 ease-in-out py-3 rounded-md bg-gray-300 border-gray-300 border-[1px] focus:bg-gray-400  sm:w-auto focus:border-blue-800 focus:ring-transparent w-full"
+                className="transition duration-150 ease-in-out  py-3 rounded-md bg-gray-200 border-gray-200 border-[1px] focus:bg-gray-300  focus:border-blue-800 focus:ring-transparent w-full"
               />
             </div>
-            <button className="active:bg-[#5B45BB] hover:bg-[#5F56D6] bg-[#6366F1] text-white text-center rounded-md px-4 py-3 transition ease-in-out duration-150 whitespace-nowrap">
+            <button className="active:bg-[#5B45BB] hover:bg-[#5F56D6] bg-[#6366F1] text-white text-center rounded-md px-4 py-3 transition ease-in-out duration-150 whitespace-nowrap sm:w-[180px]">
               <Link className="text-md text-center font-semibold">
                 Talk to a Developer
               </Link>
@@ -77,12 +77,17 @@ export default function HomePage() {
           </form>
         </div>
         <p className="mt-2 text-neutral-500 text-sm leading-normal text-center">
-          Create an account for free, and we will contact you.
+          Leave us your email. We'll get in contact with you.
         </p>
-        <p className="text-neutral-500 text-sm leading-normal justify-center items-center flex flex-row text-center">
-          Get started{" "}
-          <span className="flex flex-row ml-1 text-purple-300 cursor-pointer hover:text-purple-400 transition duration-150 ease-in">
-            here{" "}
+        <p className="text-neutral-500 text-sm leading-normal text-center">
+          You can also create an account. Get started{" "}
+          <span className="text-purple-300 cursor-pointer hover:text-purple-400 transition font-semibold duration-150 ease-in text-center">
+            here
+          </span>{" "}
+          it's free
+        </p>
+        {/* <span className="flex flex-row text-purple-300 cursor-pointer hover:text-purple-400 transition duration-150 ease-in text-center">
+            here
             <svg
               width="1em"
               height="1em"
@@ -99,8 +104,8 @@ export default function HomePage() {
                 stroke-linejoin="round"
               ></path>
             </svg>
-          </span>
-        </p>
+          </span> */}
+        <p className="text-neutral-500 text-sm leading-normal justify-center items-center flex flex-row text-center"></p>
       </div>
 
       <Template />
@@ -121,9 +126,10 @@ export default function HomePage() {
                 <input
                   type="text"
                   id="first"
+                  placeholder="ex. John"
                   value={first}
                   onChange={onChange}
-                  className="w-full px-3 py-2 bg-gray-300 border-gray-300 rounded-md focus:ring-transparent focus:border-blue-800 border-[1px] "
+                  className="w-full px-3 py-2 bg-gray-200 border-gray-200 focus:bg-gray-300  rounded-md focus:ring-transparent focus:border-blue-800 border-[1px] "
                   required
                 />
               </div>
@@ -134,9 +140,10 @@ export default function HomePage() {
                 <input
                   type="text"
                   id="last"
+                  placeholder="ex. Doe"
                   value={last}
                   onChange={onChange}
-                  className="w-full px-3 py-2 focus:ring-transparent bg-gray-300 border-gray-300 focus:border-blue-800 border-[1px] rounded-md "
+                  className="w-full px-3 py-2 focus:ring-transparent bg-gray-200 border-gray-200 focus:bg-gray-300 focus:border-blue-800 border-[1px] rounded-md "
                   required
                 />
               </div>
@@ -150,8 +157,9 @@ export default function HomePage() {
                 type="email"
                 id="email"
                 value={email}
+                placeholder="johndoe@email.com"
                 onChange={onChange}
-                className="w-full px-3 py-2 focus:ring-transparent bg-gray-300 border-gray-300 focus:border-blue-800 border-[1px] rounded-md "
+                className="w-full px-3 py-2 focus:ring-transparent bg-gray-200 focus:bg-gray-300 border-gray-200 focus:border-blue-800 border-[1px] rounded-md text-gray-700  "
                 required
               />
             </div>
@@ -165,7 +173,8 @@ export default function HomePage() {
                 id="phone"
                 value={phone}
                 onChange={onChange}
-                className="w-full px-3 py-2 bg-gray-300 border-gray-300 rounded-md focus:ring-transparent focus:border-blue-800 border-[1px]"
+                placeholder="(123)-456-7890"
+                className="w-full px-3 py-2 bg-gray-200 border-gray-200 focus:bg-gray-300 rounded-md focus:ring-transparent focus:border-blue-800 border-[1px]"
                 required
               />
             </div>

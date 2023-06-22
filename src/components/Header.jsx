@@ -48,7 +48,7 @@ export default function Header() {
 
   return (
     <div
-      className={`sm:w-[50%] rounded-full mx-auto backdrop-blur bg-[#f8f9fa]/50 sticky top-2 z-50 `}
+      className={`w-[75%] sm:w-[40%] md:w-[70%] rounded-full mx-auto backdrop-blur bg-[#f8f9fa]/50 sticky top-2 z-50 `}
     >
       <header className="flex flex-col lg:flex-row lg:h-10 h-16 justify-center lg:justify-between items-center mxa-w-6xl mx-auto  px-10 py-10 z-50">
         <div>

@@ -33,10 +33,10 @@ const Template = () => {
   return (
     <section id="templates" className="py-10 text-white mb-28">
       <div className="text-center">
-        <h2 className=" font-semibold text-gray-800 text-4xl ">
+        <h2 className=" font-semibold text-gray-800 text-2xl ">
           Choose a free Template
         </h2>
-        <p className="mt-3 text-lg text-neutral-600 font-medium">
+        <p className="mt-2 text-lg text-neutral-600 font-medium">
           <span className="border-b-2 border-[#6366F1] hover:border-b-2 hover:border-[#8c8de4] hover:text-decoration-line:none transition duration-150 mr-2 hover:cursor-pointer ">
             Sign up
           </span>
