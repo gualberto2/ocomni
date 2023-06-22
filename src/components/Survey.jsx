@@ -6,13 +6,24 @@ import Question4 from "./form-components/Question4";
 import Question5 from "./form-components/Question5";
 
 function Survey() {
+    // Below is the variable with an array of page, and setPage arg that useState to keep track of which module we are in...
     const [page, setPage] = useState(0);
-    
-    const FormTitles = ["Choose a service", "Choose the stage of your project, or start from scratch", "How many pages/screens do you see having?", "Would you like any special features?", "Do You need a shopping cart?"];
 
-    const handleSliderChange = (value) => {
-      // Update the state or perform any other necessary logic
-    }; 
+    /*
+    Below is a variable with formData, and setFormData as arguments to be 
+    called as a property of the modules below. I'll also use onChange in the modules 
+    passing formData, and setFormData as args in the exported functions.
+    */
+    const [surveyData, setSurveyData] = useState({
+      /*
+        In this variable & useState, I will make each input an object with (empty strings) 
+        or whatever the equivalent is for radio buttons, checkboxes, and ranges...
+      */
+      
+    });
+    
+    // Below is the FormTitles variable which is an array of strings that will be displayed as <h1>'s based on the current page, see "header" className in the return body
+    const FormTitles = ["Choose a service", "Choose the stage of your project, or start from scratch", "How many pages/screens do you see having?", "Would you like any special features?", "Do You need a shopping cart?"];
 
     const PageDisplay = () => {
       if (page === 0 ) {
