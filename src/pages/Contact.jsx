@@ -15,11 +15,11 @@ const ContactPage = () => {
     <div className="">
       <div className="my-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24">
         <div className=" py-20 px-20">
-          <h1 className="text-6xl tracking-wider text-center font-subtitle mt-12 md:whitespace-nowrap pb-8">
+          <h1 className="text-6xl font-bold text-center font-subtitle text-gray-800 mt-12 pb-8">
             We wanna hear from <em className="uppercase">You</em>.
           </h1>
-          <p className="font-light text-center text-xl">
-            Learn more about our services
+          <p className="font-medium text-center text-lg text-neutral-500">
+            Get in touch to learn more about our services and what we can offer.
           </p>
         </div>
         <div className="grid grid-cols-1 grid-rows-4 sm:grid-cols-2 sm:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1 gap-6 mx-12 md:gap-8 md:justify-around mt-10">
@@ -30,12 +30,12 @@ const ContactPage = () => {
                   Sales
                 </h3>
                 <p className=" leading-8 font-light">
-                  Find out how <span className="font-OCOMNI">Ocomni</span> can
-                  help you scale up and grow your ecommerce business!
+                  Find out how we can help you scale up and grow your ecommerce
+                  business!
                 </p>
               </div>
               <div className="flex justify-center items-end">
-                <button className="transition ease-in-out duration-150 bg-[#6366F1] hover:bg-[#5F56D6] active:bg-[#5B45BB] px-8 py-3 rounded-lg text-white mt-4">
+                <button className="transition ease-in-out duration-150 bg-[#ECEBFF] hover:bg-[#D9DAFC] active:bg-[#ECEDFD] text-[#6663FD] px-8 py-3 rounded-lg mt-4">
                   Get in Touch
                 </button>
               </div>
@@ -49,11 +49,11 @@ const ContactPage = () => {
                 </h3>
                 <p className="leading-8 font-light">
                   Having trouble posting a blog, using a tool, or any bugs? Use
-                  our bug free guarantee? lorem 20
+                  our bug free guarantee?
                 </p>
               </div>
               <div className="flex justify-center items-end">
-                <button className="transition ease-in-out duration-150 bg-[#6366F1] hover:bg-[#5F56D6] active:bg-[#5B45BB] px-8 py-3 rounded-lg text-white mt-4">
+                <button className="transition ease-in-out duration-150 bg-[#ECEBFF] hover:bg-[#D9DAFC] active:bg-[#ECEDFD] text-[#6663FD] px-8 py-3 rounded-lg mt-4">
                   Get Support
                 </button>
               </div>
@@ -71,7 +71,7 @@ const ContactPage = () => {
                 </p>
               </div>
               <div className="flex justify-center items-end">
-                <button className="transition ease-in-out duration-150 bg-[#6366F1] hover:bg-[#5F56D6] active:bg-[#5B45BB] px-8 py-3 rounded-lg text-white mt-4">
+                <button className="transition ease-in-out duration-150 bg-[#ECEBFF] hover:bg-[#D9DAFC] active:bg-[#ECEDFD] text-[#6663FD] px-8 py-3 rounded-lg  mt-4">
                   Get in Touch
                 </button>
               </div>
@@ -89,7 +89,7 @@ const ContactPage = () => {
                 </p>
               </div>
               <div className="flex justify-center items-end">
-                <button className="transition ease-in-out duration-150 bg-[#6366F1] hover:bg-[#5F56D6] active:bg-[#5B45BB] px-8 py-3 rounded-lg text-white mt-4">
+                <button className="transition ease-in-out duration-150 bg-[#ECEBFF] hover:bg-[#D9DAFC] active:bg-[#ECEDFD] text-[#6663FD] px-8 py-3 rounded-lg  mt-4">
                   Let's Talk
                 </button>
               </div>
@@ -108,8 +108,8 @@ const ContactPage = () => {
             help.
           </em>
         </div>
-        <div className="mx-16 grid grid-cols-1 grid-rows-1 md:grid-cols-2 lg:grid-cols-2 gap-28 pb-16">
-          <div className="flex flex-col sm:flex-row gap-6">
+        <div className="mx-16 grid grid-cols-1 grid-rows-1 xl:grid-cols-2 gap-16 pb-16">
+          <div className="flex flex-col md:flex-row gap-6">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.2556724694364!2d-117.15128401448122!3d32.758949817037035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d954e1cf32b25f%3A0x19bfe09db0698b63!2sLestat&#39;s%20on%20Park!5e0!3m2!1sen!2sus!4v1685728916392!5m2!1sen!2sus"
               width="full"
