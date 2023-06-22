@@ -36,18 +36,18 @@ export default function Blog() {
             </div>
             <div className="lg:col-start-6 lg:col-end-9 row-span-0  ">
               <div className="lg:sticky sm:relative">
-                <p className="mt-4 text-lg text-left font-medium border-b-2 border-purple-300 ">
+                <h3 className="mt-4 text-xl font-bold text-left border-b-2 border-purple-300 ">
                   Popular Posts
-                  <span className="absolute right-3 text-sm mt-1 text-gray-400 transition duration-150 hover:text-purple-600 active:text-purple-900">
+                  <span className="absolute right-3 text-sm mt-1 text-gray-400 transition font-normal duration-150 hover:text-purple-600 active:text-purple-900">
                     <Link to="/all-recent-blogs ">See All</Link>
                   </span>
-                </p>
+                </h3>
                 <PostsByPopularity />
               </div>
               <div className="lg:sticky sm:relative mb-3">
-                <h2 className="mt-4 text-lg text-left font-semibold border-b-2 border-purple-300 ">
+                <h2 className="mt-4 text-xl text-left font-bold border-b-2 border-purple-300 ">
                   Featured Posts
-                  <span className="absolute right-3 text-sm mt-1 text-gray-400 transition duration-150 hover:text-purple-600 active:text-purple-900">
+                  <span className="absolute right-3 text-sm mt-1 text-gray-400 transition font-normal duration-150 hover:text-purple-600 active:text-purple-900">
                     <Link to="/all-recent-blogs ">See All</Link>
                   </span>
                 </h2>
@@ -64,7 +64,7 @@ export default function Blog() {
             ></div>
             <Link
               to="/all-blogs"
-              className="font-primarybody whitespace-nowrap uppercase text-center text-lg px-4 hover:text-gray-400 text-gray-900 transition duration-150 ease-in"
+              className="font-normal whitespace-nowrap  text-center text-lg px-4 hover:text-gray-400 text-gray-700 transition duration-150 ease-in"
             >
               View all posts here
             </Link>
@@ -82,8 +82,8 @@ export default function Blog() {
       <div className="bg-gray-200 text-black">
         <div className="mx-auto sm:px-12 px-4 py-8 my-14 max-w-6xl ">
           <div className="mb-12">
-            <div className="flex flex-row items-center">
-              <h2 className="font-header text-2xl mr-2">Marketing</h2>
+            <div className="flex flex-row items-center mb-3">
+              <h2 className="font-semibold text-2xl mr-2">Marketing</h2>
               <h2 className="border-b-2 border-blue-400 flex-grow mt-3"></h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -97,7 +97,7 @@ export default function Blog() {
                 ></div>
                 <Link
                   to="/all-blogs"
-                  className="font-primarybody whitespace-nowrap uppercase text-center text-sm px-4 hover:text-gray-400 text-gray-900 transition duration-150 ease-in"
+                  className="font-medium whitespace-nowrap  text-center text-sm px-4 hover:text-gray-400 text-gray-600 transition duration-150 ease-in"
                 >
                   View more marketing posts here
                 </Link>
@@ -110,7 +110,7 @@ export default function Blog() {
           </div>
           <div>
             <div className="flex flex-row items-center">
-              <h2 className="font-header text-2xl mr-2">Sales</h2>
+              <h2 className="font-semibold text-2xl mr-2">Sales</h2>
               <h2 className="border-b-2 border-green-400 flex-grow mt-3"></h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -124,7 +124,7 @@ export default function Blog() {
                 ></div>
                 <Link
                   to="/all-blogs"
-                  className="font-primarybody whitespace-nowrap uppercase text-center text-sm px-4 hover:text-gray-400 text-gray-900 transition duration-150 ease-in"
+                  className="font-medium whitespace-nowrap  text-center text-sm px-4 hover:text-gray-400 text-gray-900 transition duration-150 ease-in"
                 >
                   View more sales posts here
                 </Link>

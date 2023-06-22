@@ -7,29 +7,35 @@ const Comments = ({ comments }) => {
   const [save, setSave] = useState("");
   const [loading, setLoading] = useState("");
   return (
-    <div>
+    <div className="my-20">
       {/* Submit Comment */}
-      <h2>Leave a comment</h2>
+      <h4 className="text-lg font-medium">Leave a comment</h4>
       <form action="">
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <textarea
-          placeholder="Comment Here"
-          value={comment}
-          cols="30"
-          rows="5"
-          onChange={(e) => setComment(e.target.value)}
-        ></textarea>
+        <div className="flex flex-col  ">
+          <div className="flex flex-row justify-center gap-4">
+            <input
+              type="text"
+              placeholder="Enter name here"
+              value={name}
+              className="bg-neutral-300 w-full rounded-md border-neutral-300 "
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Enter email here"
+              value={email}
+              className="bg-neutral-300 w-full rounded-md border-neutral-300 "
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <textarea
+            placeholder="Comment Here"
+            value={comment}
+            cols="30"
+            rows="5"
+            onChange={(e) => setComment(e.target.value)}
+          ></textarea>
+        </div>
         <div>
           <input type="checkbox" id="chk" />
           <label htmlFor="chk">

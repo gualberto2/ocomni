@@ -1,10 +1,82 @@
 import moment from "moment";
 import React from "react";
+import Comments from "./blog-components/Comments";
 
 const Post = ({ post }) => {
   console.log(post);
+
+  const getContentFragment = (index, text, obj, type) => {
+    let modifiedText = text;
+
+    if (obj) {
+      if (obj.bold) {
+        modifiedText = <b key={index}>{text}</b>;
+      }
+
+      if (obj.italic) {
+        modifiedText = <em key={index}>{text}</em>;
+      }
+
+      if (obj.underline) {
+        modifiedText = <u key={index}>{text}</u>;
+      }
+    }
+
+    switch (type) {
+      case "heading-three":
+        return (
+          <h3 key={index} className="text-xl font-semibold mb-4">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h3>
+        );
+      case "paragraph":
+        return (
+          <p key={index} className="mb-8">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </p>
+        );
+      case "heading-four":
+        return (
+          <h4 key={index} className="text-md font-semibold mb-4">
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>{item}</React.Fragment>
+            ))}
+          </h4>
+        );
+      case "image":
+        return (
+          <img
+            key={index}
+            alt={obj.title}
+            height={obj.height}
+            width={obj.width}
+            src={obj.src}
+          />
+        );
+      default:
+        return modifiedText;
+    }
+  };
   return (
     <article className="mx-auto my-14 max-w-2xl px-8">
+      {/* File path Component */}
+      {/* <div>
+        <path className="flex flex-row">
+          <p className="mr-3 text-gray-500">Blog</p>
+          <p className="mr-3 text-gray-600">/</p>
+          <p className="mr-3 text-gray-500">
+            {category?.map((category) => (
+              <p>{category.title}</p>
+            ))}
+          </p>
+          <p className="mr-3 text-gray-600">/</p>
+          <p className="text-purple-800">{post.title}</p>
+        </path>
+      </div> */}
       {/* Author Component */}
       <div>
         <header class="mb-4 lg:mb-6 not-format">
@@ -15,11 +87,11 @@ const Post = ({ post }) => {
                 src={post.author.photo.url}
                 alt={`Photograph of author ${post.author.name}`}
               />
-              <div className="font-primarybody">
+              <div className="font">
                 <a
                   href="#"
                   rel="author"
-                  class="text-xl font-bold text-gray-900 cursor-pointer"
+                  class="text-xl font-semibold text-gray-900 transition duration-100 ease-in-out hover:text-gray-500 cursor-pointer"
                 >
                   {post.author.name}
                 </a>
@@ -36,21 +108,30 @@ const Post = ({ post }) => {
       </div>
 
       {/* post */}
-      <h1 className="font-header text-5xl md:text-3xl leading-snug md:leading-none">
+      <h1 className="font-bold text-4xl leading-snug md:leading-none">
         {post.title}
       </h1>
       <br />
-      <p className="font-primarybody text-2xl leading-relaxed selection:bg-purple-500 selection:text-white">
+      <p className="font-normal text-lg leading-relaxed selection:bg-purple-500 text-gray-700 text-inherit">
         {post.excerpt}
       </p>
       <img src={post.featuredImage.url} className="my-6 w-[90%] mx-auto" />
-      <div
+      {/* <div
         class="content"
-        className="font-primarybody text-2xl leading-relaxed selection:bg-purple-500 selection:text-white"
+        className="font-normal text-lg leading-relaxed  text-gray-700"
         dangerouslySetInnerHTML={{ __html: post.content.html }}
-      />
+      /> */}
+      {post.content.raw.children.map((typeObj, index) => {
+        const children = typeObj.children.map((item, itemindex) =>
+          getContentFragment(itemindex, item.text, item)
+        );
 
-      <div>{/* <Comments /> */}</div>
+        return getContentFragment(index, children, typeObj, typeObj.type);
+      })}
+
+      <div>
+        <Comments />
+      </div>
     </article>
   );
 };

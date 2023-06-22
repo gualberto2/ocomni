@@ -21,7 +21,7 @@ export default function PostCard({ posts, author, categories }) {
             </div>
             <div>
               <Link to={`/post/${post.slug}`}>
-                <h1 className="font-header leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                <h1 className="font-medium leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                   {post.title}
                 </h1>
               </Link>

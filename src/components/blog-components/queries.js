@@ -36,6 +36,7 @@ const post = `
     createdAt
     updatedAt
     excerpt
+
 `;
 
 // This is a variable, it has the objects for the categories. Will be fetched in the Categories Query.

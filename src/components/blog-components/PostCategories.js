@@ -27,7 +27,6 @@ export function PostsByAbout() {
         const res = await graphcms.request(QUERY_POST_BY_ABOUT, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -87,7 +86,6 @@ export function PostsByMarketing() {
         const res = await graphcms.request(QUERY_POST_BY_MARKETING, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -113,12 +111,15 @@ export function PostsByMarketing() {
             <div className="w-full  mt-1 ">
               <div className="sm:flex-col items-center">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-boldbody uppercase cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
+                  <h3
+                    className="font-semibold
+                   cursor-pointer text-lg my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900"
+                  >
                     {post.title}
-                  </p>
+                  </h3>
                 </Link>
 
-                <p className="px-2 text-sm font-primarybody line-clamp-2">
+                <p className="px-2 text-sm font-light line-clamp-2">
                   {post.excerpt}
                 </p>
               </div>
@@ -152,7 +153,6 @@ export function PostsBySales() {
         const res = await graphcms.request(QUERY_POST_BY_SALES, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -178,12 +178,12 @@ export function PostsBySales() {
             <div className="w-full  mt-1 ">
               <div className="sm:flex-col items-center">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-boldbody uppercase cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
+                  <p className="font-semibold  cursor-pointer text-lg my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
                 </Link>
 
-                <p className="px-2 text-sm font-primarybody line-clamp-2">
+                <p className="px-2 text-sm font-light line-clamp-2">
                   {post.excerpt}
                 </p>
               </div>
@@ -216,7 +216,6 @@ export function PostByInformational() {
         const res = await graphcms.request(QUERY_POST_BY_INFORMATIONAL, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -275,7 +274,6 @@ export function PostByDaWeek() {
         const res = await graphcms.request(QUERY_POST_BY_FEATOFDAWEEK, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -369,7 +367,6 @@ export function PostsByPopularity() {
         const res = await graphcms.request(QUERY_POST_BY_POPULARITY, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -387,7 +384,7 @@ export function PostsByPopularity() {
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
                 <Link to={`/article/${post.slug}`}>
-                  <h3 className="font-semibold cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                  <h3 className="font-medium cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
                   </h3>
                 </Link>
@@ -421,7 +418,6 @@ export function PostsByFeatured() {
         const res = await graphcms.request(QUERY_POST_BY_FEATURED, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -473,7 +469,7 @@ export function CategorySec() {
         const res = await graphcms.request(QUERY_ALL_CATEGORIES, {
           slug: slug,
         });
-        console.log(res);
+
         setCategories(res.categories);
       } catch (error) {
         console.log(error);
