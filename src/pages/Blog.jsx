@@ -7,6 +7,7 @@ import {
   PostByDaWeek,
   PostsByMarketing,
   PostsBySales,
+  CategorySec,
 } from "../components/blog-components/PostCategories";
 import PostCard from "../components/blog-components/PostCard";
 
@@ -24,6 +25,10 @@ export default function Blog() {
   return (
     <>
       <div className="mx-auto my-14 max-w-6xl px-8 ">
+        <h1 className="mb-6 text-4xl font-bold text-gray-800">Blog</h1>
+        <div className="whitespace-">
+          <CategorySec />
+        </div>
         <div className="">
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6  lg:gap-2 lg:grid-cols-8">
             <div className="lg:col-start-1 lg:col-end-6 lg:mr-8">
@@ -40,12 +45,12 @@ export default function Blog() {
                 <PostsByPopularity />
               </div>
               <div className="lg:sticky sm:relative mb-3">
-                <p className="mt-4 text-lg text-left font-medium border-b-2 border-purple-300 ">
+                <h2 className="mt-4 text-lg text-left font-semibold border-b-2 border-purple-300 ">
                   Featured Posts
                   <span className="absolute right-3 text-sm mt-1 text-gray-400 transition duration-150 hover:text-purple-600 active:text-purple-900">
                     <Link to="/all-recent-blogs ">See All</Link>
                   </span>
-                </p>
+                </h2>
                 <PostsByFeatured />
               </div>
             </div>

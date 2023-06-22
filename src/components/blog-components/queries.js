@@ -155,6 +155,12 @@ export const QUERY_POST = gql`
 }
 `;
 
+export const QUERY_ALL_CATEGORIES = gql`
+{categories(orderBy: updatedAt_DESC){
+  ${category}
+}}
+`;
+
 //--------------SORTED QUERIES ⬆️
 
 //Post

@@ -81,8 +81,8 @@ export default function HomePage() {
         </p>
         <p className="text-neutral-500 text-sm leading-normal text-center">
           You can also create an account. Get started{" "}
-          <span className="text-purple-300 cursor-pointer hover:text-purple-400 transition font-semibold duration-150 ease-in text-center">
-            here
+          <span className="text-purple-300 cursor-pointer hover:text-purple-400 transition font-semibold duration-150 ease-in text-center hover:border-b-[1px] hover:border-purple-400">
+            here 🔗
           </span>{" "}
           it's free
         </p>

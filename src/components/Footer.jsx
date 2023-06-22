@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -13,12 +13,18 @@ export default function Footer() {
               class="h-8 mr-3"
               alt="Ocomni Logo"
             />
-            <span class="self-center text-2xl font-semibold whitespace-nowrap  uppercase font-title">
+            <span class="self-center text-2xl font-OCOMNI whitespace-nowrap  uppercase font-title">
               Ocomni
             </span>
           </a>
           <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 hover:cursor-pointer">
-            <li className="mr-4 hover:underline md:mr-6 "> About</li>
+            <li
+              onClick={() => navigate("/about-page")}
+              className="mr-4 hover:underline md:mr-6 "
+            >
+              {" "}
+              About
+            </li>
 
             <li
               class="mr-4 hover:underline hover:cursor-pointer md:mr-6"
@@ -26,18 +32,17 @@ export default function Footer() {
             >
               Privacy Policy
             </li>
-            <li>
-              <a
-                href="#"
-                class="mr-4 hover:underline md:mr-6 hover:cursor-pointer"
-              >
-                Licensing
-              </a>
+            <li
+              onClick={() => navigate("/licensing-page")}
+              class="mr-4 hover:underline md:mr-6 hover:cursor-pointer"
+            >
+              Licensing
             </li>
-            <li>
-              <a href="#" class="hover:underline hover:cursor-pointer">
-                Contact
-              </a>
+            <li
+              onClick={() => navigate("/contact-page]")}
+              class="hover:underline hover:cursor-pointer"
+            >
+              Contact
             </li>
           </ul>
         </div>

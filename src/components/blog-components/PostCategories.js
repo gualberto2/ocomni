@@ -9,6 +9,7 @@ import {
   QUERY_POST_BY_FEATOFDAWEEK,
   QUERY_POST_BY_SALES,
   QUERY_ALL_POSTS,
+  QUERY_ALL_CATEGORIES,
 } from "./queries";
 import { useEffect, useState } from "react";
 import { AiOutlineCalendar } from "react-icons/ai";
@@ -288,7 +289,7 @@ export function PostByDaWeek() {
     <>
       {posts?.map((post) => (
         <div key={post.id} className="">
-          <li className="relative bg-purple-100 flex flex-col justify-between h-full  items-center overflow-hidden mt-3 duration-150">
+          <li className="relative flex flex-col justify-between h-full  items-center overflow-hidden mt-3 duration-150 rounded">
             <img
               onClick={() => navigate(`/article/${post.slug}`)}
               src={post.featuredImage.url}
@@ -300,12 +301,12 @@ export function PostByDaWeek() {
             <div className="w-full py-4 px-12 mt-1">
               <div className="flex items-center space-x-1">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-boldbody uppercase text-gray-900 text-center text-xl mb-2 tracking-wide  cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
+                  <h3 className="font-bold leading-tight  text-gray-900 text-center text-2xl mb-2  cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
                     {post.title}
-                  </p>
+                  </h3>
                 </Link>
               </div>
-              <p className="font-extralight m-0 text-md text-gray-900 leading-7 line-clamp-4 mb-4">
+              <p className="font-normal m-0 text-md text-gray-600 leading-normal line-clamp-4 mb-4">
                 {post.excerpt}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-between">
@@ -386,9 +387,9 @@ export function PostsByPopularity() {
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-boldbody uppercase cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                  <h3 className="font-semibold cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
-                  </p>
+                  </h3>
                 </Link>
               </div>
 
@@ -438,9 +439,9 @@ export function PostsByFeatured() {
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
                 <Link to={`/article/${post.slug}`}>
-                  <p className="font-boldbody uppercase cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                  <h3 className="font-medium cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
-                  </p>
+                  </h3>
                 </Link>
               </div>
 
@@ -458,6 +459,39 @@ export function PostsByFeatured() {
             </div>
           </li>
         </div>
+      ))}
+    </>
+  );
+}
+export function CategorySec() {
+  const { slug } = useParams();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await graphcms.request(QUERY_ALL_CATEGORIES, {
+          slug: slug,
+        });
+        console.log(res);
+        setCategories(res.categories);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [slug]);
+
+  return (
+    <>
+      {categories?.map((category) => (
+        <p className="inline-block rounded text-xs font-medium leading-[22px] transition-colors duration-200 bg-white border border-primary-100 hover:text-white hover:bg-[#322692] mr-3 lg:mr-2">
+          {/* border-[1px] border-gray-500 */}
+          <Link className="block h-full w-full text-xs font-normal cursor-pointer text-[color:inherit] px-2 py-1">
+            {category.title}
+          </Link>
+        </p>
       ))}
     </>
   );
