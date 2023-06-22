@@ -52,8 +52,7 @@ export default function HomePage() {
   }, []);
   return (
     <div className="mx-6 ">
-      <div className="py-16 md:py-32 lg:py-48 mx-auto flex flex-col">
-        {" "}
+      <div className="py-16 md:py-32 lg:py-48 mx-auto flex flex-col items-center">
         <h1 className="text-4xl lg:text-5xl text-center font-extrabold text-gray-900">
           Ecommerce powered by{" "}
           <span className="text-[#5B45BB] font-OCOMNI">OCOMNI</span>
@@ -61,24 +60,26 @@ export default function HomePage() {
         <p className="mt-2 text-xl text-neutral-500 leading-normal text-center">
           Build the perfect E-Commerce shop, improve business and grow.
         </p>
-        <div className="mx-auto flex flex-col w-full items-center gap-2 relative mt-4">
-          <form action="w-full">
-            <input
-              type="text"
-              placeholder="Enter your email here..."
-              className="transition duration-150 ease-in-out  py-3 rounded-md bg-gray-300 border-gray-300 border-[1px] focus:bg-gray-400 w-full focus:border-blue-800 focus:ring-transparent "
-            />
+        <div className="mx-auto max-w-[600px]">
+          <form className="flex flex-col justify-center items-center sm:flex-row gap-3 sm:gap-2">
+            <div className="w-full md:max-w-[360px]">
+              <input
+                type="text"
+                placeholder="Enter your email here..."
+                className="transition duration-150 ease-in-out py-3 rounded-md bg-gray-300 border-gray-300 border-[1px] focus:bg-gray-400  sm:w-auto focus:border-blue-800 focus:ring-transparent w-full"
+              />
+            </div>
+            <button className="active:bg-[#5B45BB] hover:bg-[#5F56D6] bg-[#6366F1] text-white text-center rounded-md px-4 py-3 transition ease-in-out duration-150 whitespace-nowrap">
+              <Link className="text-md text-center font-semibold">
+                Talk to a Developer
+              </Link>
+            </button>
           </form>
-          <button className=" active:bg-[#5B45BB] hover:bg-[#5F56D6] bg-[#6366F1] text-white text-center rounded-md px-4 py-3 mx-auto transition ease-in-out duration-150">
-            <Link className="text-md text-center font-semibold">
-              Talk to a Developer
-            </Link>
-          </button>
         </div>
-        <p className="mt-2 text-neutral-500 text-xs leading-normal text-center">
+        <p className="mt-2 text-neutral-500 text-sm leading-normal text-center">
           Create an account for free, and we will contact you.
         </p>
-        <p className="text-neutral-500 text-xs leading-normal justify-center items-center flex flex-row text-center">
+        <p className="text-neutral-500 text-sm leading-normal justify-center items-center flex flex-row text-center">
           Get started{" "}
           <span className="flex flex-row ml-1 text-purple-300 cursor-pointer hover:text-purple-400 transition duration-150 ease-in">
             here{" "}
@@ -101,6 +102,7 @@ export default function HomePage() {
           </span>
         </p>
       </div>
+
       <Template />
       <Ourwork />
       <div className="flex flex-col justify-center md:justify-around align-center md:flex-row gap-8 mb-36">
