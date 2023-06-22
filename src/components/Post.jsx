@@ -64,19 +64,7 @@ const Post = ({ post }) => {
   return (
     <article className="mx-auto my-14 max-w-2xl px-8">
       {/* File path Component */}
-      {/* <div>
-        <path className="flex flex-row">
-          <p className="mr-3 text-gray-500">Blog</p>
-          <p className="mr-3 text-gray-600">/</p>
-          <p className="mr-3 text-gray-500">
-            {category?.map((category) => (
-              <p>{category.title}</p>
-            ))}
-          </p>
-          <p className="mr-3 text-gray-600">/</p>
-          <p className="text-purple-800">{post.title}</p>
-        </path>
-      </div> */}
+
       {/* Author Component */}
       <div>
         <header class="mb-4 lg:mb-6 not-format">
@@ -129,9 +117,8 @@ const Post = ({ post }) => {
         return getContentFragment(index, children, typeObj, typeObj.type);
       })}
 
-      <div>
-        <Comments />
-      </div>
+      {/* will work on comments later */}
+      <div>{/* <Comments /> */}</div>
     </article>
   );
 };
