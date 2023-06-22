@@ -13,14 +13,14 @@
   font-display: swap;
   font-style: normal;
 }
-@font-face {
+/* @font-face {
   font-family: "Inter";
   src: url(./assets/fonts/iner.ttf);
 }
 @font-face {
   font-family: "Jakarta";
   src: url(./assets/fonts/jarkar.ttf);
-}
+}  */
 
 body {
   margin: 0;
@@ -45,8 +45,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Jakarta";
-  font-weight: 700;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 h4,
@@ -56,16 +55,7 @@ p,
 a,
 button,
 Link {
-  font-family: "Inter";
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-button {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue";
+  font-family: "Inter", sans-serif;
 }
 
 .swiper-button-next:after,
