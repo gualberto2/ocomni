@@ -9,14 +9,10 @@ function Survey() {
     // Below is the variable with an array of page, and setPage arg that useState to keep track of which module we are in...
     const [page, setPage] = useState(0);
 
-    /*
-    Below is a variable with formData, and setFormData as arguments to be 
-    called as a property of the modules below. I'll also use onChange in the modules 
-    passing formData, and setFormData as args in the exported functions.
-    */
     // State to store form data, including selected checkbox values
     const [formData, setFormData] = useState({
       features: [], //Initializes an empty array...
+      question5: '' //Initialize the state for question6
     });
 
     // Event handler for checkbox changes
@@ -29,6 +25,14 @@ function Survey() {
         : prevFormData.features.filter((feature) => feature !== name), // This removes the deselected checkbox value from the array
       }));
     };
+
+    const handleRadioChange = (event) => {
+      const { value } = event.target;
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        question5: value
+      }));
+    };    
     
     // Below is the FormTitles variable which is an array of strings that will be displayed as <h1>'s based on the current page, see "header" className in the return body
     const FormTitles = ["Choose a service", "Choose the stage of your project, or start from scratch", "How many pages/screens do you see having?", "Would you like any special features?", "Do You need a shopping cart?"];
@@ -43,7 +47,7 @@ function Survey() {
       } else if (page === 3) {
         return <Question4 formData={formData} setFormData={setFormData} handleCheckboxChange={handleCheckboxChange}/>;
       } else if (page === 4) {
-        return <Question5 formData={formData} setFormData={setFormData} handleCheckboxChange={handleCheckboxChange}/>;
+        return <Question5 formData={formData} setFormData={setFormData} handleRadioChange={handleRadioChange}/>;
       }
     };
 
