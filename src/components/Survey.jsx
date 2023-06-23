@@ -14,12 +14,21 @@ function Survey() {
     called as a property of the modules below. I'll also use onChange in the modules 
     passing formData, and setFormData as args in the exported functions.
     */
+    // State to store form data, including selected checkbox values
     const [formData, setFormData] = useState({
-      /*
-        In this variable & useState, I will make each input an object with (empty strings) 
-        or whatever the equivalent is for radio buttons, checkboxes, and ranges...
-      */
+      features: [], //Initializes an empty array...
     });
+
+    // Event handler for checkbox changes
+    const handleCheckboxChange = (event) => {
+      const {name, checked} = event.target;
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        features: checked
+        ? [...prevFormData.features, name] // Add the selected checkbox values to the array
+        : prevFormData.features.filter((feature) => feature !== name), // This removes the deselected checkbox value from the array
+      }));
+    };
     
     // Below is the FormTitles variable which is an array of strings that will be displayed as <h1>'s based on the current page, see "header" className in the return body
     const FormTitles = ["Choose a service", "Choose the stage of your project, or start from scratch", "How many pages/screens do you see having?", "Would you like any special features?", "Do You need a shopping cart?"];
@@ -28,13 +37,13 @@ function Survey() {
       if (page === 0 ) {
         return <Question1 formData={formData} setFormData={setFormData}/>;
       } else if (page === 1) {
-        return <Question2 />
+        return <Question2 formData={formData} setFormData={setFormData}/>;
       } else if (page === 2) {
-        return <Question3/>
+        return <Question3 formData={formData} setFormData={setFormData}/>;
       } else if (page === 3) {
-        return <Question4/>
+        return <Question4 formData={formData} setFormData={setFormData} handleCheckboxChange={handleCheckboxChange}/>;
       } else if (page === 4) {
-        return <Question5/>
+        return <Question5 formData={formData} setFormData={setFormData} handleCheckboxChange={handleCheckboxChange}/>;
       }
     };
 
