@@ -41,6 +41,7 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
+
 /* Header Font */
 h1,
 h2,
@@ -56,6 +57,7 @@ a,
 button,
 Link {
   font-family: "Inter", sans-serif;
+
 }
 
 .swiper-button-next:after,

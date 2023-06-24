@@ -73,9 +73,15 @@ export const Ourwork = () => {
             !showAll ? "block" : ""
           }`}
         >
+          {showAll ? "See Less" : "Show All"}
+        </button>
+
+        <button className="rounded-md active:bg-[#5B45BB] hover:bg-[#5F56D6] mt-4 px-8 py-4 bg-[#6366F1] text-white shadow-lg transition ease-in-out duration-150 w-[77%]">
+          <Link to="./project-calculator" className="">Project Calculators</Link>
           <p className="text-lg font-medium ">
             {showAll ? "See Less cards 🫣" : "Show all cards 👁"}
           </p>
+
         </button>
       </div>
     </div>

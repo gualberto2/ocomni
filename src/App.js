@@ -17,10 +17,16 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import "tailwindcss/tailwind.css";
 import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+
+import BlogHome from "./components/blog-components/BlogHome";
+import Post from "./components/Post";
+import ProjectCalculator from "./pages/ProjectCalculator";
+
 import Article from "./pages/Article";
 import AllBlogs from "./pages/AllBlogs";
 import ScrollToTop from "./components/ScrollToTop";
 import "./pageAnimations.css";
+
 
 function App() {
   return (
@@ -35,15 +41,20 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/profile" element={<PrivateRoute />}>
-            <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />
           </Route>
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
+
+          <Route path="/post/:slug" element={<Post />} />
+          <Route path="/project-calculator" element={<ProjectCalculator/>}/>
+
           <Route path="/article/:slug" element={<Article />} />
           <Route path="/all-blogs" element={<AllBlogs />} />
+
         </Routes>
         <Footer />
       </Router>
