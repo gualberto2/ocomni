@@ -15,11 +15,8 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import "tailwindcss/tailwind.css";
 import "react-toastify/dist/ReactToastify.css";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-
-import BlogHome from "./components/blog-components/BlogHome";
 import Post from "./components/Post";
 import ProjectCalculator from "./pages/ProjectCalculator";
-
 import Article from "./pages/Article";
 import AllBlogs from "./pages/AllBlogs";
 import ScrollToTop from "./components/ScrollToTop";
