@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/solid";
 
 export default function Header() {
-  const [pageState, setPageState] = useState("Sign In");
+  const [pageState, setPageState] = useState("Login");
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
   const location = useLocation();
@@ -19,12 +19,12 @@ export default function Header() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setPageState("Profile");
+        setPageState("Account");
       } else {
-        setPageState("Sign In");
+        setPageState("Login");
       }
-      if (isRouteActive("/sign-up")) {
-        setPageState("Sign Up");
+      if (isRouteActive("/register")) {
+        setPageState("Register");
       }
     });
 
@@ -48,7 +48,7 @@ export default function Header() {
 
   return (
     <div
-      className={`w-[75%] sm:w-[40%] lg:w-[70%] rounded-full mx-auto backdrop-blur bg-[#f8f9fa]/50 sticky top-2 z-50 `}
+      className={`w-[75%] sm:w-[40%] lg:w-[70%] rounded-full mx-auto backdrop-blur bg-[#f8f9fa]/50 sticky top-1 z-50 `}
     >
       <header className="flex flex-col lg:flex-row lg:h-10 h-16 justify-center lg:justify-between items-center mxa-w-6xl mx-auto  px-10 py-10 z-50">
         <div>
@@ -80,7 +80,7 @@ export default function Header() {
             <li
               onClick={() => navigate("/blog")}
               className={`cursor-pointer ${
-                isRouteActive("/blog")
+                isRouteActive("/blog") || isRouteActive("")
                   ? "text-[#5B45BB] border-b-2 border-[#5B45BB] font-boldbody"
                   : "text-black "
               }`}
@@ -108,11 +108,11 @@ export default function Header() {
               </span>
             </li>
             <li
-              onClick={() => navigate("/profile")}
+              onClick={() => navigate("/login")}
               className={`cursor-pointer ${
-                isRouteActive("/sign-in") ||
-                isRouteActive("/profile") ||
-                isRouteActive("/sign-up")
+                isRouteActive("/login") ||
+                isRouteActive("/account") ||
+                isRouteActive("/register")
                   ? "text-[#5B45BB] border-b-2 border-[#5B45BB] "
                   : "text-black "
               }`}

@@ -140,7 +140,7 @@ export default function HomePage() {
                 <input
                   type="text"
                   id="last"
-                  placeholder="ex. Doe"
+                  placeholder="ex. Wick"
                   value={last}
                   onChange={onChange}
                   className="w-full px-3 py-2 focus:ring-transparent bg-gray-200 border-gray-200 focus:bg-gray-300 focus:border-blue-800 border-[1px] rounded-md "
@@ -157,7 +157,7 @@ export default function HomePage() {
                 type="email"
                 id="email"
                 value={email}
-                placeholder="johndoe@email.com"
+                placeholder="johnwick@email.com"
                 onChange={onChange}
                 className="w-full px-3 py-2 focus:ring-transparent bg-gray-200 focus:bg-gray-300 border-gray-200 focus:border-blue-800 border-[1px] rounded-md text-gray-700  "
                 required

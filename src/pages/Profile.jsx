@@ -32,7 +32,7 @@ export default function Profile() {
   function onCancel() {
     setChangeDetails(false);
     setCancelChanges(true);
-    navigate("/profile");
+    navigate("/account");
   }
 
   function onChange(e) {

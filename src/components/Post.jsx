@@ -57,6 +57,16 @@ const Post = ({ post }) => {
             src={obj.src}
           />
         );
+      case "list":
+        return (
+          <ul>
+            {modifiedText.map((item, i) => (
+              <React.Fragment key={i}>
+                <li>{item}</li>
+              </React.Fragment>
+            ))}
+          </ul>
+        );
       default:
         return modifiedText;
     }
@@ -104,21 +114,23 @@ const Post = ({ post }) => {
         {post.excerpt}
       </p>
       <img src={post.featuredImage.url} className="my-6 w-[90%] mx-auto" />
-      {/* <div
-        class="content"
-        className="font-normal text-lg leading-relaxed  text-gray-700"
-        dangerouslySetInnerHTML={{ __html: post.content.html }}
-      /> */}
+
       {post.content.raw.children.map((typeObj, index) => {
         const children = typeObj.children.map((item, itemindex) =>
           getContentFragment(itemindex, item.text, item)
         );
 
-        return getContentFragment(index, children, typeObj, typeObj.type);
+        return (
+          <p className="text-lg leading-relaxed text-gray3-700">
+            {getContentFragment(index, children, typeObj, typeObj.type)}
+          </p>
+        );
       })}
 
       {/* will work on comments later */}
-      <div>{/* <Comments /> */}</div>
+      <div>
+        <Comments />
+      </div>
     </article>
   );
 };

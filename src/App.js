@@ -10,8 +10,6 @@ import Profile from "./pages/Profile";
 import Newsletter from "./pages/Newsletter";
 import Footer from "./components/Footer";
 import Blog from "./pages/Blog";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
 import { PrivateRoute } from "./components/PrivateRoute";
 import "tailwindcss/tailwind.css";
@@ -21,6 +19,8 @@ import Article from "./pages/Article";
 import AllBlogs from "./pages/AllBlogs";
 import ScrollToTop from "./components/ScrollToTop";
 import "./pageAnimations.css";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -34,12 +34,12 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/profile" element={<PrivateRoute />}>
-            <Route path="/profile" element={<Profile />} />
+          <Route path="/account" element={<PrivateRoute />}>
+            <Route path="/account" element={<Profile />} />
           </Route>
           <Route path="/newsletter" element={<Newsletter />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/article/:slug" element={<Article />} />
