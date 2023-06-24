@@ -8,16 +8,13 @@ import {
   QUERY_POST_BY_POPULARITY,
   QUERY_POST_BY_FEATOFDAWEEK,
   QUERY_POST_BY_SALES,
+  QUERY_ALL_POSTS,
+  QUERY_ALL_CATEGORIES,
 } from "./queries";
-import PostCard from "./PostCard";
-import PostsNoCard from "./PostsNoCard";
-import PostBigCard from "./PostBigCard";
-import PostRectangle from "./PostRectangle";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AiOutlineCalendar } from "react-icons/ai";
 import moment from "moment";
-import Post from "../Post";
+// import Post from "../Post";
 
 export function PostsByAbout() {
   const { slug } = useParams();
@@ -30,7 +27,6 @@ export function PostsByAbout() {
         const res = await graphcms.request(QUERY_POST_BY_ABOUT, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -48,14 +44,15 @@ export function PostsByAbout() {
             <div className="">
               <img
                 src={post.featuredImage.url}
+                onClick={() => navigate(`/article/${post.slug}`)}
                 alt=""
                 className="h-[150px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in "
               />
             </div>
 
             <div>
-              <Link to={<Post />}>
-                <h1 className="font-header leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+              <Link to={`/article/${post.slug}`}>
+                <h1 className="font-header leading-6 line-clamp-2  cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                   {post.title}
                 </h1>
               </Link>
@@ -81,6 +78,7 @@ export function PostsByAbout() {
 export function PostsByMarketing() {
   const { slug } = useParams();
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -88,7 +86,6 @@ export function PostsByMarketing() {
         const res = await graphcms.request(QUERY_POST_BY_MARKETING, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -104,6 +101,7 @@ export function PostsByMarketing() {
         <div key={post.id} className="flex flex-row mt-2 gap-2 items-center">
           <img
             src={post.featuredImage.url}
+            onClick={() => navigate(`/article/${post.slug}`)}
             alt=""
             loading="lazy"
             className="h-[104px] w-[100px] object-cover hover:scale-105 transition-scale duration-200 ease-in "
@@ -112,13 +110,16 @@ export function PostsByMarketing() {
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden ">
             <div className="w-full  mt-1 ">
               <div className="sm:flex-col items-center">
-                <Link to={`/post/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
+                <Link to={`/article/${post.slug}`}>
+                  <h3
+                    className="font-semibold
+                   cursor-pointer text-lg my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900"
+                  >
                     {post.title}
-                  </p>
+                  </h3>
                 </Link>
 
-                <p className="px-2 text-sm font-primarybody line-clamp-2">
+                <p className="px-2 text-sm font-light line-clamp-2">
                   {post.excerpt}
                 </p>
               </div>
@@ -144,6 +145,7 @@ export function PostsByMarketing() {
 export function PostsBySales() {
   const { slug } = useParams();
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -151,7 +153,6 @@ export function PostsBySales() {
         const res = await graphcms.request(QUERY_POST_BY_SALES, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -167,21 +168,22 @@ export function PostsBySales() {
         <div key={post.id} className="flex flex-row mt-2 gap-2 items-center">
           <img
             src={post.featuredImage.url}
+            onClick={() => navigate(`/article/${post.slug}`)}
             alt=""
             loading="lazy"
-            className="h-[104px] w-[100px] object-cover hover:scale-105 transition-scale duration-200 ease-in "
+            className="h-[104px] w-[100px] object-cover hover:scale-105 transition-scale duration-200 ease-in"
           />
 
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden ">
             <div className="w-full  mt-1 ">
               <div className="sm:flex-col items-center">
-                <Link to={`/post/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-md my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
+                <Link to={`/article/${post.slug}`}>
+                  <p className="font-semibold  cursor-pointer text-lg my-1 text-gray-800 transition duration-200 hover:text-purple-600 line-clamp-1 px-2 hover:underline active:text-purple-900">
                     {post.title}
                   </p>
                 </Link>
 
-                <p className="px-2 text-sm font-primarybody line-clamp-2">
+                <p className="px-2 text-sm font-light line-clamp-2">
                   {post.excerpt}
                 </p>
               </div>
@@ -214,7 +216,6 @@ export function PostByInformational() {
         const res = await graphcms.request(QUERY_POST_BY_INFORMATIONAL, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -230,7 +231,7 @@ export function PostByInformational() {
         <div key={post.id} className="mb-6 sm:mb-0">
           <article className="flex flex-col">
             <div className="">
-              <Link to={`/post/${post.slug}`}>
+              <Link to={`/article/${post.slug}`}>
                 <img
                   src={post.featuredImage.url}
                   alt=""
@@ -239,8 +240,8 @@ export function PostByInformational() {
               </Link>
             </div>
             <div>
-              <Link to={`/post/${post.slug}`}>
-                <h1 className="font-header leading-6 line-clamp-2 font-header cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+              <Link to={`/article/${post.slug}`}>
+                <h1 className="font-boldbody uppercase leading-6 line-clamp-2 cursor-pointer mb-2 text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                   {post.title}
                 </h1>
               </Link>
@@ -264,7 +265,6 @@ export function PostByInformational() {
 }
 export function PostByDaWeek() {
   const navigate = useNavigate();
-
   const { slug } = useParams();
   const [posts, setPosts] = useState([]);
 
@@ -274,7 +274,6 @@ export function PostByDaWeek() {
         const res = await graphcms.request(QUERY_POST_BY_FEATOFDAWEEK, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -288,24 +287,24 @@ export function PostByDaWeek() {
     <>
       {posts?.map((post) => (
         <div key={post.id} className="">
-          <li className="relative bg-purple-100 flex flex-col justify-between h-full  items-center overflow-hidden mt-3 duration-150">
+          <li className="relative flex flex-col justify-between h-full  items-center overflow-hidden mt-3 duration-150 rounded">
             <img
-              onClick={() => navigate("/")}
+              onClick={() => navigate(`/article/${post.slug}`)}
               src={post.featuredImage.url}
               alt=""
               loading="lazy"
               className="h-[150px] md:h-[400px] cursor-pointer w-full object-cover hover:scale-105 transition-scale duration-200 ease-in"
             />
 
-            <div className="w-full py-4 px-12 mt-1">
+            <div className="w-full py-4 px-1 mt-1">
               <div className="flex items-center space-x-1">
-                <Link to={`/post/${post.slug}`}>
-                  <p className="font-header text-gray-900 text-center text-xl mb-2 tracking-wide text-black hover:underline cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
+                <Link to={`/article/${post.slug}`}>
+                  <h3 className="font-bold leading-tight  text-gray-900 text-center text-2xl mb-2  cursor-pointer  hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200">
                     {post.title}
-                  </p>
+                  </h3>
                 </Link>
               </div>
-              <p className="font-extralight m-0 text-md text-gray-900 leading-7 line-clamp-4 mb-4">
+              <p className="font-normal m-0 text-md text-gray-600 leading-normal line-clamp-4 mb-4">
                 {post.excerpt}
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-between">
@@ -329,10 +328,10 @@ export function PostByDaWeek() {
                 </div>
 
                 <div class="flex justify-between items-center">
-                  <Link to={`/post/${post.slug}`}>
+                  <Link to={`/article/${post.slug}`}>
                     <a
                       href="#"
-                      class="inline-flex items-center mt-4 font-medium  cursor-pointer hover:underline hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200"
+                      class="inline-flex items-center mt-4 font-medium  cursor-pointer hover:text-purple-600 hover:underline active:text-purple-900 transition duration-200"
                     >
                       Read more
                       <svg
@@ -361,14 +360,13 @@ export function PostByDaWeek() {
 export function PostsByPopularity() {
   const { slug } = useParams();
   const [posts, setPosts] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await graphcms.request(QUERY_POST_BY_POPULARITY, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -385,10 +383,10 @@ export function PostsByPopularity() {
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden border-b border-gray-300">
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
-                <Link to={`/post/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                <Link to={`/article/${post.slug}`}>
+                  <h3 className="font-medium cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
-                  </p>
+                  </h3>
                 </Link>
               </div>
 
@@ -399,7 +397,7 @@ export function PostsByPopularity() {
 
                 <div className="mb-2">
                   <p className="font-light mt-2 text line-clamp-1 text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700">
-                    {post.author.name}, {post.author.roles}
+                    {post.author.name} / {post.author.roles}
                   </p>
                 </div>
               </div>
@@ -420,7 +418,6 @@ export function PostsByFeatured() {
         const res = await graphcms.request(QUERY_POST_BY_FEATURED, {
           slug: slug,
         });
-        console.log(res);
         setPosts(res.posts);
       } catch (error) {
         console.log(error);
@@ -437,10 +434,10 @@ export function PostsByFeatured() {
           <li className="relative flex flex-col justify-between mb-2 items-center overflow-hidden border-b border-gray-300">
             <div className="w-full  mt-1 ">
               <div className="flex items-center space-x-1">
-                <Link to={`/post/${post.slug}`}>
-                  <p className="font-header cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
+                <Link to={`/article/${post.slug}`}>
+                  <h3 className="font-medium cursor-pointer text-lg my-1 text-gray-900 transition duration-200 hover:text-purple-600 hover:underline active:text-purple-900">
                     {post.title}
-                  </p>
+                  </h3>
                 </Link>
               </div>
 
@@ -451,13 +448,46 @@ export function PostsByFeatured() {
 
                 <div className="mb-2">
                   <p className="font-light mt-2 text line-clamp-1 text-gray-500 cursor-pointer transition duration-300 hover:text-gray-700">
-                    {post.author.name}, {post.author.roles}
+                    {post.author.name} / {post.author.roles}
                   </p>
                 </div>
               </div>
             </div>
           </li>
         </div>
+      ))}
+    </>
+  );
+}
+export function CategorySec() {
+  const { slug } = useParams();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await graphcms.request(QUERY_ALL_CATEGORIES, {
+          slug: slug,
+        });
+
+        setCategories(res.categories);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [slug]);
+
+  return (
+    <>
+      {categories?.map((category) => (
+        <p className="inline-block rounded text-xs font-medium leading-[22px] transition-colors duration-200 bg-white border border-primary-100 hover:text-white hover:bg-[#322692] mr-3 lg:mr-2">
+          {/* border-[1px] border-gray-500 */}
+          <Link className="block h-full w-full text-xs font-normal cursor-pointer text-[color:inherit] px-2 py-1">
+            {category.title}
+          </Link>
+        </p>
       ))}
     </>
   );

@@ -50,7 +50,7 @@ export const Ourwork = () => {
   ];
   const visibleItems = showAll ? items : items.slice(0, 3);
   return (
-    <div className="my-8 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-24">
+    <div className="mb-36 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {visibleItems.map((item, index) => (
           <div
@@ -69,7 +69,7 @@ export const Ourwork = () => {
       <div className="flex flex-col items-center">
         <button
           onClick={() => setShowAll((prevState) => !prevState)}
-          className={`rounded-md active:bg-[#5B45BB] hover:bg-[#5F56D6] mt-4 px-8 py-1 bg-[#6366F1] text-white w-[77%]  shadow-lg transition ease-in-out duration-150 ${
+          className={`rounded-lg bg-[#ECEBFF] hover:bg-[#D9DAFC] active:bg-[#ECEDFD] text-[#6663FD] mt-4 px-8 py-2 md:w-[30%] font-medium transition ease-in-out whitespace-nowrap duration-150 ${
             !showAll ? "block" : ""
           }`}
         >
@@ -78,6 +78,10 @@ export const Ourwork = () => {
 
         <button className="rounded-md active:bg-[#5B45BB] hover:bg-[#5F56D6] mt-4 px-8 py-4 bg-[#6366F1] text-white shadow-lg transition ease-in-out duration-150 w-[77%]">
           <Link to="./project-calculator" className="">Project Calculators</Link>
+          <p className="text-lg font-medium ">
+            {showAll ? "See Less cards 🫣" : "Show all cards 👁"}
+          </p>
+
         </button>
       </div>
     </div>

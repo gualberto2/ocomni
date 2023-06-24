@@ -18,6 +18,9 @@ const post = `
     content {
       html
     }
+    content {
+      raw
+    }
     author {
       id
       name
@@ -33,6 +36,7 @@ const post = `
     createdAt
     updatedAt
     excerpt
+
 `;
 
 // This is a variable, it has the objects for the categories. Will be fetched in the Categories Query.
@@ -50,6 +54,7 @@ const comment = `
     comment
 `;
 
+//-----------SORTED POSTS ⬇️
 export const QUERY_POST_BY_CATEGORY = gql`
 query GetPostsByCategory($slug: String!) {
     posts(orderBy: updatedAt_DESC, where: { categories_some: { slug: $slug } }){
@@ -113,7 +118,7 @@ export const QUERY_POST_BY_SALES = gql`
 `;
 export const QUERY_POST_BY_FEATOFDAWEEK = gql`
 {
-    posts(orderBy: updatedAt_DESC,first: 1, where: { categories_some: { slug: "featured-cat" } }){
+    posts(orderBy: updatedAt_DESC,first: 1, where: { categories_some: { slug: "featured-posts" } }){
         ${post}
         categories(){${category}}
     }
@@ -139,6 +144,53 @@ export const QUERY_POST_BY_FEATURED = gql`
   posts(orderBy: updatedAt_DESC,first: 3){
       ${post}
       featuredPost
+  }
+}
+`;
+export const QUERY_POST = gql`
+{
+  posts(orderBy: updatedAt_DESC,first: 3){
+      ${post}
+      featuredPost
+  }
+}
+`;
+
+export const QUERY_ALL_CATEGORIES = gql`
+{categories(orderBy: updatedAt_DESC){
+  ${category}
+}}
+`;
+
+//--------------SORTED QUERIES ⬆️
+
+//Post
+export const QUERY_SELECTED_POST = gql`
+query GetOnePost($slug: String!){
+  posts(where: {slug: $slug}){
+    ${post}
+    categories(){
+      ${category}
+    }
+    comments(orderBy: updatedAt_DESC){
+      ${comment}
+    }
+  }
+}
+`;
+
+export const QUERY_ALL_POSTS = gql`
+query GetPosts($limit: Int!, $skip: Int!){
+  posts(orderBy: updatedAt_DESC,first: $limit, skip: $skip){
+      ${post}
+      categories(){
+        ${category}
+      }
+  }
+  countConnection: postsConnection(stage: PUBLISHED){
+    aggregate{
+      count
+    }
   }
 }
 `;

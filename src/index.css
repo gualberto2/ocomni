@@ -1,77 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "OCOMNI";
+  src: url("//cdn.fontshare.com/wf/BFBSY7LX5W2U2EROCLVVTQP4VS7S4PC3/IIUX4FGTMD2LK2VWD3RVTAS4SSMUN7B5/53RZKGODFYDW3QHTIL7IPOWTBCSUEZK7.woff2")
+      format("woff2"),
+    url("//cdn.fontshare.com/wf/BFBSY7LX5W2U2EROCLVVTQP4VS7S4PC3/IIUX4FGTMD2LK2VWD3RVTAS4SSMUN7B5/53RZKGODFYDW3QHTIL7IPOWTBCSUEZK7.woff")
+      format("woff"),
+    url("//cdn.fontshare.com/wf/BFBSY7LX5W2U2EROCLVVTQP4VS7S4PC3/IIUX4FGTMD2LK2VWD3RVTAS4SSMUN7B5/53RZKGODFYDW3QHTIL7IPOWTBCSUEZK7.ttf")
+      format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+/* @font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/iner.ttf);
+}
+@font-face {
+  font-family: "Jakarta";
+  src: url(./assets/fonts/jarkar.ttf);
+}  */
 
 body {
   margin: 0;
-  /* background-color: white; */
+  background-color: #f8f9fa;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/*Below is the root, which will be targeting the slider.jsx component*/
-
-:root {
-  --main-color: rgb(104, 117, 217);
-  --main-color-hover: rgb(104, 117, 217, 0.2);
-  --track-color: #ddd;
-/* Default mark color*/
-  --mark-color: #aaaaaa;
+body::-webkit-scrollbar {
+  display: none;
 }
 
-.customSlider-mark {
-  cursor: pointer;
-  top: 6px;
-  width: 1.5px;
-  height: 8px;
-  background-color: var(--mark-color);
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-.customSlider {
-  /* max width of your slider */
-  max-width: full;
-  /* Optional: Only If you want to center your slider in the page */
-  margin: auto;
+
+/* Header Font */
+h1,
+h2,
+h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.customSlider-track {
-  /* Top value to align your track to the center of your thumb */
-  top: 8px;
-  /* thickness of the track */
-  height: 4px;
- /* default color of your track */
-  background: var(--track-color);
-}
+h4,
+h5,
+h6,
+p,
+a,
+button,
+Link {
+  font-family: "Inter", sans-serif;
 
-.customSlider-track.customSlider-track-0 {
-  /* color of the track before the thumb */
-  background: var(--main-color);
-}
-
-.customSlider-thumb {
-  cursor: pointer;
-  /*color for the thumb */
-  background: var(--main-color);
-  /* shape of the thumb: circle */
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-  /* remove default outline when selected */
-  outline: none;
-}
-
-.customSlider-thumb:hover {
-  box-shadow: 0 0 0 8px var(--main-color-hover);
-}
-
-/*END OF THE SLIDER CSS FROM ABOVE*/
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
 
 .swiper-button-next:after,
@@ -80,16 +66,17 @@ code {
   border-color: black;
 }
 
-@font-face {
-  font-family: "Bold";
-  src: url(assets/fonts/Satoshi-Bold.otf) format("opentype");
-}
-@font-face {
-  font-family: "LightSatoshi";
-  src: url(assets/fonts/Satoshi-Light.otf) format("opentype");
+::-moz-selection {
+  /* Code for Firefox */
+  color: white;
+  background: #6366f1;
 }
 
-@font-face {
-  font-family: "Black";
-  src: url(assets/fonts/Satoshi-Black.otf) format("opentype");
+::selection {
+  color: white;
+  background: #6366f1;
 }
+
+/* .content :is(h1, h2, h3, h4, h5, h6) {
+  font-size: x-large;
+} */

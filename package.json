@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@graphcms/rich-text-react-renderer": "^0.6.1",
     "@heroicons/react": "^1.0.6",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@testing-library/jest-dom": "^5.16.5",
@@ -21,6 +22,7 @@
     "react-scripts": "5.0.1",
     "react-slider": "^2.0.5",
     "react-toastify": "^9.1.2",
+    "react-topbar-progress-indicator": "^4.1.1",
     "swiper": "^9.3.2",
     "web-vitals": "^2.1.4"
   },

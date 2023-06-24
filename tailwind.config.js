@@ -4,9 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      header: "Bold",
-      primarybody: "LightSatoshi",
-      title: "Black",
+      OCOMNI: "OCOMNI",
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/line-clamp")],
