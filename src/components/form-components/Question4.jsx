@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Question4({formData, handleCheckboxChange}) {
+function Question4({formData, setFormData, handleCheckboxChange}) {
   return (
     <div>
       <form className='container mx-auto'>
