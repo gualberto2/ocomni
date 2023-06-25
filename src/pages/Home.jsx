@@ -52,7 +52,7 @@ export default function HomePage() {
   }, []);
   return (
     <div className="mx-6 ">
-      <div className="py-16 md:py-32 lg:py-48 mx-auto flex flex-col items-center">
+      <div className="py-16 md:py-32 lg:py-48 lg:h-screen mx-auto flex flex-col items-center">
         <h1 className="text-4xl lg:text-5xl text-center font-extrabold text-gray-900">
           Ecommerce powered by{" "}
           <span className="text-[#5B45BB] font-OCOMNI">OCOMNI</span>
