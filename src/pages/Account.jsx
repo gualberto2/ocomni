@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export default function Profile() {
+export default function Acount() {
   const auth = getAuth();
   const params = useParams();
   const navigate = useNavigate();

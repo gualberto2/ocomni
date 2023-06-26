@@ -20,8 +20,10 @@ export default function Header() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setPageState("Account");
+        navigate("/account");
       } else {
         setPageState("Login");
+        navigate("/login");
       }
       if (isRouteActive("/register")) {
         setPageState("Register");
@@ -32,7 +34,7 @@ export default function Header() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [auth]);
 
   function isRouteActive(route) {
     return location.pathname === route;
@@ -108,7 +110,7 @@ export default function Header() {
               </span>
             </li>
             <li
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/account")}
               className={`cursor-pointer ${
                 isRouteActive("/login") ||
                 isRouteActive("/account") ||

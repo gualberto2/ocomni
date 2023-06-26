@@ -121,35 +121,6 @@ export default function Login() {
           </form>
         </div>
       </div>
-      {/* <form>
-            <input
-              type="email"
-              id="email"
-              required
-              value={email}
-              onChange={onChange}
-              placeholder="Email address"
-              className="mb-6 w-full px-4 py-2 text-xl text-gray-700 bg-white border-2 shadow border-[#BDB5E3] rounded transition ease-in-out"
-            />
-
-           
-            <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg">
-              <p className="mb-6">
-                Don't have an account?
-                <Link
-                  to="/sign-up"
-                  className="text-[#F4B400] hover:text-[#A38B00]  transition duration-200 ease-in-out ml-1.5 hover:underline"
-                >
-                  Register
-                </Link>
-              </p>
-            
-            </div>
-
-            
-           
-            <OAuth />
-          </form> */}
     </section>
   );
 }

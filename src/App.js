@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
-import Profile from "./pages/Profile";
+import Account from "./pages/Account";
 import Newsletter from "./pages/Newsletter";
 import Footer from "./components/Footer";
 import Blog from "./pages/Blog";
@@ -23,6 +23,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import "./pageAnimations.css";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import FPEC from "./pages/FPEC";
 
 function App() {
   return (
@@ -37,7 +38,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/account" element={<PrivateRoute />}>
-            <Route path="/account" element={<Profile />} />
+            <Route path="/account" element={<Account />} />
           </Route>
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/register" element={<Register />} />
@@ -48,6 +49,7 @@ function App() {
           <Route path="/project-calculator" element={<ProjectCalculator />} />
           <Route path="/article/:slug" element={<Article />} />
           <Route path="/all-blogs" element={<AllBlogs />} />
+          <Route path="/fpec-success" element={<FPEC />} />
         </Routes>
         <Footer />
       </Router>

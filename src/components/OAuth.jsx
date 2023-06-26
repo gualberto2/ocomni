@@ -32,7 +32,7 @@ export default function OAuth() {
           timestamp: serverTimestamp(),
         });
       }
-      navigate("/");
+      navigate("/account");
     } catch (error) {
       toast.error("Could not authorize with Google");
     }
@@ -54,7 +54,7 @@ export default function OAuth() {
           timestamp: serverTimestamp(),
         });
       }
-      navigate("/");
+      navigate("/account");
     } catch (error) {
       toast.error("Could not authorize with Facebook");
       console.log(error);
@@ -77,48 +77,12 @@ export default function OAuth() {
           timestamp: serverTimestamp(),
         });
       }
-      navigate("/");
+      navigate("/account");
     } catch (error) {
       toast.error("Could not authorize with Twitter");
       console.log(error);
     }
   }
-  // const onTwitterClick = () => {
-  //   const auth = getAuth();
-  //   const provider = new TwitterAuthProvider();
-  //   signInWithPopup(auth, provider)
-  //     .then((re) => {
-  //       console.log(re);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-  // async function onFacebookClick() {
-  //   const auth = getAuth();
-  //   const provider = new FacebookAuthProvider();
-  //   signInWithPopup(auth, provider)
-  //     .then((result) => {
-  //       // The signed-in user info.
-  //       const user = result.user;
-
-  //       // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-  //       const credential = FacebookAuthProvider.credentialFromResult(result);
-  //       const accessToken = credential.accessToken;
-
-  //       // IdP data available using getAdditionalUserInfo(result)
-  //       // ...
-  //     })
-  //     .catch((error) => {
-  //       // Handle Errors here.
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       // The email of the user's account used.
-  //       const email = error.customData.email;
-  //       // The AuthCredential type that was used.
-  //       const credential = FacebookAuthProvider.credentialFromError(error);
-  //     });
-  // }
 
   return (
     <>
