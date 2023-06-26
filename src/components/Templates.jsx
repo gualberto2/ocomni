@@ -85,7 +85,7 @@ const Template = () => {
       </div>
       <div className="flex items-center justify-center ">
         <Link
-          to="/templates"
+          to="/template-select"
           className="bg-[#6366F1] text-md whitespace-nowrap  font-semibold text-center shadow-md hover:shadow-lg rounded-md px-6 py-3 active:bg-[#5B45BB] hover:bg-[#5F56D6] transition ease-in-out duration-150 md:w-[50%]"
         >
           Select a template

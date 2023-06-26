@@ -28,6 +28,28 @@ export default function HomePage() {
   const [formDEV, setFormDEV] = useState({
     emailDEV: "",
   });
+  const { emailDEV } = formDEV;
+  function onChangeDEV(e) {
+    if (!e.target.files) {
+      setFormDEV((prevState) => ({
+        ...prevState,
+        [e.target.id]: e.target.value,
+      }));
+    }
+  }
+
+  async function onSubmitDEV(e) {
+    e.preventDefault();
+    setLoading(true);
+    const formDataCopy = {
+      ...formData,
+      timestamp: serverTimestamp(),
+    };
+    delete formDataCopy.formData;
+    const docRef = await addDoc(collection(db, "contactDEV"), formDataCopy);
+    setLoading(false);
+    toast.success("Thank you. A developer will talk to you soon!");
+  }
 
   async function onSubmitCONTACT(e) {
     e.preventDefault();
@@ -61,10 +83,16 @@ export default function HomePage() {
           Build the perfect E-Commerce shop, improve business and grow.
         </p>
         <div className="w-full max-w-xl mt-2">
-          <form className="flex  mx-auto flex-col sm:flex-row gap-3 sm:gap-2 ">
+          <form
+            className="flex  mx-auto flex-col sm:flex-row gap-3 sm:gap-2 "
+            onSubmit={onSubmitDEV}
+          >
             <div className="w-full">
               <input
-                type="text"
+                type="email"
+                value={emailDEV}
+                onChange={onChangeDEV}
+                id="emailDEV"
                 placeholder="Enter your email here..."
                 className="transition duration-150 ease-in-out  py-3 rounded-md bg-gray-200 border-gray-200 border-[1px] focus:bg-gray-300  focus:border-blue-800 focus:ring-transparent w-full"
               />
