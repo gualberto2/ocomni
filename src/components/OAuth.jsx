@@ -39,61 +39,61 @@ export default function OAuth() {
       toast.error("Could not authorize with google");
     }
   }
-  async function onFacebookClick() {
-    try {
-      const auth = getAuth();
-      const provider = new FacebookAuthProvider();
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
+  // async function onFacebookClick() {
+  //   try {
+  //     const auth = getAuth();
+  //     const provider = new FacebookAuthProvider();
+  //     const result = await signInWithPopup(auth, provider);
+  //     const user = result.user;
 
-      //check for users
-      const docRef = doc(db, "users", user.uid);
-      const docSnap = await getDoc(docRef);
+  //     //check for users
+  //     const docRef = doc(db, "users", user.uid);
+  //     const docSnap = await getDoc(docRef);
 
-      if (!docSnap.exists()) {
-        await setDoc(docRef, {
-          name: user.displayName,
-          email: user.email,
-          timestamp: serverTimestamp(),
-        });
-      }
-      navigate("/");
-    } catch (error) {
-      toast.error("Could not authorize with Facebook");
-    }
-  }
-  async function onTwitterClick() {
-    try {
-      const auth = getAuth();
-      const provider = new TwitterAuthProvider();
-      auth.languageCode = "it";
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-          // You can use these server side with your app's credentials to access the Twitter API.
-          const credential = TwitterAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          const secret = credential.secret;
+  //     if (!docSnap.exists()) {
+  //       await setDoc(docRef, {
+  //         name: user.displayName,
+  //         email: user.email,
+  //         timestamp: serverTimestamp(),
+  //       });
+  //     }
+  //     navigate("/");
+  //   } catch (error) {
+  //     toast.error("Could not authorize with Facebook");
+  //   }
+  // }
+  // async function onTwitterClick() {
+  //   try {
+  //     const auth = getAuth();
+  //     const provider = new TwitterAuthProvider();
+  //     auth.languageCode = "it";
+  //     signInWithPopup(auth, provider)
+  //       .then((result) => {
+  //         // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+  //         // You can use these server side with your app's credentials to access the Twitter API.
+  //         const credential = TwitterAuthProvider.credentialFromResult(result);
+  //         const token = credential.accessToken;
+  //         const secret = credential.secret;
 
-          // The signed-in user info.
-          const user = result.user;
-          // IdP data available using getAdditionalUserInfo(result)
-          // ...
-        })
-        .catch((error) => {
-          // Handle Errors here.
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          // The email of the user's account used.
-          const email = error.customData.email;
-          // The AuthCredential type that was used.
-          const credential = TwitterAuthProvider.credentialFromError(error);
-          // ...
-        });
-    } catch (error) {
-      toast.error("Could not authorize with google");
-    }
-  }
+  //         // The signed-in user info.
+  //         const user = result.user;
+  //         // IdP data available using getAdditionalUserInfo(result)
+  //         // ...
+  //       })
+  //       .catch((error) => {
+  //         // Handle Errors here.
+  //         const errorCode = error.code;
+  //         const errorMessage = error.message;
+  //         // The email of the user's account used.
+  //         const email = error.customData.email;
+  //         // The AuthCredential type that was used.
+  //         const credential = TwitterAuthProvider.credentialFromError(error);
+  //         // ...
+  //       });
+  //   } catch (error) {
+  //     toast.error("Could not authorize with google");
+  //   }
+  // }
   return (
     <>
       <button
