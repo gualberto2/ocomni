@@ -8,6 +8,7 @@ import {
 import { doc, getDoc, serverTimestamp, setDoc } from "firebase/firestore";
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
+import { auth } from "../firebase";
 
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -39,6 +40,16 @@ export default function OAuth() {
       toast.error("Could not authorize with google");
     }
   }
+  const onTwitterClick = () => {
+    const provider = new TwitterAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((re) => {
+        console.log(re);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   // async function onFacebookClick() {
   //   try {
   //     const auth = getAuth();
