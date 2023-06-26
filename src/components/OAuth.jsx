@@ -117,7 +117,7 @@ export default function OAuth() {
       </button>
 
       <button
-        onClick={onFacebookClick}
+        // onClick={onFacebookClick}
         type="button"
         className="flex items-center w-full hover:bg-gray-200 text-inherit pl-2 pr-4 py-3 text-sm font-semibold rounded-sm transition duration-150 border-[1px] border-slate-400 ease-in-out "
       >
@@ -125,7 +125,7 @@ export default function OAuth() {
         Continue with Facebook
       </button>
       <button
-        onClick={onTwitterClick}
+        // onClick={onTwitterClick}
         type="button"
         className="flex items-center w-full hover:bg-gray-200 text-inherit pl-2 pr-4 py-3 text-sm font-semibold rounded-sm transition duration-150 border-[1px] border-slate-400 ease-in-out "
       >
