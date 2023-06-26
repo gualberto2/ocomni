@@ -26,7 +26,7 @@ const Question3 = ({ formData, setFormData, setHours }) => {
     } else if (pages > 30) {
       return 250;
     } else {
-      return 0;
+      return 60;
     }
   }; /* This function above determines the additional
   hours needed based on the number of pages selected.
@@ -84,7 +84,7 @@ const Question3 = ({ formData, setFormData, setHours }) => {
         </div>
       </div>
       <div className='hours-info'>
-        <p>
+        <p className='invisible'>
           {additionalHours} <span className='invisible'>Hours to complete</span>
         </p>
       </div>

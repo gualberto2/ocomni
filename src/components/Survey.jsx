@@ -72,8 +72,7 @@ function Survey() {
           formData={formData}
           setFormData={setFormData}
           hours={hours}
-          setHours={setHours}
-          additionalHours={additionalHours}
+          setHours={setHours}      
           sliderValue={sliderValue}
           handleSliderChange={handleSliderChange}      
         />
