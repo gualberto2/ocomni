@@ -101,7 +101,7 @@ function Survey() {
   };
 
   const handlePrevClick = () => {
-    if (page === 0) {
+    if (page === 1) {
       setHours(0); // Reset hours to 0 on the first page
     } else {
       setHours((currHours) => currHours - 20);
