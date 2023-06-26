@@ -13,48 +13,25 @@ import { toast } from "react-toastify";
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
+    name: "",
   });
-  const { name, email, password } = formData;
+  const { email, password, name } = formData;
   const navigate = useNavigate();
-  useEffect(() => {
-    document.body.classList.add("page-animation");
-
-    return () => {
-      document.body.classList.remove("page-animation");
-    };
-  }, []);
   function onChange(e) {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
     }));
-    //Files
-    if (e.target.files) {
-      setFormData((prevState) => ({
-        ...prevState,
-        pfp: e.target.files[0],
-      }));
-    }
-
-    //Text/Number
-    if (!e.target.files) {
-      setFormData((prevState) => ({
-        ...prevState,
-        [e.target.id]: e.target.value,
-      }));
-    }
   }
   async function onSubmit(e) {
     e.preventDefault();
-    setLoading(true);
+
     try {
       const auth = getAuth();
-      const userCredetentials = await createUserWithEmailAndPassword(
+      const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
@@ -63,22 +40,17 @@ export default function Register() {
       updateProfile(auth.currentUser, {
         displayName: name,
       });
-
-      const user = userCredetentials.user;
+      const user = userCredential.user;
       const formDataCopy = { ...formData };
       delete formDataCopy.password;
       formDataCopy.timestamp = serverTimestamp();
-      await setDoc(doc(db, "users", user.uid), formDataCopy);
 
-      toast.success("Successfully created account");
+      await setDoc(doc(db, "users", user.uid), formDataCopy);
+      toast.success("Sign up was successful");
       navigate("/");
     } catch (error) {
-      toast.error("Could Not Sign Up");
+      console.log(error);
     }
-  }
-
-  if (loading) {
-    return console.log("loading...");
   }
 
   return (
@@ -106,8 +78,6 @@ export default function Register() {
           <form onSubmit={onSubmit}>
             <div className="flex flex-col gap-3 py-6">
               <OAuth />
-              {/* github auth  */}
-              {/* facebook auth */}
             </div>
             <div className="flex before:border-t before:flex-1 items-center before:border-gray-400 after:border-t after:flex-1 after:border-gray-400">
               <p className="text-center text-xs font-medium px-3">OR</p>
@@ -115,6 +85,9 @@ export default function Register() {
             <div className="flex flex-col gap-3 my-6">
               <input
                 type="email"
+                id="email"
+                onChange={onChange}
+                value={email}
                 className="pr-4 pl- py-3 w-full border-slate-400 border-[1px]  transition duration-150 rounded-sm text-sm bg-inherit focus:ring-purple-600 hover:border-purple-600 active:border-purple-900"
                 placeholder="Email"
               />
@@ -142,6 +115,9 @@ export default function Register() {
               </div>
               <input
                 type="text"
+                id="name"
+                onChange={onChange}
+                value={name}
                 className="pr-4 pl- py-3 w-full border-slate-400 border-[1px]  transition duration-150 rounded-sm text-sm bg-inherit focus:ring-purple-600 hover:border-purple-600 active:border-purple-900"
                 placeholder="Enter your name"
               />
