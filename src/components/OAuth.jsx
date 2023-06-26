@@ -59,7 +59,7 @@ export default function OAuth() {
       }
       navigate("/");
     } catch (error) {
-      toast.error("Could not authorize with google");
+      toast.error("Could not authorize with Facebook");
     }
   }
   async function onTwitterClick() {
