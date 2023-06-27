@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Question3 = ({ formData, setFormData, setHours }) => {
+const Question3 = ({ formData, setFormData, setHours}) => {
   const [sliderValue, setSliderValue] = useState(0);
 
   const handleRangeChange = (event) => {
