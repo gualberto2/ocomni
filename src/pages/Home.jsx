@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Template from "../components/Templates";
 import { Ourwork } from "../components/Ourwork";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { serverTimestamp, addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { toast } from "react-toastify";
 
 export default function HomePage() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   //Form data for the getting in contact with us form at bottom of home page
   const [formData, setFormData] = useState({
@@ -82,6 +83,9 @@ export default function HomePage() {
         <p className="mt-2 text-xl text-neutral-500 leading-normal text-center">
           Build the perfect E-Commerce shop, improve business and grow.
         </p>
+        <button className="text-red-500" onClick={navigate("/calculator")}>
+          TEST
+        </button>
         <div className="w-full max-w-xl mt-2">
           <form
             className="flex  mx-auto flex-col sm:flex-row gap-3 sm:gap-2 "
@@ -109,7 +113,10 @@ export default function HomePage() {
         </p>
         <p className="text-neutral-500 text-sm leading-normal text-center">
           You can also create an account. Get started{" "}
-          <span className="text-purple-300 cursor-pointer hover:text-purple-400 transition font-semibold duration-150 ease-in text-center hover:border-b-[1px] hover:border-purple-400">
+          <span
+            className="text-purple-300 cursor-pointer hover:text-purple-400 transition font-semibold duration-150 ease-in text-center hover:border-b-[1px] hover:border-purple-400"
+            onClick={navigate("/register")}
+          >
             here 🔗
           </span>{" "}
           it's free

@@ -20,10 +20,8 @@ export default function Header() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setPageState("Account");
-        navigate("/account");
       } else {
         setPageState("Login");
-        navigate("/login");
       }
       if (isRouteActive("/register")) {
         setPageState("Register");

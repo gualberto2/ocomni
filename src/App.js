@@ -46,7 +46,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/post/:slug" element={<Post />} />
-          <Route path="/project-calculator" element={<ProjectCalculator />} />
+          <Route path="/calculator" element={<ProjectCalculator />} />
           <Route path="/article/:slug" element={<Article />} />
           <Route path="/all-blogs" element={<AllBlogs />} />
           <Route path="/fpec-success" element={<FPEC />} />
