@@ -11,8 +11,8 @@ function Question4({formData, setFormData, handleCheckboxChange}) {
           name="usersandauth" 
           value="usersandauth" 
           checked={formData.features.includes('usersandauth')} // Check if the value is included in the selected checkbox values
-          onChange={handleCheckboxChange} // Call the event handler on checkbox change
-        />
+          onChange={handleCheckboxChange}
+       />
         <label 
           htmlFor="usersandauth"
         >
@@ -26,7 +26,7 @@ function Question4({formData, setFormData, handleCheckboxChange}) {
           name="membersonly" 
           value="membersonly" 
           checked={formData.features.includes('membersonly')} // Check if the value is included in the selected checkbox values
-          onChange={handleCheckboxChange} // Call the event handler on checkbox change
+          onChange={handleCheckboxChange}
         />
         <label 
           htmlFor="membersonly"
@@ -176,7 +176,6 @@ function Question4({formData, setFormData, handleCheckboxChange}) {
         >
           Live-Streaming
         </label>
-
       </form>
     </div>
   )
