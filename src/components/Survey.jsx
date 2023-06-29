@@ -17,7 +17,7 @@ function Survey() {
   const handleSliderChange = (event) => {
     const value = parseInt(event.target.value);
     setSliderValue(value);
-  };  
+  };
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
@@ -25,7 +25,7 @@ function Survey() {
       ...prevFormData,
       features: checked
         ? [...prevFormData.features, name]
-        : prevFormData.features.filter((feature) => feature !== name)
+        : prevFormData.features.filter((feature) => feature !== name),
     }));
   };
 
@@ -33,7 +33,7 @@ function Survey() {
     const { value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      question5: value
+      question5: value,
     }));
   };
 
@@ -42,7 +42,7 @@ function Survey() {
     "Choose the stage of your project, or start from scratch",
     "How many pages/screens do you see having?",
     "Would you like any special features?",
-    "Do You need a shopping cart?"
+    "Do You need a shopping cart?",
   ];
 
   const PageDisplay = () => {
@@ -52,7 +52,7 @@ function Survey() {
           formData={formData}
           setFormData={setFormData}
           hours={hours}
-          setHours={setHours}            
+          setHours={setHours}
         />
       );
     } else if (page === 1) {
@@ -61,9 +61,9 @@ function Survey() {
           formData={formData}
           setFormData={setFormData}
           hours={hours}
-          setHours={setHours}      
+          setHours={setHours}
           sliderValue={sliderValue}
-          handleSliderChange={handleSliderChange}       
+          handleSliderChange={handleSliderChange}
         />
       );
     } else if (page === 2) {
@@ -72,9 +72,9 @@ function Survey() {
           formData={formData}
           setFormData={setFormData}
           hours={hours}
-          setHours={setHours}      
+          setHours={setHours}
           sliderValue={sliderValue}
-          handleSliderChange={handleSliderChange}      
+          handleSliderChange={handleSliderChange}
         />
       );
     } else if (page === 3) {
@@ -84,7 +84,7 @@ function Survey() {
           setFormData={setFormData}
           handleCheckboxChange={handleCheckboxChange}
           hours={hours}
-          setHours={setHours}               
+          setHours={setHours}
         />
       );
     } else if (page === 4) {
@@ -100,43 +100,38 @@ function Survey() {
     }
   };
 
-  const handlePrevClick = () => {
-    if (page === 1) {
-      setHours(0); // Reset hours to 0 on the first page
-    } else {
-      setHours((currHours) => currHours - 20);
-    }
-    setPage((currPage) => currPage - 1);
-  };
+  const pageNum = PageDisplay();
 
-  const handleNextClick = () => {
-    setHours((currHours) => currHours + 20);
-    if (page === FormTitles.length - 1) {
-      alert("FORM SUBMITTED");
-    } else {
-      setPage((currPage) => currPage + 1);
-    }
-  };
+  // const handlePrevClick = () => {
+  //   if (page === 1) {
+  //     setHours(0); // Reset hours to 0 on the first page
+  //   } else {
+  //     setHours((currHours) => currHours - 20);
+  //   }
+  //   setPage((currPage) => currPage - 1);
+  // };
+
+  // const handleNextClick = () => {
+  //   setHours((currHours) => currHours + 20);
+  //   if (page === FormTitles.length - 1) {
+  //   } else {
+  //     setPage((currPage) => currPage + 1);
+  //   }
+  // };
 
   return (
-    <div className="form container mx-auto">
-      <div className="form-container container mx-auto">
-        <div className="header">
-          <h1>{FormTitles[page]}</h1>
-          <div className="body">{PageDisplay()}</div>
-          <div className="footer">
-            <p>
-              {hours}
-              <span> + Hours to complete</span>
-            </p>
-            <button disabled={page === 0} onClick={handlePrevClick}>
-              Prev
-            </button>
-            <button onClick={handleNextClick}>
-              {page === FormTitles.length - 1 ? "Submit" : "Next"}
-            </button>
-          </div>
-        </div>
+    <div className="my-20 sm:px-8 px-4">
+      <h1 className="font-bold text-4xl">{FormTitles[page]}</h1>
+      <div className="">{pageNum}</div>
+
+      <div className="border-t mt-8">
+        <p className="text-semibold text-amber-600 py-2">
+          {hours}+
+          <span className="text-semibold text-gray-600">
+            {" "}
+            Hours to complete
+          </span>
+        </p>
       </div>
     </div>
   );
