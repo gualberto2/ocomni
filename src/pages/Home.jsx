@@ -83,9 +83,7 @@ export default function HomePage() {
         <p className="mt-2 text-xl text-neutral-500 leading-normal text-center">
           Build the perfect E-Commerce shop, improve business and grow.
         </p>
-        <button className="text-red-500" onClick={navigate("/calculator")}>
-          TEST
-        </button>
+
         <div className="w-full max-w-xl mt-2">
           <form
             className="flex  mx-auto flex-col sm:flex-row gap-3 sm:gap-2 "
