@@ -38,18 +38,26 @@ export default function HomePage() {
       }));
     }
   }
-
   async function onSubmitDEV(e) {
     e.preventDefault();
     setLoading(true);
-    const formDataCopy = {
-      ...formData,
-      timestamp: serverTimestamp(),
-    };
-    delete formDataCopy.formData;
-    const docRef = await addDoc(collection(db, "contactDEV"), formDataCopy);
-    setLoading(false);
-    toast.success("Thank you. A developer will talk to you soon!");
+
+    try {
+      const formDataCopy = {
+        ...formData,
+        timestamp: serverTimestamp(),
+      };
+      delete formDataCopy.formData;
+      const docRef = await addDoc(collection(db, "contactDEV"), formDataCopy);
+      setLoading(false);
+      toast.success("Thank you. A developer will talk to you soon!");
+
+      // Clear the form fields
+      setFormDEV({ emailDEV: "" });
+    } catch (error) {
+      setLoading(false);
+      toast.error("An error occurred. Please try again.");
+    }
   }
 
   async function onSubmitCONTACT(e) {
@@ -99,10 +107,11 @@ export default function HomePage() {
                 className="transition duration-150 ease-in-out  py-3 rounded-md bg-gray-200 border-gray-200 border-[1px] focus:bg-gray-300  focus:border-blue-800 focus:ring-transparent w-full"
               />
             </div>
-            <button className="active:bg-[#5B45BB] hover:bg-[#5F56D6] bg-[#6366F1] text-white text-center rounded-md px-4 py-3 transition ease-in-out duration-150 whitespace-nowrap sm:w-[180px]">
-              <Link className="text-md text-center font-semibold">
-                Talk to a Developer
-              </Link>
+            <button
+              className="active:bg-[#5B45BB] hover:bg-[#5F56D6] bg-[#6366F1] text-white text-center rounded-md px-4 py-3 transition ease-in-out duration-150 whitespace-nowrap sm:w-[180px] text-md font-semibold"
+              type="submit"
+            >
+              Talk to a Developer
             </button>
           </form>
         </div>
@@ -113,7 +122,7 @@ export default function HomePage() {
           You can also create an account. Get started{" "}
           <span
             className="text-purple-300 cursor-pointer hover:text-purple-400 transition font-semibold duration-150 ease-in text-center hover:border-b-[1px] hover:border-purple-400"
-            onClick={navigate("/register")}
+            onClick={() => navigate("/register")}
           >
             here 🔗
           </span>{" "}
