@@ -1,15 +1,19 @@
 import React from "react";
+import { useAtom } from "jotai";
+import { qOneAtom } from "./Atoms/atoms";
 
-const Question1 = ({ formData, setFormData }) => {
-  const handleInputChange = (event) => {
-    /* To the left is the handleInput change function which nests setFormData and updates based on radio btn selection*/
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+const Question1 = () => {
+  const [selected, setSelected] = useAtom(qOneAtom);
+
+  const inputSelection = (e) => {
+    const { name, value } = e.target;
+    setSelected({ ...selected, [name]: value });
+    console.log(value);
   };
 
   return (
     <div>
-      <form className="flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <div className="mt-6 border-y py-3 px-7 flex flex-row items-center w-full  hover:bg-gray-100">
           <input
             type="radio"
@@ -17,9 +21,9 @@ const Question1 = ({ formData, setFormData }) => {
             name="services"
             label="Development"
             value="development"
-            checked={formData.services === "development"} // To the left is the formData with the name appended.
-            onChange={handleInputChange}
             className=""
+            onChange={inputSelection}
+            checked={selected.services === "development"}
           />
           <label htmlFor="development">Development</label>
         </div>
@@ -29,9 +33,9 @@ const Question1 = ({ formData, setFormData }) => {
             id="design"
             name="services"
             value="design"
-            checked={formData.services === "design"}
-            onChange={handleInputChange}
             className=""
+            onChange={inputSelection}
+            checked={selected.services === "design"}
           />
           <label htmlFor="design">Design</label>
         </div>
@@ -42,13 +46,13 @@ const Question1 = ({ formData, setFormData }) => {
             id="both"
             name="services"
             value="both"
-            checked={formData.services === "both"}
-            onChange={handleInputChange}
             className=""
+            checked={selected.services === "both"}
+            onChange={inputSelection}
           />
           <label htmlFor="both">Both</label>
         </div>
-      </form>
+      </div>
     </div>
   );
 };

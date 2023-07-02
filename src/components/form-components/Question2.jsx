@@ -1,33 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
+import { qTwoAtom } from "./Atoms/atoms";
+import { useAtom } from "jotai";
 
-const Question2 = ({ formData, setFormData, setHours, sliderValue }) => {
-  const handleRangeChange = (event) => {
-    const {name, value} = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value
-    }));
+const Question2 = () => {
+  const [rangeValue, setRangeValue] = useAtom(qTwoAtom);
+  const handleRangeChange = (e) => {
+    const { value } = e.target;
+    setRangeValue(value);
+    console.log(value);
   };
-/*
-  const handleSliderChange = (event) => {
-    const value = parseInt(event.target.value);
-    sliderValue(value);
-  };
-
-  useEffect(() => {
-    setHours((prevHours) => prevHours + sliderValue);
-  }, [sliderValue]);  
-*/
   return (
-    <div className='h-full w-full'>
+    <div className="h-full w-full">
       <input
-        className="w-full h-full appearance-none bg-gray-300 rounded-md focus:outline-none focus:bg-gray-500"
-        type='range'
-        id='rangeValue'
-        name='rangeValue'
-        min={0}
-        max={100}
-        value={formData.rangeValue}
+        className="w-full h-full appearance-none bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300 transition ease-in-out duration-150"
+        type="range"
+        id="rangeValue"
+        name="rangeValue"
+        step="10"
+        value={rangeValue}
         onChange={handleRangeChange}
       />
     </div>

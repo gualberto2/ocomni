@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import { useAtom } from "jotai";
+import React, { useState } from "react";
+import { Hours, qThreeAtom } from "./Atoms/atoms";
 
-const Question3 = ({ formData, setFormData, setHours }) => {
-  const [sliderValue, setSliderValue] = useState(0);
+const Question3 = () => {
+  const [slider, setSlider] = useAtom(qThreeAtom);
+  const [stepValue, setStepValue] = useState(0);
+  const [hours, setHours] = useAtom(Hours);
 
-  const handleRangeChange = (event) => {
-    const { value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      pages: value,
-    }));
-    setSliderValue(parseInt(value));
-    const additionalHours = calculateAdditionalHours(parseInt(value));
-    setHours(additionalHours);
+  const handleRangeChange = (e) => {
+    const { value } = e.target;
+    setSlider(value);
+    console.log(value);
+    setStepValue(parseInt(value));
   };
 
   const calculateAdditionalHours = (pages) => {
@@ -32,67 +32,65 @@ const Question3 = ({ formData, setFormData, setHours }) => {
   hours needed based on the number of pages selected.
   */
 
-  const additionalHours = calculateAdditionalHours(sliderValue);
-
   return (
-    <div className='h-full w-full'>
+    <div className="h-full w-full">
       <input
-        className='w-full h-full appearance-none bg-gray-300 rounded-md focus:outline-none focus:bg-gray-500'
-        type='range'
-        id='pages'
-        name='pages'
-        min={1}
-        max={30}
-        value={formData.pages}
+        className="w-full h-full appearance-none bg-gray-300 rounded-md focus:outline-none focus:bg-gray-500"
+        type="range"
+        id="pages"
+        name="pages"
+        min="1"
+        max="5"
+        steps="1"
+        value={slider}
         onChange={handleRangeChange}
       />
-      <div className='flex mx-auto mb-8'>
-        <div
-          className={`justify-between flex-grow ${
-            sliderValue >= 1 && sliderValue <= 5 ? 'selected' : ''
-          }`}
-        >
-          1 - 5 Pages
-        </div>
-        <div
-          className={`justify-between flex-grow ${
-            sliderValue > 5 && sliderValue <= 10 ? 'selected' : ''
-          }`}
-        >
-          5 - 10 Pages
-        </div>
-        <div
-          className={`justify-between flex-grow ${
-            sliderValue > 10 && sliderValue <= 15 ? 'selected' : ''
-          }`}
-        >
-          10 - 15 Pages
-        </div>
-        <div
-          className={`justify-between flex-grow ${
-            sliderValue > 15 && sliderValue <= 20 ? 'selected' : ''
-          }`}
-        >
-          15 - 20 Pages
-        </div>
-        <div
-          className={`justify-between flex-grow ${
-            sliderValue > 20 && sliderValue <= 30 ? 'selected' : ''
-          }`}
-        >
-          20+ Pages
-        </div>
-      </div>
-      <div className='hours-info'>
-        <p className='invisible'>
-          {additionalHours} <span className='invisible'>Hours to complete</span>
+
+      {/* <div className="hours-info">
+        <p className="invisible">
+          {additionalHours} <span className="invisible">Hours to complete</span>
         </p>
       </div>
-      <div className='footer'>
-     
-      </div>
+      <div className="footer"></div> */}
     </div>
   );
 };
 
 export default Question3;
+//  <div className="flex mx-auto mb-8">
+//         <div
+//           className={`justify-between flex-grow ${
+//             sliderValue >= 1 && sliderValue <= 5 ? "selected" : ""
+//           }`}
+//         >
+//           1 - 5 Pages
+//         </div>
+//         <div
+//           className={`justify-between flex-grow ${
+//             sliderValue > 5 && sliderValue <= 10 ? "selected" : ""
+//           }`}
+//         >
+//           5 - 10 Pages
+//         </div>
+//         <div
+//           className={`justify-between flex-grow ${
+//             sliderValue > 10 && sliderValue <= 15 ? "selected" : ""
+//           }`}
+//         >
+//           10 - 15 Pages
+//         </div>
+//         <div
+//           className={`justify-between flex-grow ${
+//             sliderValue > 15 && sliderValue <= 20 ? "selected" : ""
+//           }`}
+//         >
+//           15 - 20 Pages
+//         </div>
+//         <div
+//           className={`justify-between flex-grow ${
+//             sliderValue > 20 && sliderValue <= 30 ? "selected" : ""
+//           }`}
+//         >
+//           20+ Pages
+//         </div>
+//       </div>
