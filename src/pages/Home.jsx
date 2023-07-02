@@ -43,12 +43,12 @@ export default function HomePage() {
     setLoading(true);
 
     try {
-      const formDataCopy = {
-        ...formData,
+      const formDEVCopy = {
+        ...formDEV,
         timestamp: serverTimestamp(),
       };
-      delete formDataCopy.formData;
-      const docRef = await addDoc(collection(db, "contactDEV"), formDataCopy);
+      delete formDEVCopy.formDEV;
+      const docRef = await addDoc(collection(db, "contactDEV"), formDEVCopy);
       setLoading(false);
       toast.success("Thank you. A developer will talk to you soon!");
 
