@@ -126,7 +126,7 @@ export default function HomePage() {
           >
             here 🔗
           </span>{" "}
-          it's free
+          it's free.
         </p>
         {/* <span className="flex flex-row text-purple-300 cursor-pointer hover:text-purple-400 transition duration-150 ease-in text-center">
             here

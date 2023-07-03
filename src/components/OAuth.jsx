@@ -95,11 +95,12 @@ export default function OAuth() {
         Continue with Google
       </button>
       <button
-        onClick={onFacebookClick}
+        button
+        className="flex items-center w-full hover:bg-gray-100 text-inherit pl-2 pr-4 py-3 text-sm font-semibold rounded-sm transition duration-150 border-[1px] border-slate-400 ease-in-out text-neutral-400"
+        // onClick={onFacebookClick}
         type="button"
-        className="flex items-center w-full hover:bg-gray-200 text-inherit pl-2 pr-4 py-3 text-sm font-semibold rounded-sm transition duration-150 border-[1px] border-slate-400 ease-in-out "
       >
-        <FaFacebook className="bg-white text-blue-600 rounded-full mr-2 text-2xl " />
+        <FaFacebook className="bg-white text-blue-300 rounded-full mr-2 text-2xl " />
         Continue with Facebook
       </button>
       <button
@@ -114,4 +115,6 @@ export default function OAuth() {
   );
 }
 
-//
+//old facebook styling
+// FaFacebook className="bg-white text-blue-600 rounded-full mr-2 text-2xl "
+// button className="flex items-center w-full hover:bg-gray-200 text-inherit pl-2 pr-4 py-3 text-sm font-semibold rounded-sm transition duration-150 border-[1px] border-slate-400 ease-in-out "
