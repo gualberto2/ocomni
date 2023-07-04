@@ -14,11 +14,26 @@ import Question2 from "../components/form-components/Question2";
 import Question3 from "../components/form-components/Question3";
 import Question4 from "../components/form-components/Question4";
 import Question5 from "../components/form-components/Question5";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../firebase";
 
 export default function ProjectCalculator() {
   //  Global Atoms (Variables) State Storage
   // expiremental :: const userData = atom({ name: "", email: "", phone: "" });
   const [selected] = useAtom(qOneAtom);
+  const [slider1] = useAtom(qTwoAtom);
+  const [slider2] = useAtom(qThreeAtom);
+  const [selections] = useAtom(qFourAtom);
+  const [bool] = useAtom(qFiveAtom);
+
+  const [formData, setFormData] = useState({
+    selected: "",
+    slider1: "",
+    slider2: "",
+    selections: {},
+    bool: "",
+  });
+  // const { selected, slider1, slider2, selections, bool } = formData;
   // Local Variable State
   const [page, setPage] = useState(0);
   const [hours, setHours] = useAtom(Hours);
@@ -66,6 +81,41 @@ export default function ProjectCalculator() {
       setPage((currPage) => currPage + 1);
     }
   };
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    try {
+      // Prepare the data to be submitted
+      const data = {
+        selected: selected,
+        slider1: slider1,
+        slider2: slider2,
+        selections: selections,
+        bool: bool,
+      };
+
+      // Submit the data to Firebase
+      const docRef = await addDoc(
+        collection(db, "calculator-submissions"),
+        data
+      );
+
+      // Clear the form data
+      setFormData({
+        selected: "",
+        slider1: "",
+        slider2: "",
+        selections: {},
+        bool: "",
+      });
+
+      // Display a success message
+      console.log("Form submitted successfully");
+    } catch (error) {
+      // Handle any errors
+      console.error("Error submitting form:", error);
+    }
+  }
 
   return (
     <div className="h-screen">
@@ -98,12 +148,22 @@ export default function ProjectCalculator() {
             Prev
           </button>
           <div className="border-r border-gray-500"></div>
-          <button
-            onClick={handleNextClick}
-            className="hover:bg-gray-200 w-full h-full py-2 transition ease-in-out duration-150 rounded-sm text-gray-700 font-bold"
-          >
-            {page === FormTitles.length - 1 ? "Submit" : "Next"}
-          </button>
+
+          {(page === FormTitles.length - 1 && (
+            <button
+              onClick={handleSubmit}
+              className="hover:bg-gray-200 w-full h-full py-2 transition ease-in-out duration-150 rounded-sm text-gray-700 font-bold"
+            >
+              Submit
+            </button>
+          )) || (
+            <button
+              onClick={handleNextClick}
+              className="hover:bg-gray-200 w-full h-full py-2 transition ease-in-out duration-150 rounded-sm text-gray-700 font-bold"
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
     </div>

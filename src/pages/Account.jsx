@@ -35,13 +35,6 @@ export default function Acount() {
     navigate("/account");
   }
 
-  function onChange(e) {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.id]: e.target.value,
-    }));
-  }
-
   async function onSubmit() {
     try {
       if (auth.currentUser.displayName !== name) {
@@ -70,77 +63,89 @@ export default function Acount() {
   }, []);
   return (
     <>
-      <p>Account</p>
-      <section className="shadow-lg rounded-xl bg-[#E5E1F4] m-4 p-10 grid grid-col-3 grid-row-2 sm:grid-col-2 sm:grid-row-1 sm:grid-flow-col gap-y-4 sm:gap-0 mx-auto max-w-6xl">
-        <div className="col-span-3 sm:col-span-1 flex justify-center items-center">
-          <img
-            src="https://media.licdn.com/dms/image/C5603AQEpaLYDPronZQ/profile-displayphoto-shrink_800_800/0/1631567146974?e=2147483647&v=beta&t=3J55DW5o9QFqnUsw_UKS_aWJUKg_SVQAx1Ebdu1h2BQ"
-            alt=""
-            className="rounded-full max-h-[243px] max-w-[243px]"
-          />
-        </div>
-        <div className="col-span-3 sm:col-span-2 ">
-          <form action="">
-            {/* name input */}
-            <div className="flex flex-col">
-              <p>Name</p>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                disabled={!changeDetails}
-                onChange={onChange}
-                className={`mb-3 rounded-2xl text-gray-300 border-gray-400 ${
+      <section className="mx-auto my-14 max-w-6xl px-8">
+        <h1 className="text-4xl font-bold mb-6">Account</h1>
+        {/* Currently removing profile picture as it is not dynamic and not user oriented  */}
+
+        <div>
+          <div className="col-span-3 sm:col-span-2 mx-auto max-w-[500px]">
+            <form action="">
+              {/* name input */}
+              <div className="flex flex-col">
+                <p>Name</p>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  disabled={!changeDetails}
+                  onChange={onChange}
+                  className={`mb-3 rounded-2xl text-gray-300 border-gray-400 transition ease-in duration-100 ${
+                    changeDetails &&
+                    "focus:bg-purple-100 focus:ring-transparent bg-slate-200 text-gray-700 border-green-600 border"
+                  } `}
+                />
+                <p>Email</p>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  disabled={!changeDetails}
+                  className={`mb-3 rounded-2xl text-gray-300 border-gray-400 transition ease-in duration-100 ${
+                    changeDetails &&
+                    "focus:bg-purple-100 focus:ring-transparent  bg-slate-200 text-gray-700 border-green-600 border"
+                  } `}
+                />
+                <p>Password</p>
+                <div className="w-full relative">
+                  <input
+                    type="password"
+                    id="password"
+                    value="***********"
+                    disabled
+                    onChange={onChange}
+                    className={`mb-3 rounded-2xl text-gray-300 border-gray-400 transition ease-in duration-100 w-full ${
+                      changeDetails &&
+                      "focus:bg-purple-100 bg-slate-200 text-[black] border-red-600 border"
+                    } `}
+                  />
+                  {changeDetails && (
+                    <button
+                      className="rounded-lg bg-[#7B6AC8] hover:bg-[#5B45BB]  text-white  text-sm transition duration-100 px-3 py-1 absolute top-1.5 right-3 transform font-semibold"
+                      onClick={() => console.log("CHANGE button clicked")}
+                    >
+                      Change Password
+                    </button>
+                  )}
+                </div>
+              </div>
+            </form>
+            <div className="mt-4 flex flex-col sm:flex-row items-center justify-around gap-4">
+              <button
+                onClick={() => {
+                  changeDetails && onSubmit();
+                  setChangeDetails((prevState) => !prevState);
+                }}
+                className={`whitespace-nowrap cursor-pointer shadow-md bg-[#5B45BB] text-white font-medium w-full text-sm rounded py-2 text-center hover:bg-[#503DA4] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#413286] ${
                   changeDetails &&
-                  "focus:bg-purple-100 bg-slate-200 text-[black] border-green-600 border"
-                } `}
-              />
-              <p>Email</p>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                className={`mb-3 rounded-2xl text-gray-300 border-gray-400 `}
-              />
-              <p>Password</p>
-              <input
-                type="password"
-                id="password"
-                value="***********"
-                disabled
-                onChange={onChange}
-                className=" rounded-2xl text-gray-300 border-gray-400 "
-              />
+                  "bg-green-400 hover:bg-green-600 active:bg-green-800 "
+                }`}
+              >
+                {changeDetails ? "Apply Changes" : "Edit Profile"}
+              </button>
+              <button
+                className={`rounded-lg bg-[#ECEBFF] hover:bg-[#D9DAFC] active:bg-[#ECEDFD] text-[#6663FD] px-8 py-2 w-full sm:w-[30%] font-medium transition ease-in-out whitespace-nowrap duration-150 ${
+                  changeDetails &&
+                  "hover:bg-red-500 focus:bg-red-700 bg-red-400 text-[black]"
+                }`}
+                onClick={() => {
+                  cancelChanges ? onLogout() : onCancel();
+                }}
+              >
+                {changeDetails ? "Cancel Changes" : "Log Out"}
+              </button>
             </div>
-          </form>
-          <div className="mt-4 flex flex-row items-center justify-around gap-4">
-            <button
-              onClick={() => {
-                changeDetails && onSubmit();
-                setChangeDetails((prevState) => !prevState);
-              }}
-              className={`cursor-pointer shadow-md bg-[#5B45BB] text-white font-medium w-full text-sm rounded py-2 text-center hover:bg-[#503DA4] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#413286] ${
-                changeDetails &&
-                "bg-green-400 hover:bg-green-600 active:bg-green-800 "
-              }`}
-            >
-              {changeDetails ? "Apply Changes" : "Edit Profile"}
-            </button>
-            <button
-              className={`cursor-pointer  shadow-md bg-[#F4B400] hover:bg-[#A38B00] text-white font-medium w-full text-sm rounded py-2 text-center transition duration-150 ease-in-out  hover:shadow-lg active:shadow-xl ${
-                changeDetails &&
-                "hover:bg-red-500 focus:bg-red-700 bg-red-400 text-[black]"
-              }`}
-              onClick={() => {
-                cancelChanges ? onLogout() : onCancel();
-              }}
-            >
-              {changeDetails ? "Cancel Changes" : "Log Out"}
-            </button>
           </div>
         </div>
-      </section>
-      <section className="m-4">
         <p>Websites</p>
         <div className="bg-gray-200 shadow-lg rounded-xl">
           {/* Here will be code for those whom are whitelisted with websites already on their acocunt */}
