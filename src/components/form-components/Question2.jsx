@@ -16,7 +16,7 @@ const Question2 = () => {
   return (
     <div className="h-full w-full">
       <input
-        className="w-full h-full appearance-none bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300 transition ease-in-out duration-150"
+        className="w-full h-full appearance-none bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300 transition ease-in-out duration-150 focus:ring-purple-300 text-purple-300 range-sm"
         type="range"
         id="rangeValue"
         name="rangeValue"

@@ -46,7 +46,7 @@ const Question3 = () => {
   return (
     <div className="h-full w-full">
       <input
-        className="w-full h-full appearance-none bg-gray-300 rounded-md focus:outline-none focus:bg-gray-500"
+        className="w-full h-full appearance-none bg-gray-200 rounded-md focus:outline-none focus:bg-gray-300"
         type="range"
         id="pages"
         name="pages"

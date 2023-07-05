@@ -15,27 +15,31 @@ function Question5() {
   };
 
   return (
-    <div className="flex gap-3 items-center">
-      <input
-        type="radio"
-        id="true"
-        name="question5"
-        value="true"
-        // checked={answer.service === "true"}
-        onChange={handleRadioChange}
-        className="rounded-full mr-4"
-      />
-      <label htmlFor="option1">Yes</label>
-      <input
-        type="radio"
-        id="false"
-        name="question5"
-        value="false"
-        // checked={answer.service === "false"}
-        onChange={handleRadioChange}
-        className="rounded-full mr-4"
-      />
-      <label htmlFor="false">No</label>
+    <div className="flex flex-col  items-center">
+      <div className="mt-6 border-y py-3 px-7 flex flex-row items-center w-full  hover:bg-gray-100 ">
+        <input
+          type="radio"
+          id="true"
+          name="question5"
+          value="true"
+          // checked={answer.service === "true"}
+          onChange={handleRadioChange}
+          className="rounded-full mr-4"
+        />
+        <label htmlFor="option1">Yes</label>
+      </div>
+      <div className="mt-6 border-y py-3 px-7 flex flex-row items-center w-full  hover:bg-gray-100 ">
+        <input
+          type="radio"
+          id="false"
+          name="question5"
+          value="false"
+          // checked={answer.service === "false"}
+          onChange={handleRadioChange}
+          className="rounded-full mr-4"
+        />
+        <label htmlFor="false">No</label>
+      </div>
     </div>
   );
 }

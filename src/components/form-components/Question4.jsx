@@ -22,6 +22,7 @@ function Question4() {
     <div className="container mx-auto">
       {/* Checkbox for User Registration & Authorization */}
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="usersandauth"
         name="usersandauth"
@@ -29,10 +30,16 @@ function Question4() {
         checked={selectionData.services?.usersandauth?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="usersandauth">User Registration & Authorization</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="usersandauth"
+      >
+        User Registration & Authorization
+      </label>
 
       {/* Checkbox for Members Feature */}
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="membersonly"
         name="membersonly"
@@ -40,10 +47,16 @@ function Question4() {
         checked={selectionData.services?.membersonly?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="membersonly">Member Profiles</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="membersonly"
+      >
+        Member Profiles
+      </label>
 
       {/* Checkbox for Admin Feature */}
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="adminpanel"
         name="adminpanel"
@@ -51,8 +64,14 @@ function Question4() {
         checked={selectionData.services?.adminpanel?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="adminpanel">Admin Panel</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="adminpanel"
+      >
+        Admin Panel
+      </label>
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="crmsales"
         name="crmsales"
@@ -60,9 +79,15 @@ function Question4() {
         checked={selectionData.services?.crmsales?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="crmsales">CRM Integration</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="crmsales"
+      >
+        CRM Integration
+      </label>
 
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="dashboard"
         name="dashboard"
@@ -70,9 +95,15 @@ function Question4() {
         checked={selectionData.services?.dashboard?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="dashboard">Dashboard</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="dashboard"
+      >
+        Dashboard
+      </label>
 
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="blog"
         name="blog"
@@ -80,9 +111,15 @@ function Question4() {
         checked={selectionData.services?.blog?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="blog">Blog</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="blog"
+      >
+        Blog
+      </label>
 
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="eventscheduling"
         name="eventscheduling"
@@ -90,9 +127,15 @@ function Question4() {
         checked={selectionData.services?.eventscheduling?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="eventscheduling">Event Scheduling</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="eventscheduling"
+      >
+        Event Scheduling
+      </label>
 
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="reservations"
         name="reservations"
@@ -100,9 +143,15 @@ function Question4() {
         checked={selectionData.services?.reservations?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="reservations">Reservations</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="reservations"
+      >
+        Reservations
+      </label>
 
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="chatsandlivechat"
         name="chatsandlivechat"
@@ -110,9 +159,15 @@ function Question4() {
         checked={selectionData.services?.chatsandlivechat?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="chatsandlivechat">Chat/Live Chat</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="chatsandlivechat"
+      >
+        Chat/Live Chat
+      </label>
 
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="imgandvidgallery"
         name="imgandvidgallery"
@@ -120,9 +175,15 @@ function Question4() {
         checked={selectionData.services?.imgandvidgallery?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="imgandvidgallery">Image/Video Gallerys</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="imgandvidgallery"
+      >
+        Image/Video Gallerys
+      </label>
 
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="geolocation"
         name="geolocation"
@@ -130,9 +191,15 @@ function Question4() {
         checked={selectionData.services?.geolocation?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="geolocation">Geolocation Elements</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="geolocation"
+      >
+        Geolocation Elements
+      </label>
 
       <input
+        className="bg-inherit rounded-md mr-2 mb-1 text-purple-400 focus:ring-purple-400"
         type="checkbox"
         id="livestream"
         name="livestream"
@@ -140,7 +207,12 @@ function Question4() {
         checked={selectionData.services?.livestream?.value || false}
         onChange={handleChkChange}
       />
-      <label htmlFor="livestream">Live-Streaming</label>
+      <label
+        className="text-lg mr-4  hover:text-gray-500 transition duration-150 ease-in"
+        htmlFor="livestream"
+      >
+        Live-Streaming
+      </label>
     </div>
   );
 }
