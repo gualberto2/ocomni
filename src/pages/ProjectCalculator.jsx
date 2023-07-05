@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { atom, useAtom } from "jotai";
+import { useAtom } from "jotai";
 import {
   qOneAtom,
   qTwoAtom,
@@ -14,8 +14,10 @@ import Question2 from "../components/form-components/Question2";
 import Question3 from "../components/form-components/Question3";
 import Question4 from "../components/form-components/Question4";
 import Question5 from "../components/form-components/Question5";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "../firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function ProjectCalculator() {
   //  Global Atoms (Variables) State Storage
@@ -33,14 +35,26 @@ export default function ProjectCalculator() {
     selections: {},
     bool: "",
   });
+
+  useEffect(() => {
+    setFormData({
+      selected: selected.services,
+      slider1,
+      slider2,
+      selections,
+      bool,
+    });
+  }, [selected, slider1, slider2, selections, bool]);
+
   // const { selected, slider1, slider2, selections, bool } = formData;
   // Local Variable State
   const [page, setPage] = useState(0);
   const [hours, setHours] = useAtom(Hours);
 
+  const navigate = useNavigate();
   const FormTitles = [
     "Choose a service",
-    "Choose the stage of your project, or start from scratch",
+    "Choose the current stage of completion for your project, or start from scratch",
     "How many pages do you plan to have on your website?",
     "Would you like any special features?",
     "Do You need a shopping cart?",
@@ -81,41 +95,55 @@ export default function ProjectCalculator() {
       setPage((currPage) => currPage + 1);
     }
   };
+
   async function handleSubmit(e) {
     e.preventDefault();
 
-    try {
-      // Prepare the data to be submitted
-      const data = {
-        selected: selected,
-        slider1: slider1,
-        slider2: slider2,
-        selections: selections,
-        bool: bool,
-      };
+    const formDataCopy = {
+      ...formData,
+      timestamp: serverTimestamp(),
+      userRef: auth.currentUser.uid,
+    };
+    const docRef = await addDoc(
+      collection(db, "calculator-submissions"),
+      formDataCopy
+    );
+    toast.success("Thank you");
+    navigate("/");
 
-      // Submit the data to Firebase
-      const docRef = await addDoc(
-        collection(db, "calculator-submissions"),
-        data
-      );
+    // try {
+    //   // Prepare the data to be submitted
+    //   const data = {
+    //     selected: selected,
+    //     slider1: slider1,
+    //     slider2: slider2,
+    //     selections: selections,
+    //     bool: bool,
+    //   };
 
-      // Clear the form data
-      setFormData({
-        selected: "",
-        slider1: "",
-        slider2: "",
-        selections: {},
-        bool: "",
-      });
+    //   // Submit the data to Firebase
+    //   const docRef = await addDoc(
+    //     collection(db, "calculator-submissions"),
+    //     formDataCopy
+    //   );
 
-      // Display a success message
-      console.log("Form submitted successfully");
-    } catch (error) {
-      // Handle any errors
-      console.error("Error submitting form:", error);
-    }
+    //   // Clear the form data
+    //   setFormData({
+    //     selected: "",
+    //     slider1: "",
+    //     slider2: "",
+    //     selections: {},
+    //     bool: "",
+    //   });
+
+    //   // Display a success message
+    //   console.log("Form submitted successfully");
+    // } catch (error) {
+    //   // Handle any errors
+    //   console.error("Error submitting form:", error);
+    // }
   }
+  console.log("FormData:", formData);
 
   return (
     <div className="h-screen">

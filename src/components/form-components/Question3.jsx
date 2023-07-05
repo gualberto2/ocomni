@@ -13,6 +13,9 @@ const Question3 = () => {
     console.log(value);
     setStepValue(parseInt(value));
   };
+  const handleOptionSelect = (value) => {
+    setStepValue(value);
+  };
 
   const calculateAdditionalHours = (pages) => {
     if (pages > 5 && pages <= 10) {
@@ -32,6 +35,14 @@ const Question3 = () => {
   hours needed based on the number of pages selected.
   */
 
+  const stepLabels = [
+    "≤5 Pages",
+    "≤10 Pages",
+    "≤20 Pages",
+    "≤30 Pages",
+    "40+ Pages",
+  ];
+
   return (
     <div className="h-full w-full">
       <input
@@ -45,52 +56,23 @@ const Question3 = () => {
         value={slider}
         onChange={handleRangeChange}
       />
-
-      {/* <div className="hours-info">
-        <p className="invisible">
-          {additionalHours} <span className="invisible">Hours to complete</span>
-        </p>
+      <div className="">
+        <ul className="flex flex-row justify-between items-center">
+          {stepLabels.map((label, index) => (
+            <li
+              key={index}
+              className={`cursor-pointer text-sm font-medium text-gray-500 hover:bg-gray-100 ${
+                stepValue === index ? "font-bold" : ""
+              }`}
+              onClick={() => handleOptionSelect(index)}
+            >
+              {label}
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="footer"></div> */}
     </div>
   );
 };
 
 export default Question3;
-//  <div className="flex mx-auto mb-8">
-//         <div
-//           className={`justify-between flex-grow ${
-//             sliderValue >= 1 && sliderValue <= 5 ? "selected" : ""
-//           }`}
-//         >
-//           1 - 5 Pages
-//         </div>
-//         <div
-//           className={`justify-between flex-grow ${
-//             sliderValue > 5 && sliderValue <= 10 ? "selected" : ""
-//           }`}
-//         >
-//           5 - 10 Pages
-//         </div>
-//         <div
-//           className={`justify-between flex-grow ${
-//             sliderValue > 10 && sliderValue <= 15 ? "selected" : ""
-//           }`}
-//         >
-//           10 - 15 Pages
-//         </div>
-//         <div
-//           className={`justify-between flex-grow ${
-//             sliderValue > 15 && sliderValue <= 20 ? "selected" : ""
-//           }`}
-//         >
-//           15 - 20 Pages
-//         </div>
-//         <div
-//           className={`justify-between flex-grow ${
-//             sliderValue > 20 && sliderValue <= 30 ? "selected" : ""
-//           }`}
-//         >
-//           20+ Pages
-//         </div>
-//       </div>
