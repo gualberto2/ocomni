@@ -33,10 +33,10 @@ export default function Footer() {
               Privacy Policy
             </li>
             <li
-              onClick={() => navigate("/licensing-page")}
+              onClick={() => navigate("/terms-page")}
               class="mr-4 hover:underline md:mr-6 hover:cursor-pointer"
             >
-              Licensing
+              TOS
             </li>
             <li
               onClick={() => navigate("/contact-page]")}

@@ -127,7 +127,7 @@ export default function Acount() {
                 }}
                 className={`whitespace-nowrap cursor-pointer shadow-md bg-[#5B45BB] text-white font-medium w-full text-sm rounded py-2 text-center hover:bg-[#503DA4] transition duration-150 ease-in-out hover:shadow-lg active:bg-[#413286] ${
                   changeDetails &&
-                  "bg-green-400 hover:bg-green-600 active:bg-green-800 "
+                  "bg-green-400 hover:bg-green-600 active:bg-green-800 text-inherit "
                 }`}
               >
                 {changeDetails ? "Apply Changes" : "Edit Profile"}
@@ -141,7 +141,7 @@ export default function Acount() {
                   cancelChanges ? onLogout() : onCancel();
                 }}
               >
-                {changeDetails ? "Cancel Changes" : "Log Out"}
+                {changeDetails ? "Cancel" : "Log Out"}
               </button>
             </div>
           </div>
