@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
-  // const [pageState, setPageState] = useState("Register");
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -30,10 +30,11 @@ export default function Login() {
         password
       );
       if (userCredentials.user) {
-        navigate("/account");
+        navigate("/");
       }
       toast.success("Sign In Successful.");
     } catch (error) {
+      console.log("[SIGN_IN]", error);
       toast.error("Sign In Credentials Invalid");
     }
   }
@@ -69,8 +70,6 @@ export default function Login() {
           <form onSubmit={onSubmit}>
             <div className="flex flex-col gap-3 py-6">
               <OAuth />
-              {/* github auth  */}
-              {/* facebook auth */}
             </div>
             <div className="flex before:border-t before:flex-1 items-center before:border-gray-400 after:border-t after:flex-1 after:border-gray-400">
               <p className="text-center text-xs font-medium px-3">OR</p>
@@ -78,6 +77,9 @@ export default function Login() {
             <div className="flex flex-col gap-3 my-6">
               <input
                 type="email"
+                id="email"
+                value={email}
+                onChange={onChange}
                 className="pr-4 pl- py-3 w-full border-slate-400 border-[1px]  transition duration-150 rounded-sm text-sm bg-inherit focus:ring-purple-600 hover:border-purple-600 active:border-purple-900"
                 placeholder="Email"
               />
